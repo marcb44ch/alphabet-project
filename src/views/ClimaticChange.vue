@@ -1,5 +1,5 @@
 <template>
-  <div class="CarbonFootprint">
+  <div class="ClimaticChange">
     <h1>Com afecta el canvi climàtic a l’empresa</h1>
     <P>Afecta</P>
   </div>

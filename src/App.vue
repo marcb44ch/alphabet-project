@@ -14,6 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/CarbonFootprint">Petjada de carboni</RouterLink>
+        <RouterLink to="/ClimaticChange">Canvi climatic</RouterLink>
       </nav>
     </div>
   </header>
