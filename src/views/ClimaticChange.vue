@@ -30,7 +30,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .ClimaticChange {
   padding: 20px;
   margin: 0 auto;
