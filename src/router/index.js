@@ -23,6 +23,11 @@ const router = createRouter({
       name: 'CarbonFootprint',
       component: CarbonFootprint,
     },
+    {
+      path: '/ClimaticChange',
+      name: 'climaticChange',
+      component: ClimaticChange,
+    },
   ],
 })
 
