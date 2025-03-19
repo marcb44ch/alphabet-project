@@ -5,83 +5,65 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/CarbonFootprint">Petjada de carboni</RouterLink>
-        <RouterLink to="/ClimaticChange">Canvi climatic</RouterLink>
-      </nav>
-    </div>
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/CarbonFootprint">Petjada de carboni</RouterLink>
+      <RouterLink to="/ClimaticChange">Canvi climatic</RouterLink>
+    </nav>
   </header>
 
   <RouterView />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #FFFFFF;
+  --text-color: #ffffff;
+  --hover-color: #66BB6A;
+  --border-radius: 8px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary-color);
+  padding: 1rem 2rem;
+  border-radius: var(--border-radius);
 }
 
 nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  display: flex;
+  gap: 1rem;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  background: var(--primary-color);
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-nav a:first-of-type {
-  border: 0;
+nav a:hover {
+  background: var(--hover-color);
+  transform: translateY(-2px);
+}
+
+nav a.router-link-exact-active {
+  background: var(--hover-color);
 }
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    padding: 1.5rem 4rem;
   }
 
   nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+    gap: 2rem;
   }
 }
 </style>
