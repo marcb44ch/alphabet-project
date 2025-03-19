@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import CarbonFootprint from '@/views/CarbonFootprint.vue'
+import ClimaticChange from '@/views/ClimaticChange.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -25,7 +26,7 @@ const router = createRouter({
     },
     {
       path: '/ClimaticChange',
-      name: 'climaticChange',
+      name: 'ClimaticChange',
       component: ClimaticChange,
     },
   ],
