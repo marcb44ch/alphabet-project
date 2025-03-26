@@ -1,3 +1,14 @@
+<script>
+import Table from '@/components/Table.vue'
+import { ref } from 'vue'
+
+const headers = ref(["Name", "Surname", "Address", "Phone"]);
+const items = ref([
+  { name: "gil", surname: "perez", address: "calle falsa 123", phone: "123456789" },
+  { name: "pepe", surname: "perez", address: "calle falsa 123", phone: "123456789" }
+]);
+
+</script>
 <template>
   <div class="ClimaticChange">
     <h1>Impacte de l'empresa sobre el canvi climàtic</h1>
@@ -27,6 +38,8 @@
         <li>Polítiques de responsabilitat social corporativa: Adoptar polítiques que promoguin la sostenibilitat ambiental i la responsabilitat social.</li>
         <li>Innovació tecnològica: Desenvolupar tecnologies més netes i eficients que redueixin l'impacte ambiental.</li>
     </ul>
+    <Table :headers="headers" :items="items"/>
+
   </div>
 </template>
 
