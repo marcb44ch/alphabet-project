@@ -41,8 +41,6 @@
       </section>
       <br>
     </div>
-      
-
   </div>
  </template>
 
