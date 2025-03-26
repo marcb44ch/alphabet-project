@@ -1,92 +1,3 @@
-<!-- <script setup>
-  import Table from '@/components/Table.vue';
-  import "bootstrap"
-  import {ref} from 'vue'
-  const headers = ref (['Nom', 'Cognoms', 'Adreça', 'Telefon'])
-  const items   = ref ([
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Marc", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Casas", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"}
-  ])
-</script>
-<template>
-  <div class="ClimaticChange container">
-    <h1 class="text-success">Impacte de l'empresa sobre el canvi climàtic</h1>
-    <p class="text-primary">Les empreses tenen un impacte significatiu sobre el canvi climàtic, i aquest impacte es manifesta de diverses maneres:</p>
-    <ol>
-        <li><strong>Emissions de gasos d'efecte hivernacle</strong>: 
-            Les activitats industrials i de producció generen emissions de CO₂ i altres gasos que contribueixen al canvi climàtic. 
-            Aquestes emissions provenen principalment de la crema de combustibles fòssils com el carbó, el petroli i el gas natural.
-        </li>
-        <li><strong>Consum d'energia</strong>: 
-            L'ús intensiu d'energia, especialment de fonts no renovables, augmenta la petjada de carboni de les empreses. 
-            Les empreses que depenen en gran mesura de l'electricitat generada per centrals tèrmiques contribueixen significativament a les emissions de CO₂.
-        </li>
-        <li><strong>Desforestació</strong>: 
-            Algunes empreses contribueixen a la desforestació, que redueix la capacitat del planeta per absorbir CO₂. 
-            La desforestació és sovint resultat de l'expansió agrícola, la tala d'arbres per a fusta i paper, i la construcció d'infraestructures.
-        </li>
-        <li><strong>Residus</strong>: 
-            La generació de residus, especialment plàstics, afecta negativament els ecosistemes i contribueix a la contaminació. 
-            Els residus plàstics poden trigar centenars d'anys a descompondre's i sovint acaben als oceans, afectant la vida marina.
-        </li>
-    </ol>
-    <p>Les empreses també poden jugar un paper crucial en la mitigació del canvi climàtic adoptant pràctiques sostenibles, com ara:</p>
-    <ul>
-        <li>L'ús d'energia renovable: Invertir en fonts d'energia renovable com l'energia solar, eòlica i hidroelèctrica per reduir les emissions de CO₂.</li>
-        <li>La reducció de residus: Implementar programes de reciclatge i reduir l'ús de materials no biodegradables.</li>
-        <li>Polítiques de responsabilitat social corporativa: Adoptar polítiques que promoguin la sostenibilitat ambiental i la responsabilitat social.</li>
-        <li>Innovació tecnològica: Desenvolupar tecnologies més netes i eficients que redueixin l'impacte ambiental.</li>
-    </ul>
-    <Table :headers="headers" :items="items" class="table table-striped"></Table>
-  </div>
-</template>
-
-<style scoped>
-.ClimaticChange {
-  padding: 20px;
-  margin: 0 auto;
-  max-width: 800px;
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
-
-h1 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
-  color: #048300;
-}
-
-p {
-  margin-bottom: 1em;
-  color: #4ea6ff;
-}
-
-ol, ul {
-  margin-bottom: 1em;
-  padding-left: 1.5em;
-}
-
-li {
-  margin-bottom: 0.5em;
-}
-
-strong {
-  color: #e74c3c;
-}
-
-@media (min-width: 1024px) {
-  .ClimaticChange {
-    padding: 40px;
-  }
-}
-</style> -->
-
 <script setup>
   import Table from '@/components/Table.vue';
   import "bootstrap"
@@ -119,12 +30,28 @@ strong {
               solucions poden implementar-se per a un futur més sostenible.
             </p>
             <div class="d-flex flex-wrap gap-3">
-              <button class="btn btn-accent btn-lg">
+              <a href="#impactes" class="btn btn-accent btn-lg">
                 <i class="bi bi-arrow-down-circle me-2"></i>Explorar solucions
-              </button>
-              <button class="btn btn-outline-light btn-lg">
+              </a>
+              <a href="#contactes" class="btn btn-outline-light btn-lg">
                 <i class="bi bi-graph-up me-2"></i>Veure dades
-              </button>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-5 d-none d-lg-block">
+            <div class="position-relative">
+              <div class="hero-image-frame rounded-circle border border-accent border-4 p-1">
+                <img src="https://images.unsplash.com/photo-1624982172881-478a8d7018c1?w=500&q=80" 
+                     alt="Earth" class="img-fluid rounded-circle">
+              </div>
+              <div class="stat-bubble stat-bubble-1">
+                <span class="stat-number text-danger">+1.5°C</span>
+                <span class="stat-label">Previsió 2050</span>
+              </div>
+              <div class="stat-bubble stat-bubble-2">
+                <span class="stat-number text-warning">51%</span>
+                <span class="stat-label">Emissions industrials</span>
+              </div>
             </div>
           </div>
         </div>
@@ -144,7 +71,7 @@ strong {
         </span>
       </div>
       
-      <div class="row mb-6">
+      <div class="row mb-6" id="impactes">
         <div class="col-12 text-center mb-5">
           <span class="badge bg-dark-accent px-3 py-2 mb-3">PROBLEMÀTICA</span>
           <h2 class="display-5 fw-bold mb-3">Impactes principals</h2>
@@ -164,6 +91,7 @@ strong {
               <p class="card-text">Les activitats industrials generen emissions de CO₂ i altres gasos que contribueixen al canvi climàtic.</p>
               <div class="impact-meter mt-4">
                 <div class="impact-level level-5"></div>
+                <span class="impact-label">Impacte alt</span>
               </div>
             </div>
           </div>
@@ -179,6 +107,7 @@ strong {
               <p class="card-text">L'ús intensiu d'energia, especialment de fonts no renovables, augmenta la petjada de carboni.</p>
               <div class="impact-meter mt-4">
                 <div class="impact-level level-4"></div>
+                <span class="impact-label">Impacte significatiu</span>
               </div>
             </div>
           </div>
@@ -187,13 +116,14 @@ strong {
         <div class="col-md-6 col-lg-3">
           <div class="impact-card card border-0 h-100 shadow-lg">
             <div class="card-body p-4">
-              <div class="icon-wrapper mb-4 bg-success-subtle rounded-circle">
-                <i class="bi bi-tree-fill text-success"></i>
+              <div class="icon-wrapper mb-4 bg-primary-subtle rounded-circle">
+                <i class="bi bi-tree-fill text-primary"></i>
               </div>
               <h3 class="h4 fw-bold">Desforestació</h3>
               <p class="card-text">Algunes empreses contribueixen a la desforestació, que redueix la capacitat d'absorció de CO₂.</p>
               <div class="impact-meter mt-4">
                 <div class="impact-level level-3"></div>
+                <span class="impact-label">Impacte moderat</span>
               </div>
             </div>
           </div>
@@ -209,6 +139,7 @@ strong {
               <p class="card-text">La generació de residus, especialment plàstics, afecta negativament els ecosistemes.</p>
               <div class="impact-meter mt-4">
                 <div class="impact-level level-3"></div>
+                <span class="impact-label">Impacte moderat</span>
               </div>
             </div>
           </div>
@@ -231,7 +162,7 @@ strong {
         </div>
         
         <div class="col-lg-6 mb-4 mb-lg-0">
-          <div class="card bg-dark-accent border-0 h-100">
+          <div class="card bg-dark-accent border-0 h-100 shadow-lg transition-card">
             <div class="card-body p-4 p-lg-5">
               <h3 class="h3 fw-bold text-white mb-4">Estratègies immediates</h3>
               <ul class="solution-list">
@@ -241,6 +172,12 @@ strong {
                     <div>
                       <h4 class="h5 text-accent">Energia renovable</h4>
                       <p class="text-light">Invertir en fonts d'energia renovable com l'energia solar, eòlica i hidroelèctrica.</p>
+                      <div class="d-flex align-items-center mt-2">
+                        <div class="progress" style="height: 8px; width: 100px;">
+                          <div class="progress-bar bg-accent" style="width: 85%"></div>
+                        </div>
+                        <span class="text-accent ms-3">85% efectivitat</span>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -250,6 +187,12 @@ strong {
                     <div>
                       <h4 class="h5 text-accent">Reducció de residus</h4>
                       <p class="text-light">Implementar programes de reciclatge i reduir l'ús de materials no biodegradables.</p>
+                      <div class="d-flex align-items-center mt-2">
+                        <div class="progress" style="height: 8px; width: 100px;">
+                          <div class="progress-bar bg-accent" style="width: 70%"></div>
+                        </div>
+                        <span class="text-accent ms-3">70% efectivitat</span>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -259,7 +202,7 @@ strong {
         </div>
         
         <div class="col-lg-6">
-          <div class="card bg-dark-accent border-0 h-100">
+          <div class="card bg-dark-accent border-0 h-100 shadow-lg transition-card">
             <div class="card-body p-4 p-lg-5">
               <h3 class="h3 fw-bold text-white mb-4">Objectius a llarg termini</h3>
               <ul class="solution-list">
@@ -269,6 +212,12 @@ strong {
                     <div>
                       <h4 class="h5 text-accent">Responsabilitat social</h4>
                       <p class="text-light">Adoptar polítiques que promoguin la sostenibilitat ambiental i la responsabilitat social.</p>
+                      <div class="d-flex align-items-center mt-2">
+                        <div class="progress" style="height: 8px; width: 100px;">
+                          <div class="progress-bar bg-accent" style="width: 65%"></div>
+                        </div>
+                        <span class="text-accent ms-3">65% efectivitat</span>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -278,10 +227,51 @@ strong {
                     <div>
                       <h4 class="h5 text-accent">Innovació tecnològica</h4>
                       <p class="text-light">Desenvolupar tecnologies més netes i eficients que redueixin l'impacte ambiental.</p>
+                      <div class="d-flex align-items-center mt-2">
+                        <div class="progress" style="height: 8px; width: 100px;">
+                          <div class="progress-bar bg-accent" style="width: 90%"></div>
+                        </div>
+                        <span class="text-accent ms-3">90% efectivitat</span>
+                      </div>
                     </div>
                   </div>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Environmental facts section -->
+      <div class="environmental-facts my-6 py-5 px-4 rounded-4">
+        <div class="row text-center mb-4">
+          <div class="col-12">
+            <h3 class="h2 fw-bold text-white">Dades climàtiques rellevants</h3>
+          </div>
+        </div>
+        <div class="row g-4 text-center">
+          <div class="col-md-3">
+            <div class="fact-item">
+              <span class="fact-number">+1.1°C</span>
+              <span class="fact-label">Augment temperatura<br>global des de 1900</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="fact-item">
+              <span class="fact-number">416 ppm</span>
+              <span class="fact-label">Nivell actual<br>de CO₂ atmosfèric</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="fact-item">
+              <span class="fact-number">-13%</span>
+              <span class="fact-label">Reducció gel<br>Àrtic per dècada</span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="fact-item">
+              <span class="fact-number">3.3 mm</span>
+              <span class="fact-label">Augment nivell<br>del mar anual</span>
             </div>
           </div>
         </div>
@@ -295,7 +285,7 @@ strong {
       </div>
 
       <!-- Contacts section -->
-      <div class="row mb-5">
+      <div class="row mb-5" id="contactes">
         <div class="col-12 text-center mb-5">
           <span class="badge bg-light text-dark px-3 py-2 mb-3">CONTACTES</span>
           <h2 class="display-5 fw-bold mb-3">Persones compromeses</h2>
@@ -304,18 +294,52 @@ strong {
       </div>
       
       <div class="card table-card border-0 shadow-lg">
+        <div class="card-header bg-dark-accent p-4">
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <h3 class="h5 mb-0 text-white">Directori de contactes</h3>
+            <div class="d-flex gap-2">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Cerca...">
+                <button class="btn btn-accent" type="button">
+                  <i class="bi bi-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="card-body p-0 p-sm-4">
           <div class="table-responsive">
-            <Table :headers="headers" :items="items" class="table table-dark table-borderless align-middle"></Table>
+            <Table :headers="headers" :items="items" class="table table-dark table-hover align-middle"></Table>
           </div>
           <div class="d-flex justify-content-center mt-4">
-            <button class="btn btn-outline-accent">
-              <i class="bi bi-download me-2"></i>Exportar llistat
+            <button class="btn btn-outline-accent me-2">
+              <i class="bi bi-download me-2"></i>Exportar CSV
+            </button>
+            <button class="btn btn-accent">
+              <i class="bi bi-envelope-fill me-2"></i>Contactar tots
             </button>
           </div>
         </div>
       </div>
+
+      <!-- Call to action section -->
+      <div class="cta-section text-center my-6 py-5">
+        <div class="cta-content p-4 p-md-5 rounded-4">
+          <h2 class="display-6 fw-bold text-white mb-4">Uneix-te a la lluita contra el canvi climàtic</h2>
+          <p class="lead text-light mb-4">Cada acció compta. Les empreses tenen la responsabilitat i l'oportunitat de liderar el canvi.</p>
+          <button class="btn btn-lg btn-light px-4 py-3">
+            <i class="bi bi-arrow-right-circle-fill me-2"></i>Demana una avaluació
+          </button>
+        </div>
+      </div>
     </section>
+
+    <!-- Footer -->
+    <footer class="py-4 border-top border-secondary">
+      <div class="container text-center">
+        <p class="text-secondary mb-0">© 2025 Projecte Alfabet - Tots els drets reservats</p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -327,9 +351,23 @@ strong {
   color: #e5e7eb;
 }
 
+p{
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
 .py-6 {
   padding-top: 5rem;
   padding-bottom: 5rem;
+}
+
+.my-6 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .mb-6 {
@@ -339,6 +377,9 @@ strong {
 /* Hero section styling */
 .hero {
   background-color: #0f172a;
+  background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1400&q=80');
+  background-size: cover;
+  background-position: center;
   min-height: 100vh;
   z-index: 1;
 }
@@ -349,8 +390,61 @@ strong {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.7) 100%);
   z-index: 2;
+}
+
+.hero-image-frame {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.stat-bubble {
+  position: absolute;
+  background-color: rgba(15, 23, 42, 0.9);
+  border: 2px solid;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+}
+
+.stat-bubble-1 {
+  border-color: #ef4444;
+  top: 10%;
+  right: 15%;
+}
+
+.stat-bubble-2 {
+  border-color: #f59e0b;
+  bottom: 20%;
+  left: 10%;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  margin-top: 5px;
+  line-height: 1.1;
 }
 
 .text-accent {
@@ -453,6 +547,7 @@ strong {
 
 .impact-card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .icon-wrapper {
@@ -464,16 +559,48 @@ strong {
   font-size: 1.8rem;
 }
 
+.transition-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.bg-danger-subtle {
+  background-color: rgba(239, 68, 68, 0.2);
+}
+
+.bg-warning-subtle {
+  background-color: rgba(245, 158, 11, 0.2);
+}
+
+.bg-primary-subtle {
+  background-color: rgba(59, 130, 246, 0.2);
+}
+
+.bg-info-subtle {
+  background-color: rgba(14, 165, 233, 0.2);
+}
+
 .impact-meter {
   height: 6px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 3px;
   overflow: hidden;
+  margin-bottom: 8px;
 }
 
 .impact-level {
   height: 100%;
   border-radius: 3px;
+}
+
+.impact-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #9ca3af;
 }
 
 .level-5 { width: 100%; background-color: #ef4444; }
@@ -506,6 +633,45 @@ strong {
   flex-shrink: 0;
 }
 
+/* Environmental facts section */
+.environmental-facts {
+  background: linear-gradient(to right, #1e3a8a, #0f766e);
+  overflow: hidden;
+  position: relative;
+}
+
+.environmental-facts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1557684387-08927d28c72a?w=1400&q=80') center/cover no-repeat;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.fact-item {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.fact-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.fact-label {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 /* Table card */
 .table-card {
   background-color: #1f2937;
@@ -528,6 +694,30 @@ strong {
 .btn-outline-accent:hover {
   background-color: #10b981;
   color: #fff;
+}
+
+/* Call to action section */
+.cta-section {
+  position: relative;
+}
+
+.cta-content {
+  background: linear-gradient(to right, #0f766e, #047857);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cta-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1569466181852-973d1a89c01a?w=1400&q=80') center/cover no-repeat;
+  opacity: 0.1;
+  z-index: -1;
 }
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
