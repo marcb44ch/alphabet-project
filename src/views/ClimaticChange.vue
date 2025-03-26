@@ -1,18 +1,23 @@
-<script>
-import Table from '@/components/Table.vue'
-import { ref } from 'vue'
-
-const headers = ref(["Name", "Surname", "Address", "Phone"]);
-const items = ref([
-  { name: "gil", surname: "perez", address: "calle falsa 123", phone: "123456789" },
-  { name: "pepe", surname: "perez", address: "calle falsa 123", phone: "123456789" }
-]);
-
+<!-- <script setup>
+  import Table from '@/components/Table.vue';
+  import "bootstrap"
+  import {ref} from 'vue'
+  const headers = ref (['Nom', 'Cognoms', 'Adreça', 'Telefon'])
+  const items   = ref ([
+    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
+    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
+    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
+    {nom: "Marc", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
+    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
+    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
+    {nom: "Anna", cognom: "Casas", adreça: "Carrer Nou 1", telefon: "666666666"},
+    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"}
+  ])
 </script>
 <template>
-  <div class="ClimaticChange">
-    <h1>Impacte de l'empresa sobre el canvi climàtic</h1>
-    <p>Les empreses tenen un impacte significatiu sobre el canvi climàtic, i aquest impacte es manifesta de diverses maneres:</p>
+  <div class="ClimaticChange container">
+    <h1 class="text-success">Impacte de l'empresa sobre el canvi climàtic</h1>
+    <p class="text-primary">Les empreses tenen un impacte significatiu sobre el canvi climàtic, i aquest impacte es manifesta de diverses maneres:</p>
     <ol>
         <li><strong>Emissions de gasos d'efecte hivernacle</strong>: 
             Les activitats industrials i de producció generen emissions de CO₂ i altres gasos que contribueixen al canvi climàtic. 
@@ -38,8 +43,7 @@ const items = ref([
         <li>Polítiques de responsabilitat social corporativa: Adoptar polítiques que promoguin la sostenibilitat ambiental i la responsabilitat social.</li>
         <li>Innovació tecnològica: Desenvolupar tecnologies més netes i eficients que redueixin l'impacte ambiental.</li>
     </ul>
-    <Table :headers="headers" :items="items"/>
-
+    <Table :headers="headers" :items="items" class="table table-striped"></Table>
   </div>
 </template>
 
@@ -81,4 +85,5 @@ strong {
     padding: 40px;
   }
 }
-</style>
+</style> -->
+
