@@ -1,18 +1,19 @@
 <script setup>
   import Table from '@/components/Table.vue';
-  import "bootstrap"
-  import { ref } from 'vue'
-  const headers = ref(['Nom', 'Cognoms', 'Adreça', 'Telefon'])
+  import "bootstrap";
+  import { ref } from 'vue';
+  
+  const headers = ref(['Nom', 'Cognoms', 'Adreça', 'Telefon']);
   const items = ref([
     {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Marc", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Casas", adreça: "Carrer Nou 1", telefon: "666666666"},
-    {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"}
-  ])
+    {nom: "Pere", cognom: "Martí", adreça: "Avinguda Principal 23", telefon: "677777777"},
+    {nom: "Laura", cognom: "Vidal", adreça: "Plaça Catalunya 5", telefon: "688888888"},
+    {nom: "Marc", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "699999999"},
+    {nom: "Clara", cognom: "Bosch", adreça: "Carrer Major 42", telefon: "611111111"},
+    {nom: "Jordi", cognom: "Roca", adreça: "Passeig Marítim 8", telefon: "622222222"},
+    {nom: "Anna", cognom: "Casas", adreça: "Carrer Nou 1", telefon: "633333333"},
+    {nom: "Oriol", cognom: "Puig", adreça: "Avinguda Diagonal 120", telefon: "644444444"}
+  ]);
 </script>
 
 <template>
@@ -309,7 +310,7 @@
         </div>
         <div class="card-body p-0 p-sm-4">
           <div class="table-responsive">
-            <Table :headers="headers" :items="items" class="table table-dark table-hover align-middle"></Table>
+            <Table :headers="headers" :items="items" class="table table-hover align-middle custom-table"></Table>
           </div>
           <div class="d-flex justify-content-center mt-4">
             <button class="btn btn-outline-accent me-2">
@@ -327,7 +328,7 @@
         <div class="cta-content p-4 p-md-5 rounded-4">
           <h2 class="display-6 fw-bold text-white mb-4">Uneix-te a la lluita contra el canvi climàtic</h2>
           <p class="lead text-light mb-4">Cada acció compta. Les empreses tenen la responsabilitat i l'oportunitat de liderar el canvi.</p>
-          <button class="btn btn-lg btn-light px-4 py-3">
+          <button class="btn btn-lg btn-light px-4 py-3 cta-button">
             <i class="bi bi-arrow-right-circle-fill me-2"></i>Demana una avaluació
           </button>
         </div>
@@ -335,13 +336,28 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-4 border-top border-secondary">
+    <footer class="py-4 bg-dark-accent">
       <div class="container text-center">
-        <p class="text-secondary mb-0">© 2025 Projecte Alfabet - Tots els drets reservats</p>
+        <p class="text-light mb-0">© 2025 Projecte Alfabet - Tots els drets reservats</p>
       </div>
     </footer>
   </div>
 </template>
+
+<style>
+/* Global reset to remove white border */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #111827;
+}
+
+/* Add seamless scrolling */
+html {
+  scroll-behavior: smooth;
+}
+</style>
 
 <style scoped>
 /* General styling */
@@ -349,9 +365,10 @@
   font-family: 'Poppins', sans-serif;
   background-color: #111827;
   color: #e5e7eb;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
-p{
+p {
   color: #ffffff;
   line-height: 1.6;
 }
@@ -421,6 +438,12 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   padding: 10px;
   text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.stat-bubble:hover {
+  transform: scale(1.1);
 }
 
 .stat-bubble-1 {
@@ -455,12 +478,15 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #10b981;
   border-color: #10b981;
   color: #fff;
+  transition: all 0.3s ease;
 }
 
 .btn-accent:hover {
   background-color: #059669;
   border-color: #059669;
   color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
 .bg-accent {
@@ -477,6 +503,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   opacity: 0.1;
   z-index: 1;
+  filter: blur(50px);
 }
 
 .bg-element-1 {
@@ -561,6 +588,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .transition-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
 }
 
 .transition-card:hover {
@@ -638,6 +666,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to right, #1e3a8a, #0f766e);
   overflow: hidden;
   position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .environmental-facts::before {
@@ -656,6 +685,11 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 1;
   padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.fact-item:hover {
+  transform: translateY(-5px);
 }
 
 .fact-number {
@@ -677,23 +711,29 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #1f2937;
   border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.table-dark {
-  --bs-table-bg: transparent;
+.custom-table {
+  --bs-table-bg: #1f2937;
   --bs-table-striped-bg: rgba(255, 255, 255, 0.05);
   --bs-table-hover-bg: rgba(16, 185, 129, 0.1);
   --bs-table-hover-color: #fff;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .btn-outline-accent {
   color: #10b981;
   border-color: #10b981;
+  transition: all 0.3s ease;
 }
 
 .btn-outline-accent:hover {
   background-color: #10b981;
   color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
 /* Call to action section */
@@ -706,6 +746,7 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 1;
   overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .cta-content::before {
@@ -718,6 +759,36 @@ h1, h2, h3, h4, h5, h6 {
   background: url('https://images.unsplash.com/photo-1569466181852-973d1a89c01a?w=1400&q=80') center/cover no-repeat;
   opacity: 0.1;
   z-index: -1;
+}
+
+.cta-button {
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .fact-number {
+    font-size: 2rem;
+  }
+  
+  .hero-image-frame {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .stat-bubble {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .stat-number {
+    font-size: 1.2rem;
+  }
 }
 
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
