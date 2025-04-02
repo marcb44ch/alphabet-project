@@ -54,6 +54,71 @@
   }
 </style> -->
 
+
+<script>
+import Chart from '@/components/Chart.vue'
+
+export default {
+  name: 'CarbonFootprint',
+  components: {
+    Chart
+  },
+  data() {
+    return {
+      emissionsChartOptions: {
+        title: {
+          text: 'Distribució d\'emissions per abast (tCO₂e)',
+          left: 'center'
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c} tCO₂e ({d}%)'
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          textStyle: {
+            color: '#e0e0e0'
+          }
+        },
+        series: [
+          {
+            name: 'Emissions de CO₂',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#121212',
+              borderWidth: 2
+            },
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '18',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            data: [
+              { value: 514.92, name: 'Abast 1: Emissions directes', itemStyle: { color: '#28a745' } },
+              { value: 211.02, name: 'Abast 2: Emissions indirectes (electricitat)', itemStyle: { color: '#0d6efd' } },
+              { value: 371851.93, name: 'Abast 3: Altres emissions indirectes', itemStyle: { color: '#dc3545' } }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+</script>
+
 <template>
   <div class="study-page dark-theme">
     <!-- Header section with study title -->
@@ -198,58 +263,6 @@
             </div>
             <div class="card-body p-4 p-lg-5">
               <div class="row g-4">
-                <div class="col-lg-6">
-                  <h3 class="h5 fw-bold mb-4">Emissions per abast</h3>
-                  <p>L'estudi revela que la major part de l'impacte ambiental de l'empresa prové de les 
-                     emissions indirectes (Abast 3), representant el 99,81% del total. Els resultats mostren un càlcul 
-                     total d'emissions per a l'any 2023 de 372.557,87 tCO₂e.</p>
-                  
-                  <div class="emissions-breakdown mt-4">
-                    <div class="mb-3">
-                      <div class="d-flex justify-content-between mb-1">
-                        <span><strong>Abast 1:</strong> Emissions directes</span>
-                        <span>514,92 tCO₂e</span>
-                      </div>
-                      <div class="progress" style="height: 10px;">
-                        <div class="progress-bar bg-success" style="width: 0.14%;"></div>
-                      </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                      <div class="d-flex justify-content-between mb-1">
-                        <span><strong>Abast 2:</strong> Emissions indirectes (electricitat)</span>
-                        <span>211,02 tCO₂e</span>
-                      </div>
-                      <div class="progress" style="height: 10px;">
-                        <div class="progress-bar bg-info" style="width: 0.05%;"></div>
-                      </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                      <div class="d-flex justify-content-between mb-1">
-                        <span><strong>Abast 3:</strong> Altres emissions indirectes</span>
-                        <span>371.851,93 tCO₂e</span>
-                      </div>
-                      <div class="progress" style="height: 10px;">
-                        <div class="progress-bar bg-danger" style="width: 99.81%;"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="alert alert-warning mt-4">
-                    <div class="d-flex">
-                      <div class="me-3">
-                        <i class="bi bi-exclamation-triangle-fill fs-4"></i>
-                      </div>
-                      <div>
-                        <h5 class="alert-heading">Troballa significativa</h5>
-                        <p class="mb-0">L'elevat percentatge d'emissions d'Abast 3 suggereix que les 
-                        estratègies més efectives per reduir la petjada ambiental s'han de centrar en la 
-                        cadena de valor i l'ús de vehicles per part dels clients.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                 
                 <div class="col-lg-6">
                   <h3 class="h5 fw-bold mb-4">Indicadors clau de rendiment</h3>
@@ -313,12 +326,64 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-lg-6">
+                  <h3 class="h5 fw-bold mb-4">Emissions per abast</h3>
+                  <p>L'estudi revela que la major part de l'impacte ambiental de l'empresa prové de les 
+                     emissions indirectes (Abast 3), representant el 99,81% del total. Els resultats mostren un càlcul 
+                     total d'emissions per a l'any 2023 de 372.557,87 tCO₂e.</p>
+                  
+                  <div class="emissions-breakdown mt-4">
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-between mb-1">
+                        <span><strong>Abast 1:</strong> Emissions directes</span>
+                        <span>514,92 tCO₂e</span>
+                      </div>
+                      <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-success" style="width: 0.14%;"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-between mb-1">
+                        <span><strong>Abast 2:</strong> Emissions indirectes (electricitat)</span>
+                        <span>211,02 tCO₂e</span>
+                      </div>
+                      <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-info" style="width: 0.05%;"></div>
+                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-between mb-1">
+                        <span><strong>Abast 3:</strong> Altres emissions indirectes</span>
+                        <span>371.851,93 tCO₂e</span>
+                      </div>
+                      <div class="progress" style="height: 10px;">
+                        <div class="progress-bar bg-danger" style="width: 99.81%;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="alert alert-warning mt-4">
+                    <div class="d-flex">
+                      <div class="me-3">
+                        <i class="bi bi-exclamation-triangle-fill fs-4"></i>
+                      </div>
+                      <div>
+                        <h5 class="alert-heading">Troballa significativa</h5>
+                        <p class="mb-0">L'elevat percentatge d'emissions d'Abast 3 suggereix que les 
+                        estratègies més efectives per reduir la petjada ambiental s'han de centrar en la 
+                        cadena de valor i l'ús de vehicles per part dels clients.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
+      
       <!-- Section divider -->
       <div class="divider my-5" id="strategies">
         <span class="divider-label">Estratègies implementades</span>
@@ -584,12 +649,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'CarbonFootprint'
-}
-</script>
-
 <style>
 /* Global reset to remove white border */
 html, body {
@@ -637,7 +696,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Header section styling - Full bleed image */
 .header-section {
   background-color: #000;
-  background-image: url('https://images.unsplash.com/photo-1490775949603-0e355e8e01ba?w=1400&q=80');
+  /* background-image: url('https://images.unsplash.com/photo-1490775949603-0e355e8e01ba?w=1400&q=80'); */
+  background-image: url('../assets/img/bmw-carbonFootprint.jpg');
   background-size: cover;
   background-position: center;
   min-height: 60vh;

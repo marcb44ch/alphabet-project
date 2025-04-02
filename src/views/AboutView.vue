@@ -19,7 +19,7 @@
   const options = ref({
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     },
     yAxis: {
       type: 'value'
@@ -35,7 +35,7 @@
 
 <template>
   
-  <div class="about" style="height: 400px;">
+  <div class="about" style="height: 20px;">
     <h1>This is an about page</h1>
     Hola taula de prova
     <Table :headers="headers" :items="items"></Table>
