@@ -23,6 +23,175 @@
     { year: 2022, value: 2860, label: '2022' },
     { year: 2023, value: 5500, label: '2023' }
   ]);
+
+    // Configuración del gráfico de emisiones
+  const emissionsChartOptions = computed(() => ({
+    title: {
+      text: 'Evolución de Emisiones de CO₂',
+      subtext: 'Periodo 2021-2023 (tCO₂e)',
+      left: 'center',
+      textStyle: {
+        color: '#e0e0e0'
+      },
+      subtextStyle: {
+        color: '#a0a0a0'
+      }
+    },
+    tooltip: {
+      trigger: 'axis',
+      formatter: '{b}: {c} tCO₂e',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: emissionData.value.map(item => item.label),
+      axisLine: {
+        lineStyle: {
+          color: '#555'
+        }
+      },
+      axisLabel: {
+        color: '#e0e0e0'
+      }
+    },
+    yAxis: {
+      type: 'value',
+      name: 'tCO₂e',
+      nameTextStyle: {
+        color: '#a0a0a0'
+      },
+      axisLine: {
+        lineStyle: {
+          color: '#555'
+        }
+      },
+      axisLabel: {
+        color: '#e0e0e0',
+        formatter: '{value}'
+      },
+      splitLine: {
+        lineStyle: {
+          color: 'rgba(255, 255, 255, 0.1)'
+        }
+      }
+    },
+    series: [{
+      data: emissionData.value.map(item => item.value),
+      type: 'line',
+      smooth: true,
+      lineStyle: {
+        width: 4,
+        color: '#ef4444'
+      },
+      symbol: 'circle',
+      symbolSize: 10,
+      itemStyle: {
+        color: '#ef4444'
+      },
+      markPoint: {
+        data: [
+          { type: 'min', name: 'Mínimo' }
+        ]
+      },
+      areaStyle: {
+        opacity: 0.2,
+        color: {
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [{
+            offset: 0, color: '#ef4444'
+          }, {
+            offset: 1, color: 'rgba(0,0,0,0)'
+          }]
+        }
+      }
+    }]
+  }));
+
+  // Configuración del gráfico de vehículos eléctricos
+  const evChartOptions = computed(() => ({
+    title: {
+      text: 'Crecimiento de Vehículos Electrificados',
+      subtext: 'Periodo 2021-2023',
+      left: 'center',
+      textStyle: {
+        color: '#e0e0e0'
+      },
+      subtextStyle: {
+        color: '#a0a0a0'
+      }
+    },
+    tooltip: {
+      trigger: 'axis',
+      formatter: '{b}: {c} vehículos',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: electricVehicles.value.map(item => item.label),
+      axisLine: {
+        lineStyle: {
+          color: '#555'
+        }
+      },
+      axisLabel: {
+        color: '#e0e0e0'
+      }
+    },
+    yAxis: {
+      type: 'value',
+      name: 'Vehículos',
+      nameTextStyle: {
+        color: '#a0a0a0'
+      },
+      axisLine: {
+        lineStyle: {
+          color: '#555'
+        }
+      },
+      axisLabel: {
+        color: '#e0e0e0',
+        formatter: '{value}'
+      },
+      splitLine: {
+        lineStyle: {
+          color: 'rgba(255, 255, 255, 0.1)'
+        }
+      }
+    },
+    series: [{
+      data: electricVehicles.value.map(item => item.value),
+      type: 'bar',
+      barWidth: '60%',
+      itemStyle: {
+        color: '#10b981'
+      },
+      label: {
+        show: true,
+        position: 'top',
+        color: '#e0e0e0'
+      }
+    }]
+  }));
 </script>
 
 <template>
@@ -366,6 +535,46 @@
           </div>
         </div>
       </div>
+
+      <!-- Section divider -->
+      <div class="divider my-5" id="charts">
+        <span class="divider-label">Gràfiques</span>
+      </div>
+
+      <!-- Después de la sección de emisiones GEI y antes de "Otros indicadores ambientales" -->
+      <div class="row mt-5 mb-4">
+        <div class="col-lg-12">
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="card-body p-4">
+              <div class="chart-container" style="height: 400px;">
+                <Chart :options="emissionsChartOptions" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Al final de la sección de Análisis de impacto ambiental, justo antes del divider -->
+      <div class="row mt-5">
+        <div class="col-lg-10 mx-auto">
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="card-header bg-dark-accent p-4">
+              <h2 class="h4 text-white mb-0">Evolución de la flota sostenible</h2>
+            </div>
+            <div class="card-body p-4">
+              <p class="mb-4">
+                El análisis de la evolución interanual muestra un crecimiento sostenido y acelerado en la incorporación 
+                de vehículos electrificados a la flota, con un incremento especialmente notable en 2023, casi duplicando 
+                el parque móvil electrificado respecto al año anterior.
+              </p>
+              <div class="chart-container" style="height: 400px;">
+                <Chart :options="evChartOptions" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <!-- Section divider -->
       <div class="divider my-5" id="strategies">
