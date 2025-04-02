@@ -140,9 +140,9 @@ html, body {
 }
 
 
-main {
+/* main {
   padding-top: 76px;
-}
+} */
 
 
 .bg-dark-accent {
