@@ -13,7 +13,9 @@
     {nom: "Anna", cognom: "Casas", adreça: "Carrer Nou 1", telefon: "666666666"},
     {nom: "Anna", cognom: "Cussó", adreça: "Carrer Nou 1", telefon: "666666666"}
   ])
+  
   import Chart from '@/components/Chart.vue'
+
   const options = ref({
     xAxis: {
       type: 'category',
