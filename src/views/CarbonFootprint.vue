@@ -1,69 +1,64 @@
-<script>
-import Chart from '@/components/Chart.vue'
-import { useI18n } from 'vue-i18n'
+<!-- <template>
+  <div class="CarbonFootprint">
+    <div>
+      <h1>Petjada de Carboni</h1>
+      <p>L’empresa Alphabet està compromesa amb la reducció de la seva petjada de carboni a través de diverses iniciatives i polítiques. Aquí tens un resum de les accions que estan duent a terme:</p>
+      <br>
+      <section>
+        <h4>Electrificació de flotes</h4>
+        <li>Increment de les matriculacions de vehicles 100% elèctrics, amb un creixement del 92% en 2023.</li>
+        <li>Servei de consultoria d’electrificació per ajudar els clients a integrar vehicles elèctrics i infraestructures de recàrrega.</li>
+      </section>
+      <br>
+      <section>
+        <h4>Gestió ambiental:</h4>
+        <li>Implementació d’un Sistema de Gestió Ambiental basat en la norma ISO 14001 des de 2010.</li>
+        <li>Objectius específics com la reducció del consum d’aigua i energia elèctrica a les seves instal·lacions.</li>
+      </section>
+      <br>
+      <section>
+        <h4>Reducció d’emissions de CO2</h4>
+        <li>Projectes sostenibles per prevenir i reduir les emissions de CO2 a llarg termini.</li>
+        <li>Càlcul de la seva petjada de carboni segons els tres alcances del protocol de GEI, amb un total de 372.557,87 tCO²e en 2023.</li>
+      </section>
+      <br>
+      <section>
+        <h4>Innovació i sostenibilitat:</h4>
+        <li>Promoció de la reducció, reutilització i reciclatge de residus.</li>
+        <li>Foment de l’ús d’energia verda en les seves instal·lacions.</li>
+      </section>
+      <br>
+      <section>
+        <h4>Suport als clients:</h4>
+        <li>Expansió dels serveis de consultoria per ajudar els clients a reduir les emissions de les seves flotes durant tot el cicle de vida del vehicle.</li>
+        <li>Aquestes accions reflecteixen el compromís d’Alphabet amb la sostenibilitat i la seva responsabilitat amb el medi ambient.</li>
+      </section>
+      <br>
+      <section>
+        <h4>Suport als clients:</h4>
+        <li>Expansió dels serveis de consultoria per ajudar els clients a reduir les emissions de les seves flotes durant tot el cicle de vida del vehicle.</li>
+        <li>Aquestes accions reflecteixen el compromís d’Alphabet amb la sostenibilitat i la seva responsabilitat amb el medi ambient.</li>
+      </section>
+      <br>
+    </div>
+  </div>
+ </template>
 
-export default {
-  name: 'CarbonFootprint',
-  components: {
-    Chart
-  },
-  data() {
-    return {
-      emissionsChartOptions: {
-        title: {
-          text: 'Distribució d\'emissions per abast (tCO₂e)',
-          left: 'center'
-        },
-        tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b}: {c} tCO₂e ({d}%)'
-        },
-        legend: {
-          orient: 'vertical',
-          left: 'left',
-          textStyle: {
-            color: '#e0e0e0'
-          }
-        },
-        series: [
-          {
-            name: 'Emissions de CO₂',
-            type: 'pie',
-            radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
-            itemStyle: {
-              borderRadius: 10,
-              borderColor: '#121212',
-              borderWidth: 2
-            },
-            label: {
-              show: false,
-              position: 'center'
-            },
-            emphasis: {
-              label: {
-                show: true,
-                fontSize: '18',
-                fontWeight: 'bold'
-              }
-            },
-            labelLine: {
-              show: false
-            },
-            data: [
-              { value: 514.92, name: 'Abast 1: Emissions directes', itemStyle: { color: '#28a745' } },
-              { value: 211.02, name: 'Abast 2: Emissions indirectes (electricitat)', itemStyle: { color: '#0d6efd' } },
-              { value: 371851.93, name: 'Abast 3: Altres emissions indirectes', itemStyle: { color: '#dc3545' } }
-            ]
-          }
-        ]
-      }
-    }
+<style>
+  @media (min-width: 1024px) {
+  .about {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
   }
-}
-</script>
+  }
+</style> -->
 
 <script setup>
+import Chart from '@/components/Chart.vue'
+import {ref} from 'vue'
+import { useI18n } from 'vue-i18n'
+
 const { t } = useI18n({
   locale: 'ca',
   messages: {
@@ -71,6 +66,82 @@ const { t } = useI18n({
     es: { }
   }
 })
+
+// export default {
+//   name: 'CarbonFootprint',
+//   components: {
+//     Chart
+//   },
+//   data() {
+//     return {
+//       emissionsChartOptions: {
+//         title: {
+//           text: 'Distribució d\'emissions per abast (tCO₂e)',
+//           left: 'center'
+//         },
+//         tooltip: {
+//           trigger: 'item',
+//           formatter: '{a} <br/>{b}: {c} tCO₂e ({d}%)'
+//         },
+//         legend: {
+//           orient: 'vertical',
+//           left: 'left',
+//           textStyle: {
+//             color: '#e0e0e0'
+//           }
+//         },
+//         series: [
+//           {
+//             name: 'Emissions de CO₂',
+//             type: 'pie',
+//             radius: ['40%', '70%'],
+//             avoidLabelOverlap: false,
+//             itemStyle: {
+//               borderRadius: 10,
+//               borderColor: '#121212',
+//               borderWidth: 2
+//             },
+//             label: {
+//               show: false,
+//               position: 'center'
+//             },
+//             emphasis: {
+//               label: {
+//                 show: true,
+//                 fontSize: '18',
+//                 fontWeight: 'bold'
+//               }
+//             },
+//             labelLine: {
+//               show: false
+//             },
+//             data: [
+//               { value: 514.92, name: 'Abast 1: Emissions directes', itemStyle: { color: '#28a745' } },
+//               { value: 211.02, name: 'Abast 2: Emissions indirectes (electricitat)', itemStyle: { color: '#0d6efd' } },
+//               { value: 371851.93, name: 'Abast 3: Altres emissions indirectes', itemStyle: { color: '#dc3545' } }
+//             ]
+//           }
+//         ]
+//       }
+//     }
+//   }
+// }
+
+const options = ref({
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [
+      {
+        data: [150, 230, 224, 218, 135, 147, 260],
+        type: 'line'
+      }
+    ]
+  })
 </script>
 
 <template>
@@ -201,6 +272,15 @@ const { t } = useI18n({
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Section divider -->
+      <div class="divider my-5" id="graphs">
+        <span class="divider-label">Gràfica</span>
+      </div>
+
+      <div style="height: 500px;">
+        <chart :options="options"></chart>
       </div>
 
       <!-- Section divider -->
