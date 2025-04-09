@@ -2,7 +2,7 @@
  import Table from '@/components/Table.vue';
   import "bootstrap";
   import { ref, computed } from 'vue';
-  import Chart from 'vue-echarts'; // Add this import
+  import Chart from '@/components/chart.vue';
   // Or if you're using a different chart library: 
   // import { Chart } from 'some-chart-library';
 
@@ -562,7 +562,7 @@
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="card-body p-4">
               <div class="chart-container" style="height: 400px;">
-                <Chart :options="emissionsChartOptions" />
+                <Chart :option="emissionsChartOptions" />
               </div>
             </div>
           </div>
@@ -583,7 +583,7 @@
                 el parque móvil electrificado respecto al año anterior.
               </p>
               <div class="chart-container" style="height: 400px;">
-                <Chart :options="evChartOptions" />
+                <Chart :option="evChartOptions" />
               </div>
             </div>
           </div>
