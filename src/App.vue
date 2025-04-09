@@ -7,10 +7,6 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
 </script>
 
 <template>
-  <select v-model="locale">
-    <option value="es">Castellà</option>
-    <option value="ca">Català</option>
-  </select>
   <div class="app-wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -22,6 +18,12 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <div>
+          <select v-model="locale">
+            <option value="es">Castellà</option>
+            <option value="ca">Català</option>
+          </select>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
