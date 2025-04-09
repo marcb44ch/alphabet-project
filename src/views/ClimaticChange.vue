@@ -1,8 +1,23 @@
 <script setup>
-  import Table from '@/components/Table.vue';
+ import Table from '@/components/Table.vue';
   import "bootstrap";
-  import { ref } from 'vue';
+  import { ref, computed } from 'vue';
+  import Chart from 'vue-echarts'; // Add this import
+  // Or if you're using a different chart library: 
+  // import { Chart } from 'some-chart-library';
+
+  // traduccion de textos
+  // import { useI18n } from 'vue-i18n'
+  // const { t } = useI18n({
+  //   locale: 'en',
+  //   messages: {
+  //     en: {},
+  //     ca: {},
+  //     es: {}
+  //   }
+  // })
   
+  // Rest of your code remains the same...
   const headers = ref(['Cargo', 'Nombre', 'Departamento']);
   const items = ref([
     {cargo: "CEO", nombre: "Alberto Copado", departamento: "Dirección General"},
@@ -538,10 +553,10 @@
 
       <!-- Section divider -->
       <div class="divider my-5" id="charts">
-        <span class="divider-label">Gràfiques</span>
+        <span class="divider-label">Graficos</span>
       </div>
 
-      <!-- Después de la sección de emisiones GEI y antes de "Otros indicadores ambientales" -->
+      <!-- Emissions and EV charts -->
       <div class="row mt-5 mb-4">
         <div class="col-lg-12">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
@@ -554,7 +569,7 @@
         </div>
       </div>
 
-      <!-- Al final de la sección de Análisis de impacto ambiental, justo antes del divider -->
+
       <div class="row mt-5">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
