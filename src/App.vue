@@ -1,8 +1,16 @@
 <script setup>
 import { RouterView } from 'vue-router';
+import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n(); // Variable la qual conté l'idioma actual
 </script>
 
 <template>
+  <select v-model="locale">
+    <option value="es">Castellà</option>
+    <option value="ca">Català</option>
+  </select>
   <div class="app-wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">

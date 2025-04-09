@@ -57,6 +57,19 @@
 
 <script>
 import Chart from '@/components/Chart.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n({
+  locale: 'ca',
+  messages: {
+    ca: {
+
+    },
+    es: {
+
+    }
+  }
+})
 
 export default {
   name: 'CarbonFootprint',
