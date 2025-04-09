@@ -106,7 +106,7 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
 :root {
   --accent-color: #10b981;
   --dark-bg: #111827;
-  --dark-secondary: #1f2937;
+  --dark-secondary2: #1f2937;
 }
 
 html, body {
@@ -114,7 +114,7 @@ html, body {
   padding: 0;
   background-color: var(--dark-bg);
   font-family: 'Poppins', sans-serif;
-  color: #e5e7eb;
+  color: var(--dark-bg);
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -190,7 +190,7 @@ html, body {
   background: #059669;
 }
 .footer {
-  background-color: var(--dark-secondary);
+  background-color: var(--dark-secondary2);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
