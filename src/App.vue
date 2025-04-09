@@ -97,7 +97,9 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
   </div>
 </template>
 
-<style>
+<style scoped>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
   --accent-color: #10b981;
