@@ -3,6 +3,7 @@
   import "bootstrap";
   import { ref, computed } from 'vue';
   import Chart from '@/components/chart.vue';
+  import Modal from '@/components/modal.vue';
   // Or if you're using a different chart library: 
   // import { Chart } from 'some-chart-library';
 
@@ -545,6 +546,48 @@
                     </div>
                   </div>
                 </div>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studyModal">
+                    View Climate Impact Data
+                  </button>
+
+                  <Modal id="studyModal" title="Climate Impact - Alphabet España" size="lg" centered>
+                    <div class="climate-data">
+                      <div class="alert alert-info mb-3">
+                        <p class="mb-0"><strong>Key finding:</strong> 99.81% of emissions (371,851.93 tCO₂e) come from Scope 3 sources, primarily vehicle usage.</p>
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="card bg-dark-accent border-0">
+                            <div class="card-body">
+                              <h5 class="card-title h6">2023 Emissions Overview</h5>
+                              <ul class="list-unstyled mt-2">
+                                <li class="d-flex justify-content-between mb-2"><span>Scope 1 (Direct):</span> <strong>155.35 tCO₂e</strong></li>
+                                <li class="d-flex justify-content-between mb-2"><span>Scope 2 (Electricity):</span> <strong>549.72 tCO₂e</strong></li>
+                                <li class="d-flex justify-content-between"><span>Total Carbon Footprint:</span> <strong>372,557 tCO₂e</strong></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="card bg-dark-accent border-0">
+                            <div class="card-body">
+                              <h5 class="card-title h6">Sustainability Progress</h5>
+                              <ul class="list-unstyled mt-2">
+                                <li class="d-flex justify-content-between mb-2"><span>Electrified Fleet:</span> <strong>5,500 vehicles</strong></li>
+                                <li class="d-flex justify-content-between mb-2"><span>EV Growth Rate:</span> <strong class="text-success">+92% vs 2022</strong></li>
+                                <li class="d-flex justify-content-between"><span>Emissions Reduction:</span> <strong class="text-success">-3.29% vs 2022</strong></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <template #footer>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Download Report</button>
+                    </template>
+                  </Modal>
               </div>
             </div>
           </div>
