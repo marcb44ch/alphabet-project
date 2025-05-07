@@ -4,19 +4,131 @@ import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import "@/assets/pages.css"
 
-const { t } = useI18n({
+const { t, locale, messages } = useI18n({
   locale: 'ca',
   messages: {
-    ca: { },
-    es: { }
+    ca: {
+      badge: "PROJECTE ALFABET | 2025",
+      header: {
+        title: "Compromís amb el Medi Ambient",
+        subtitle: "Descobreix les nostres iniciatives per combatre el canvi climàtic i reduir la petjada de carboni.",
+        button1: "Resum Executiu",
+        button2: "Veure Iniciatives"
+      },
+      overview: {
+        title: "Resum de l'Impacte Ambiental",
+        achievements: {
+          title: "Principals Assoliments",
+          list: [
+            "Reducció d'emissions: 372.557,87 tCO₂e en 2023",
+            "92% creixement en vehicles electrificats",
+            "Sistema de Gestió Ambiental ISO 14001",
+            "Implementació d'energia renovable"
+          ]
+        },
+        objectives: {
+          title: "Objectius 2030",
+          list: [
+            "30% reducció d'emissions per 2025",
+            "60% reducció d'emissions per 2027",
+            "80% reducció d'emissions per 2030",
+            "100% flota electrificada"
+          ]
+        }
+      },
+      chart: {
+        title: "Resum d'Emissions i Objectius",
+        subtext: "2023-2030"
+      },
+      initiatives: {
+        title: "Iniciatives Principals",
+        carbonFootprint: {
+          title: "Petjada de Carboni",
+          list: [
+            "Electrificació de flotes (+92% vs 2022)",
+            "Reducció consum energètic (-16.5%)",
+            "Sistema ISO 14001 certificat",
+            "Energia renovable en instal·lacions"
+          ],
+          button: "Més informació"
+        },
+        climateChange: {
+          title: "Canvi Climàtic",
+          list: [
+            "Temperatura global: +1.1°C des de 1900",
+            "CO₂ atmosfèric: 416 ppm",
+            "Pèrdua gel Àrtic: -13% per dècada", 
+            "Nivell del mar: +3.3 mm/any"
+          ],
+          button: "Més informació"
+        }
+      }
+    },
+    es: {
+      badge: "PROYECTO ALFABETO | 2025",
+      header: {
+        title: "Compromiso con el Medio Ambiente",
+        subtitle: "Descubre nuestras iniciativas para combatir el cambio climático y reducir la huella de carbono.",
+        button1: "Resumen Ejecutivo",
+        button2: "Ver Iniciativas"
+      },
+      overview: {
+        title: "Resumen del Impacto Ambiental",
+        achievements: {
+          title: "Principales Logros",
+          list: [
+            "Reducción de emisiones: 372.557,87 tCO₂e en 2023",
+            "92% crecimiento en vehículos electrificados",
+            "Sistema de Gestión Ambiental ISO 14001",
+            "Implementación de energía renovable"
+          ]
+        },
+        objectives: {
+          title: "Objetivos 2030",
+          list: [
+            "30% reducción de emisiones para 2025",
+            "60% reducción de emisiones para 2027",
+            "80% reducción de emisiones para 2030",
+            "100% flota electrificada"
+          ]
+        }
+      },
+      chart: {
+        title: "Resumen de Emisiones y Objetivos",
+        subtext: "2023-2030"
+      },
+      initiatives: {
+        title: "Iniciativas Principales",
+        carbonFootprint: {
+          title: "Huella de Carbono",
+          list: [
+            "Electrificación de flotas (+92% vs 2022)",
+            "Reducción consumo energético (-16.5%)",
+            "Sistema ISO 14001 certificado",
+            "Energía renovable en instalaciones"
+          ],
+          button: "Más información"
+        },
+        climateChange: {
+          title: "Cambio Climático",
+          list: [
+            "Temperatura global: +1.1°C desde 1900",
+            "CO₂ atmosférico: 416 ppm",
+            "Pérdida hielo Ártico: -13% por década",
+            "Nivel del mar: +3.3 mm/año"
+          ],
+          button: "Más información"
+        }
+      }
+    }
   }
 })
 
 // Chart options for emissions overview
 const emissionsOverview = computed(() => ({
   title: {
-    text: 'Resum d\'Emissions i Objectius',
-    subtext: '2023-2030',
+    text: t('chart.title'),
+    subtext: t('chart.subtext'),
     left: 'center',
     textStyle: { color: '#e0e0e0' },
     subtextStyle: { color: '#a0a0a0' }
@@ -67,15 +179,15 @@ const emissionsOverview = computed(() => ({
       <div class="container position-relative z-3">
         <div class="row min-vh-75 align-items-center py-5">
           <div class="col-lg-8 mx-auto text-center">
-            <span class="badge bg-accent text-dark mb-3 px-3 py-2">PROJECTE ALFABET | 2025</span>
-            <h1 class="display-3 fw-bold text-white mb-3">Compromís amb el<br>Medi Ambient</h1>
-            <p class="lead text-light-50">Descobreix les nostres iniciatives per combatre el canvi climàtic i reduir la petjada de carboni.</p>
+            <span class="badge bg-accent text-dark mb-3 px-3 py-2">{{ t('badge') }}</span>
+            <h1 class="display-3 fw-bold text-white mb-3">{{ t('header.title') }}</h1>
+            <p class="lead text-light-50">{{ t('header.subtitle') }}</p>
             <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
               <a href="#overview" class="btn btn-accent">
-                <i class="bi bi-graph-up me-2"></i>Resum Executiu
+                <i class="bi bi-graph-up me-2"></i>{{ t('header.button1') }}
               </a>
               <a href="#initiatives" class="btn btn-outline-accent">
-                <i class="bi bi-arrow-down-circle me-2"></i>Veure Iniciatives
+                <i class="bi bi-arrow-down-circle me-2"></i>{{ t('header.button2') }}
               </a>
             </div>
           </div>
@@ -92,26 +204,24 @@ const emissionsOverview = computed(() => ({
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="card-header bg-dark-accent p-4">
-              <h2 class="h4 text-white mb-0">Resum de l'Impacte Ambiental</h2>
+              <h2 class="h4 text-white mb-0">{{ t('overview.title') }}</h2>
             </div>
             <div class="card-body p-4 p-lg-5">
               <div class="row g-4">
                 <div class="col-md-6">
-                  <h3 class="h5 fw-bold"><i class="bi bi-shield-check text-accent me-2"></i>Principals Assoliments</h3>
+                  <h3 class="h5 fw-bold"><i class="bi bi-shield-check text-accent me-2"></i>{{ t('overview.achievements.title') }}</h3>
                   <ul class="custom-list">
-                    <li>Reducció d'emissions: 372.557,87 tCO₂e en 2023</li>
-                    <li>92% creixement en vehicles electrificats</li>
-                    <li>Sistema de Gestió Ambiental ISO 14001</li>
-                    <li>Implementació d'energia renovable</li>
+                    <li v-for="achievement in messages[locale].overview.achievements.list" :key="achievement">
+                      {{ achievement }}
+                    </li>
                   </ul>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="h5 fw-bold"><i class="bi bi-bullseye text-accent me-2"></i>Objectius 2030</h3>
+                  <h3 class="h5 fw-bold"><i class="bi bi-bullseye text-accent me-2"></i>{{ t('overview.objectives.title') }}</h3>
                   <ul class="custom-list">
-                    <li>30% reducció d'emissions per 2025</li>
-                    <li>60% reducció d'emissions per 2027</li>
-                    <li>80% reducció d'emissions per 2030</li>
-                    <li>100% flota electrificada</li>
+                    <li v-for="objective in messages[locale].overview.objectives.list" :key="objective">
+                      {{ objective }}
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -136,7 +246,7 @@ const emissionsOverview = computed(() => ({
       <!-- Initiatives section -->
       <div class="row mb-5" id="initiatives">
         <div class="col-lg-10 mx-auto">
-          <h2 class="h3 fw-bold text-center mb-4">Iniciatives Principals</h2>
+          <h2 class="h3 fw-bold text-center mb-4">{{ t('initiatives.title') }}</h2>
           <div class="row g-4">
             <!-- Carbon Footprint Card -->
             <div class="col-md-6">
@@ -144,15 +254,12 @@ const emissionsOverview = computed(() => ({
                 <div class="product-icon">
                   <i class="bi bi-leaf-fill"></i>
                 </div>
-                <h3 class="h5 mb-3">Petjada de Carboni</h3>
+                <h3 class="h5 mb-3">{{ t('initiatives.carbonFootprint.title') }}</h3>
                 <ul class="custom-list">
-                  <li>Electrificació de flotes (+92% vs 2022)</li>
-                  <li>Reducció consum energètic (-16.5%)</li>
-                  <li>Sistema ISO 14001 certificat</li>
-                  <li>Energia renovable en instal·lacions</li>
+                  <li v-for="item in messages[locale].initiatives.carbonFootprint.list" :key="item">{{ item }}</li>
                 </ul>
-                <router-link to="/carbon-footprint" class="btn btn-outline-accent mt-3">
-                  Més informació
+                <router-link to="/CarbonFootprint" class="btn btn-outline-accent mt-3">
+                  {{ t('initiatives.carbonFootprint.button') }}
                 </router-link>
               </div>
             </div>
@@ -163,15 +270,12 @@ const emissionsOverview = computed(() => ({
                 <div class="product-icon">
                   <i class="bi bi-globe2"></i>
                 </div>
-                <h3 class="h5 mb-3">Canvi Climàtic</h3>
+                <h3 class="h5 mb-3">{{ t('initiatives.climateChange.title') }}</h3>
                 <ul class="custom-list">
-                  <li>Temperatura global: +1.1°C des de 1900</li>
-                  <li>CO₂ atmosfèric: 416 ppm</li>
-                  <li>Pèrdua gel Àrtic: -13% per dècada</li>
-                  <li>Nivell del mar: +3.3 mm/any</li>
+                  <li v-for="item in messages[locale].initiatives.climateChange.list" :key="item">{{ item }}</li>
                 </ul>
-                <router-link to="/climatic-change" class="btn btn-outline-accent mt-3">
-                  Més informació
+                <router-link to="/ClimaticChange" class="btn btn-outline-accent mt-3">
+                  {{ t('initiatives.climateChange.button') }}
                 </router-link>
               </div>
             </div>
