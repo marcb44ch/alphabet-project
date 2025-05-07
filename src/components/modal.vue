@@ -6,10 +6,6 @@ export default {
       type: String,
       required: true
     },
-    title: {
-      type: String,
-      default: 'Modal Title'
-    },
     size: {
       type: String,
       default: '',
@@ -17,7 +13,7 @@ export default {
     },
     centered: {
       type: Boolean,
-      default: false
+      default: true
     },
     staticBackdrop: {
       type: Boolean,
@@ -33,15 +29,17 @@ export default {
     <div :class="['modal-dialog', size ? `modal-${size}` : '', centered ? 'modal-dialog-centered' : '']">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" :id="`${id}Label`">{{ title }}</h5>
+          <h5 class="modal-title" :id="`${id}Label`">
+            <!-- Use named slot for title -->
+            <slot name="title">Modal Title</slot>
+          </h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <!-- Default slot for main content -->
-          <slot>Modal content goes here</slot>
-          <slot name="climatic-content">
-            
-          </slot>
+          <!-- Use named slot for body -->
+          <slot name="body">Modal content goes here</slot>
+          <!-- Default slot as fallback -->
+          <slot></slot>
         </div>
         <div class="modal-footer">
           <slot name="footer">
