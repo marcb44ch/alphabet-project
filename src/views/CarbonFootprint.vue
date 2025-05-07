@@ -63,8 +63,102 @@ import "@/assets/pages.css"
 const { t } = useI18n({
   locale: 'ca',
   messages: {
-    ca: { },
-    es: { }
+    ca: {
+      header: {
+        span: "ESTUDI DE CAS 2025",
+        h1: "Estudi de la Petjada <br> de Carboni",
+        h2: "Anàlisi d'Alphabet España (2025)",
+        a1: "Resum executiu",
+        a2: "Veure estudi complet"
+      },
+      mainContent: {
+        h2: "Resum executiu",
+        p: "Aquest estudi analitza la petjada de carboni d'Alphabet España Fleet Management S.A.U., les seves estratègies de reducció d'emissions i el seu compromís amb la sostenibilitat.",
+        h3: "Objectius",
+        objectius: "<li>Analitzar les emissions segons el Protocol GEH</li><li>Identificar les principals fonts d'emissions</li><li>Avaluar les estratègies de reducció implementades</li><li>Proposar millores i recomanacions</li>",
+        i: "Principals troballes",
+        troballes: "<li>Petjada de carboni total de 372.557,87 tCO₂e en 2023</li><li>99,81% d'emissions procedents de l'Abast 3</li><li>Creixement del 92% en matriculacions elèctriques</li><li>Reducció del consum energètic en un 0,5% respecte a 2022</li>"
+      },
+      methodology: {
+        span: "Metodologia",
+        h2: "Metodologia d'anàlisi",
+        p: "L'anàlisi de la petjada de carboni s'ha realitzat segons l'estàndard del Protocol de Gasos d'Efecte Hivernacle (GEH), que classifica les emissions en tres abasts.",
+        abast1: "Abast 1: Emissions directes",
+        abast1p: "Emissions directes procedents de fonts controlades per l'organització, com la flota pròpia i combustibles.",
+        abast2: "Abast 2: Emissions indirectes",
+        abast2p: "Emissions indirectes associades a la generació d'electricitat adquirida per l'organització.",
+        abast3: "Abast 3: Altres emissions indirectes",
+        abast3p: "Emissions que ocorren en la cadena de valor, incloent l'ús dels vehicles per part dels clients."
+      },
+      alertInfo: {
+        title: "Verificació de dades",
+        text: "Les dades han estat recopilades dels registres interns de l'empresa i verificades mitjançant el seu Sistema de Gestió Ambiental ISO 14001."
+      },
+      graphic: {
+        title: "Gràfica",
+        footer: "Resultats de l'anàlisi"
+      },
+      results: {
+        title: "Anàlisi de la petjada de carboni",
+        indicadors: {
+          h3: "Indicadors clau de rendiment",
+          h4: "Creixement en matriculacions elèctriques",
+          h4p: "Comparativa amb el sector (+76%)",
+          h4p2: "increment anual",
+          h43: "Comparativa amb sector",
+          h44: "+16 punts",
+        },
+        vehicles: {
+          h3: "Vehicles electrificats en flota",
+          h4p: "Total de vehicles electrificats",
+          h4p2: "vehicles",
+          h43: "Flota total",
+          h44: "vehicles"
+        },
+        consum: {
+          h3: "Consum energètic",
+          h4p: "Total consumit en instal·lacions",
+          h4p2: "kWh",
+          h43: "Reducció des de 2020",
+        },
+      }
+    },
+    es: { 
+      header: {
+        span: "ESTUDIO DE CASO 2025",
+        h1: "Estudio de la Huella <br> de Carbono",
+        h2: "Análisis de Alphabet España (2025)",
+        a1: "Resumen ejecutivo",
+        a2: "Ver estudio completo"
+      },
+      mainContent: {
+        h2: "Resumen ejecutivo",
+        p: "Este estudio analiza la huella de carbono de Alphabet España Fleet Management S.A.U., sus estrategias de reducción de emisiones y su compromiso con la sostenibilidad.",
+        h3: "Objetivos",
+        objectius: "<li>Analizar las emisiones según el Protocolo GEH</li><li>Identificar las principales fuentes de emisiones</li><li>Evaluar las estrategias de reducción implementadas</li><li>Proponer mejoras y recomendaciones</li>",
+        i: "Principales hallazgos",
+        troballes: "<li>Huella de carbono total de 372.557,87 tCO₂e en 2023</li><li>99,81% de emisiones procedentes del Alcance 3</li><li>Crecimiento del 92% en matriculaciones eléctricas</li><li>Reducción del consumo energético en un 0,5% respecto a 2022</li>"
+      },
+      methodology: {
+        span: "Metodología",
+        h2: "Metodología de análisis",
+        p: "El análisis de la huella de carbono se ha realizado según el estándar del Protocolo de Gases de Efecto Invernadero (GEH), que clasifica las emisiones en tres alcances.",
+        abast1: "Alcance 1: Emisiones directas",
+        abast1p: "Emisiones directas procedentes de fuentes controladas por la organización, como la flota propia y combustibles.",
+        abast2: "Alcance 2: Emisiones indirectas",
+        abast2p: "Emisiones indirectas asociadas a la generación de electricidad adquirida por la organización.",
+        abast3: "Alcance 3: Otras emisiones indirectas",
+        abast3p: "Emisiones que ocurren en la cadena de valor, incluyendo el uso de los vehículos por parte de los clientes."
+      },
+      alertInfo: {
+        title: "Verificación de datos",
+        text: "Los datos han sido recopilados de los registros internos de la empresa y verificados mediante su Sistema de Gestión Ambiental ISO 14001."
+      },
+      graphic: {
+        title: "Gráfica",
+        footer: "Resultados del análisis"
+      },
+    }
   }
 })
 
@@ -153,15 +247,15 @@ const options = ref({
       <div class="container position-relative z-3">
         <div class="row min-vh-75 align-items-center py-5">
           <div class="col-lg-8 mx-auto text-center">
-            <span class="badge bg-accent text-dark mb-3 px-3 py-2">ESTUDI DE CAS | 2025</span>
-            <h1 class="display-3 fw-bold text-white mb-3">Estudi de la Petjada<br>de Carboni</h1>
-            <h2 class="h3 fw-light text-accent mb-4">Anàlisi d'Alphabet España (2025)</h2>
+            <span class="badge bg-accent text-dark mb-3 px-3 py-2">{{ t('header.span') }}</span>
+            <h1 class="display-3 fw-bold text-white mb-3" v-html="t('header.h1')"></h1>
+            <h2 class="h3 fw-light text-accent mb-4">{{ t('header.h2') }}</h2>
             <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
               <a href="#abstract" class="btn btn-outline-accent">
-                <i class="bi bi-file-text me-2"></i>Resum executiu
+                <i class="bi bi-file-text me-2"></i>{{ t('header.a1') }}
               </a>
               <a href="#methodology" class="btn btn-accent">
-                <i class="bi bi-arrow-down-circle me-2"></i>Veure estudi complet
+                <i class="bi bi-arrow-down-circle me-2"></i>{{ t('header.a2') }}
               </a>
             </div>
           </div>
@@ -179,32 +273,21 @@ const options = ref({
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="card-header bg-dark-accent p-4">
-              <h2 class="h4 text-white mb-0">Resum executiu</h2>
+              <h2 class="h4 text-white mb-0">{{ t('mainContent.h2') }}</h2>
             </div>
             <div class="card-body p-4 p-lg-5">
               <p class="lead">
-                Aquest estudi analitza la petjada de carboni d'Alphabet España Fleet Management S.A.U., les seves 
-                estratègies de reducció d'emissions i el seu compromís amb la sostenibilitat.
+                {{ t('mainContent.p') }}
               </p>
               <hr class="my-4">
               <div class="row g-4">
                 <div class="col-md-6">
-                  <h3 class="h5 fw-bold"><i class="bi bi-graph-up-arrow text-accent me-2"></i>Objectius</h3>
-                  <ul class="custom-list">
-                    <li>Analitzar les emissions segons el Protocol GEH</li>
-                    <li>Identificar les principals fonts d'emissions</li>
-                    <li>Avaluar les estratègies de reducció implementades</li>
-                    <li>Proposar millores i recomanacions</li>
-                  </ul>
+                  <h3 class="h5 fw-bold"><i class="bi bi-graph-up-arrow text-accent me-2"></i>{{ t('mainContent.h3') }}</h3>
+                  <ul class="custom-list" v-html="t('mainContent.objectius')"></ul>
                 </div>
                 <div class="col-md-6">
-                  <h3 class="h5 fw-bold"><i class="bi bi-lightbulb text-accent me-2"></i>Principals troballes</h3>
-                  <ul class="custom-list">
-                    <li>Petjada de carboni total de 372.557,87 tCO₂e en 2023</li>
-                    <li>99,81% d'emissions procedents de l'Abast 3</li>
-                    <li>Creixement del 92% en matriculacions elèctriques</li>
-                    <li>Reducció del consum energètic en un 0,5% respecte a 2022</li>
-                  </ul>
+                  <h3 class="h5 fw-bold"><i class="bi bi-lightbulb text-accent me-2"></i>{{ t('mainContent.i') }}</h3>
+                  <ul class="custom-list" v-html="t('mainContent.troballes')"></ul>
                 </div>
               </div>
             </div>
@@ -214,7 +297,7 @@ const options = ref({
 
       <!-- Section divider -->
       <div class="divider my-5" id="methodology">
-        <span class="divider-label">Metodologia</span>
+        <span class="divider-label">{{ t('methodology.span') }}</span>
       </div>
 
       <!-- Methodology section -->
@@ -222,9 +305,8 @@ const options = ref({
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4">
             <div class="card-body p-4 p-lg-5">
-              <h2 class="h3 fw-bold mb-4">Metodologia d'anàlisi</h2>
-              <p>L'anàlisi de la petjada de carboni s'ha realitzat segons l'estàndard del Protocol de Gasos d'Efecte 
-                 Hivernacle (GEH), que classifica les emissions en tres abasts.</p>
+              <h2 class="h3 fw-bold mb-4">{{ t('methodology.h2') }}</h2>
+              <p>{{ t('methodology.p') }}</p>
               
               <div class="row g-4 mt-3">
                 <div class="col-md-4">
@@ -232,8 +314,8 @@ const options = ref({
                     <div class="methodology-icon mb-3">
                       <i class="bi bi-1-circle"></i>
                     </div>
-                    <h4 class="h6 fw-bold">Abast 1: Emissions directes</h4>
-                    <p class="small">Emissions directes procedents de fonts controlades per l'organització, com la flota pròpia i combustibles.</p>
+                    <h4 class="h6 fw-bold">{{ t('methodology.abast1') }}</h4>
+                    <p class="small">{{ t('methodology.abast1p') }}</p>
                   </div>
                 </div>
                 
@@ -242,8 +324,8 @@ const options = ref({
                     <div class="methodology-icon mb-3">
                       <i class="bi bi-2-circle"></i>
                     </div>
-                    <h4 class="h6 fw-bold">Abast 2: Emissions indirectes</h4>
-                    <p class="small">Emissions indirectes associades a la generació d'electricitat adquirida per l'organització.</p>
+                    <h4 class="h6 fw-bold">{{ t('methodology.abast2') }}</h4>
+                    <p class="small">{{ t('methodology.abast2p') }}</p>
                   </div>
                 </div>
                 
@@ -252,8 +334,8 @@ const options = ref({
                     <div class="methodology-icon mb-3">
                       <i class="bi bi-3-circle"></i>
                     </div>
-                    <h4 class="h6 fw-bold">Abast 3: Altres emissions indirectes</h4>
-                    <p class="small">Emissions que ocorren en la cadena de valor, incloent l'ús dels vehicles per part dels clients.</p>
+                    <h4 class="h6 fw-bold">{{ t('methodology.abast3') }}</h4>
+                    <p class="small">{{ t('methodology.abast3p') }}</p>
                   </div>
                 </div>
               </div>
@@ -264,9 +346,8 @@ const options = ref({
                     <i class="bi bi-info-circle-fill fs-4"></i>
                   </div>
                   <div>
-                    <h5 class="alert-heading">Verificació de dades</h5>
-                    <p class="mb-0">Les dades han estat recopilades dels registres interns de l'empresa i verificades mitjançant el 
-                    seu Sistema de Gestió Ambiental ISO 14001.</p>
+                    <h5 class="alert-heading">{{ t('alertInfo.title') }}</h5>
+                    <p class="mb-0">{{ t('alertInfo.text') }}</p>
                   </div>
                 </div>
               </div>
@@ -277,7 +358,7 @@ const options = ref({
 
       <!-- Section divider -->
       <div class="divider my-5" id="graphs">
-        <span class="divider-label">Gràfica</span>
+        <span class="divider-label">{{ t('graphic.title') }}</span>
       </div>
 
       <div style="height: 500px;">
@@ -286,7 +367,7 @@ const options = ref({
 
       <!-- Section divider -->
       <div class="divider my-5" id="results">
-        <span class="divider-label">Resultats de l'anàlisi</span>
+        <span class="divider-label">{{ t('graphic.title') }}</span>
       </div>
 
       <!-- Carbon footprint results -->

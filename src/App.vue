@@ -17,10 +17,15 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
           <i class="bi bi-globe-americas text-accent me-2"></i>
           <span class="fw-bold">Projecte Alfabet</span>
         </a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div>
+          <select v-model="locale">
+            <option value="ca">Català</option>
+            <option value="es">Castellà</option>
+          </select>
 
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -34,10 +39,8 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
             <li class="nav-item">
               <a class="nav-link" href="/ClimaticChange">ClimaticChange</a>
             </li>
-            <select v-model="locale">
-            <option value="es">Castellà</option>
-            <option value="ca">Català</option>
-          </select>
+            
+          
           </ul>
         </div>
       </div>
