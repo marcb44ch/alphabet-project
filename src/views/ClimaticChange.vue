@@ -1,15 +1,19 @@
 <script setup>
- import Table from '@/components/Table.vue';
-  import "bootstrap";
-  import { ref, computed } from 'vue';
-  import Chart from '@/components/chart.vue';
-  import Modal from '@/components/modal.vue';
-  import { useI18n } from 'vue-i18n'
+  // Importació de components necessaris per a la vista
+  import Table from '@/components/Table.vue';  // Component de taula per mostrar dades tabulars
+  import "bootstrap";  // Importació de Bootstrap per als estils i funcionalitats
+  import { ref, computed } from 'vue';  // Funcions de Vue 3 per a reactivitat
+  import Chart from '@/components/chart.vue';  // Component per mostrar gràfics
+  import Modal from '@/components/modal.vue';  // Component per mostrar finestres modals
+  import { useI18n } from 'vue-i18n'  // Llibreria d'internacionalització per suportar múltiples idiomes
   
+  // Configuració de la internacionalització amb idioma inicial espanyol
   const { t } = useI18n({
-    locale: 'es',
+    locale: 'es',  // Estableix espanyol com a idioma predeterminat
     messages: {
+      // Diccionari de traduccions en català
       ca: {
+        // Textos per a la secció de capçalera
         header: {
           span: "ESTUDI DE CAS | 2025",
           h1: "Anàlisi d'Estratègies de<br>Sostenibilitat en el Sector Mobilitat",
@@ -17,6 +21,7 @@
           a1: "Resum executiu",
           a2: "Veure estudi complet"
         },
+        // Contingut principal amb resum executiu
         mainContent: {
           h2: "Resum executiu",
           p: "Aquest estudi analitza les estratègies de sostenibilitat implementades per Alphabet Espanya, companyia de rènting i mobilitat corporativa pertanyent al Grup BMW, avaluant el seu impacte ambiental i les solucions desenvolupades en el context de l'emergència climàtica.",
@@ -35,7 +40,8 @@
             li4: "Portfolio diversificat de solucions de mobilitat sostenible"
           }
         },
-        methodology: {
+        // Secció de metodologia amb explicació del procés d'investigació
+    methodology: {
           divider: "Metodologia",
           h2: "Metodologia d'investigació",
           p: "El present estudi analitza les dades publicades a la memòria de sostenibilitat 2023 d'Alphabet Espanya. S'ha emprat una metodologia mixta combinant anàlisi quantitativa de dades mediambientals i examen qualitatiu de les polítiques, productes i estratègies implementades.",
@@ -424,7 +430,6 @@
             },
             buttons: {
               close: "Cerrar",
-              download: "Descargar informe"
             }
           }
         },
@@ -560,9 +565,9 @@
     }
   })
 
-  // Rest of your code remains the same...
-  const headers = ref(['Cargo', 'Nombre', 'Departamento']);
-  const items = ref([
+  // Dades per a la taula del comitè de direcció
+  const headers = ref(['Cargo', 'Nombre', 'Departamento']);  // Capçaleres de la taula
+  const items = ref([  // Elements de la taula amb informació dels directius
     {cargo: "CEO", nombre: "Alberto Copado", departamento: "Dirección General"},
     {cargo: "Directora Comercial", nombre: "Alicia Gálvez", departamento: "Comercial y Marketing"},
     {cargo: "Director de Riesgos", nombre: "Daniel Müller", departamento: "Gestión de Riesgos"},
@@ -570,31 +575,35 @@
     {cargo: "Director de Operaciones", nombre: "Manuel Plaza", departamento: "Operaciones"}
   ]);
   
+  // Dades per al gràfic d'emissions de CO2 per any
   const emissionData = ref([
-    { year: 2021, value: 398450, label: '2021' },
-    { year: 2022, value: 385220, label: '2022' },
-    { year: 2023, value: 372557, label: '2023' }
+    { year: 2021, value: 398450, label: '2021' },  // Dades d'emissions per 2021
+    { year: 2022, value: 385220, label: '2022' },  // Dades d'emissions per 2022
+    { year: 2023, value: 372557, label: '2023' }   // Dades d'emissions per 2023
   ]);
 
+  // Dades per al gràfic de creixement de vehicles elèctrics per any
   const electricVehicles = ref([
-    { year: 2021, value: 1850, label: '2021' },
-    { year: 2022, value: 2860, label: '2022' },
-    { year: 2023, value: 5500, label: '2023' }
+    { year: 2021, value: 1850, label: '2021' },  // Quantitat de vehicles elèctrics el 2021
+    { year: 2022, value: 2860, label: '2022' },  // Quantitat de vehicles elèctrics el 2022
+    { year: 2023, value: 5500, label: '2023' }   // Quantitat de vehicles elèctrics el 2023
   ]);
 
-    // Configuración del gráfico de emisiones
+  // Configuració del gràfic d'emissions de CO2
   const emissionsChartOptions = computed(() => ({
+    // Configuració del títol del gràfic
     title: {
       text: 'Evolución de Emisiones de CO₂',
       subtext: 'Periodo 2021-2023 (tCO₂e)',
       left: 'center',
       textStyle: {
-        color: '#e0e0e0'
+        color: '#e0e0e0'  // Color clar per al tema fosc
       },
       subtextStyle: {
-        color: '#a0a0a0'
+        color: '#a0a0a0'  // Color més suau per al subtítol
       }
     },
+    // Configuració del tooltip (informació en passar el ratolí)
     tooltip: {
       trigger: 'axis',
       formatter: '{b}: {c} tCO₂e',
@@ -602,12 +611,14 @@
         type: 'shadow'
       }
     },
+    // Configuració de la graella del gràfic
     grid: {
       left: '3%',
       right: '4%',
       bottom: '3%',
       containLabel: true
     },
+    // Configuració de l'eix X (anys)
     xAxis: {
       type: 'category',
       data: emissionData.value.map(item => item.label),
@@ -620,6 +631,7 @@
         color: '#e0e0e0'
       }
     },
+    // Configuració de l'eix Y (valors d'emissions)
     yAxis: {
       type: 'value',
       name: 'tCO₂e',
@@ -641,13 +653,14 @@
         }
       }
     },
+    // Configuració de la sèrie de dades
     series: [{
       data: emissionData.value.map(item => item.value),
-      type: 'line',
-      smooth: true,
+      type: 'line',  // Gràfic de línia
+      smooth: true,  // Línia suavitzada
       lineStyle: {
         width: 4,
-        color: '#ef4444'
+        color: '#ef4444'  // Color vermell per a les emissions (negatiu)
       },
       symbol: 'circle',
       symbolSize: 10,
@@ -656,9 +669,10 @@
       },
       markPoint: {
         data: [
-          { type: 'min', name: 'Mínimo' }
+          { type: 'min', name: 'Mínimo' }  // Marca el punt mínim
         ]
       },
+      // Àrea sota la línia amb gradient
       areaStyle: {
         opacity: 0.2,
         color: {
@@ -668,17 +682,18 @@
           x2: 0,
           y2: 1,
           colorStops: [{
-            offset: 0, color: '#ef4444'
+            offset: 0, color: '#ef4444'  // Color vermell a dalt
           }, {
-            offset: 1, color: 'rgba(0,0,0,0)'
+            offset: 1, color: 'rgba(0,0,0,0)'  // Transparent a baix
           }]
         }
       }
     }]
   }));
 
-  // Configuración del gráfico de vehículos eléctricos
+  // Configuració del gràfic de vehicles elèctrics
   const evChartOptions = computed(() => ({
+    // Configuració del títol del gràfic
     title: {
       text: 'Crecimiento de Vehículos Electrificados',
       subtext: 'Periodo 2021-2023',
@@ -690,6 +705,7 @@
         color: '#a0a0a0'
       }
     },
+    // Configuració del tooltip
     tooltip: {
       trigger: 'axis',
       formatter: '{b}: {c} vehículos',
@@ -697,12 +713,14 @@
         type: 'shadow'
       }
     },
+    // Configuració de la graella
     grid: {
       left: '3%',
       right: '4%',
       bottom: '3%',
       containLabel: true
     },
+    // Configuració de l'eix X (anys)
     xAxis: {
       type: 'category',
       data: electricVehicles.value.map(item => item.label),
@@ -715,6 +733,7 @@
         color: '#e0e0e0'
       }
     },
+    // Configuració de l'eix Y (quantitat de vehicles)
     yAxis: {
       type: 'value',
       name: 'Vehículos',
@@ -736,33 +755,41 @@
         }
       }
     },
+    // Configuració de la sèrie de dades
     series: [{
       data: electricVehicles.value.map(item => item.value),
-      type: 'bar',
-      barWidth: '60%',
+      type: 'bar',  // Gràfic de barres
+      barWidth: '60%',  // Amplada de les barres
       itemStyle: {
-        color: '#10b981'
+        color: '#10b981'  // Color verd per als vehicles elèctrics (positiu)
       },
       label: {
         show: true,
         position: 'top',
-        color: '#e0e0e0'
+        color: '#e0e0e0'  // Mostra els valors a sobre de cada barra
       }
     }]
   }));
 </script>
 
 <template>
+  <!-- Contenidor principal amb tema fosc per a tota la pàgina -->
   <div class="study-page dark-theme">
-    <!-- Header section with study title -->
+    <!-- Secció de capçalera amb imatge de fons i títol principal -->
     <section class="header-section position-relative overflow-hidden">
+      <!-- Capa semitransparent per millorar la llegibilitat del text sobre la imatge -->
       <div class="overlay"></div>
+      <!-- Contenidor del contingut de la capçalera -->
       <div class="container position-relative z-3">
         <div class="row min-vh-75 align-items-center py-5">
           <div class="col-lg-8 mx-auto text-center">
+            <!-- Distintiu amb l'any de l'estudi -->
             <span class="badge bg-accent text-dark mb-3 px-3 py-2">{{ t('header.span') }}</span>
+            <!-- Títol principal amb format HTML per permetre salt de línia -->
             <h1 class="display-3 fw-bold text-white mb-3" v-html="t('header.h1')"></h1>
+            <!-- Subtítol de l'estudi -->
             <h2 class="h3 fw-light text-accent mb-4">{{ t('header.h2') }}</h2>
+            <!-- Botons d'acció per navegar a diferents seccions -->
             <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
               <a href="#abstract" class="btn btn-outline-accent">
                 <i class="bi bi-file-text me-2"></i>{{ t('header.a1') }}
@@ -774,26 +801,33 @@
           </div>
         </div>
       </div>
-      <!-- Background elements -->
+      <!-- Elements decoratius del fons -->
       <div class="bg-element bg-element-1"></div>
       <div class="bg-element bg-element-2"></div>
     </section>
 
-    <!-- Main content section -->
+    <!-- Secció principal de contingut -->
     <section class="container py-5">
-      <!-- Abstract section -->
+      <!-- Secció de resum executiu -->
       <div class="row mb-5" id="abstract">
+        <!-- Limitem l'amplada per millorar la llegibilitat en pantalles grans -->
         <div class="col-lg-10 mx-auto">
+          <!-- Targeta amb resum executiu -->
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <!-- Capçalera de la targeta -->
             <div class="card-header bg-dark-accent p-4">
               <h2 class="h4 text-white mb-0">{{ t('mainContent.h2') }}</h2>
             </div>
+            <!-- Cos de la targeta amb el contingut principal -->
             <div class="card-body p-4 p-lg-5">
+              <!-- Paràgraf de descripció general -->
               <p class="lead">
                 {{ t('mainContent.p') }}
               </p>
               <hr class="my-4">
+              <!-- Secció dividida en dues columnes -->
               <div class="row g-4">
+                <!-- Columna d'objectius -->
                 <div class="col-md-6">
                   <h3 class="h5 fw-bold"><i class="bi bi-graph-up-arrow text-accent me-2"></i>{{ t('mainContent.objectives.h3') }}</h3>
                   <ul class="custom-list">
@@ -803,6 +837,7 @@
                     <li>{{ t('mainContent.objectives.li4') }}</li>
                   </ul>
                 </div>
+                <!-- Columna de troballes principals -->
                 <div class="col-md-6">
                   <h3 class="h5 fw-bold"><i class="bi bi-lightbulb text-accent me-2"></i>{{ t('mainContent.findings.h3') }}</h3>
                   <ul class="custom-list">
@@ -818,20 +853,23 @@
         </div>
       </div>
 
-      <!-- Section divider -->
+      <!-- Separador de secció amb etiqueta -->
       <div class="divider my-5" id="methodology">
         <span class="divider-label">{{ t('methodology.divider') }}</span>
       </div>
 
-      <!-- Methodology section -->
+      <!-- Secció de metodologia -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
+          <!-- Targeta amb metodologia de l'estudi -->
           <div class="card border-0 shadow-lg rounded-4">
             <div class="card-body p-4 p-lg-5">
               <h2 class="h3 fw-bold mb-4">{{ t('methodology.h2') }}</h2>
               <p>{{ t('methodology.p') }}</p>
               
+              <!-- Targetes amb els tres tipus d'anàlisi utilitzats -->
               <div class="row g-4 mt-3">
+                <!-- Targeta d'anàlisi documental -->
                 <div class="col-md-4">
                   <div class="methodology-card p-3 rounded-3 h-100">
                     <div class="methodology-icon mb-3">
@@ -842,6 +880,7 @@
                   </div>
                 </div>
                 
+                <!-- Targeta d'anàlisi quantitativa -->
                 <div class="col-md-4">
                   <div class="methodology-card p-3 rounded-3 h-100">
                     <div class="methodology-icon mb-3">
@@ -852,6 +891,7 @@
                   </div>
                 </div>
                 
+                <!-- Targeta d'anàlisi comparativa -->
                 <div class="col-md-4">
                   <div class="methodology-card p-3 rounded-3 h-100">
                     <div class="methodology-icon mb-3">
@@ -863,6 +903,7 @@
                 </div>
               </div>
 
+              <!-- Alerta amb les limitacions de l'estudi -->
               <div class="alert alert-info mt-4">
                 <div class="d-flex">
                   <div class="me-3">
@@ -879,20 +920,23 @@
         </div>
       </div>
 
-      <!-- Section divider -->
+      <!-- Separador de secció per al context empresarial -->
       <div class="divider my-5" id="context">
         <span class="divider-label">{{ t('context.divider') }}</span>
       </div>
 
-      <!-- Company context section -->
+      <!-- Secció de context empresarial -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
+          <!-- Targeta amb la informació de l'empresa analitzada -->
           <div class="card border-0 shadow-lg rounded-4">
             <div class="card-body p-4 p-lg-5">
               <h2 class="h3 fw-bold mb-4">{{ t('context.h2') }}</h2>
               <p>{{ t('context.p') }}</p>
               
+              <!-- Dividim la informació en dues columnes -->
               <div class="row g-4 mt-3">
+                <!-- Columna amb informació general de l'empresa -->
                 <div class="col-lg-6">
                   <h3 class="h5 fw-bold mb-3">{{ t('context.list.h3') }}</h3>
                   <ul class="custom-list">
@@ -903,11 +947,14 @@
                   </ul>
                 </div>
                 
+                <!-- Columna amb mètriques clau en format visual -->
                 <div class="col-lg-6">
                   <div class="key-metrics-panel p-3 rounded-3">
                     <h3 class="h5 fw-bold mb-3">{{ t('context.metrics.h3') }}</h3>
                     
+                    <!-- Graella d'indicadors clau en format de targetes petites -->
                     <div class="row g-3">
+                      <!-- Facturació anual -->
                       <div class="col-6">
                         <div class="metric-item d-flex align-items-center p-2">
                           <div class="metric-icon bg-primary-subtle text-primary me-3">
@@ -920,6 +967,7 @@
                         </div>
                       </div>
                       
+                      <!-- Benefici abans d'impostos -->
                       <div class="col-6">
                         <div class="metric-item d-flex align-items-center p-2">
                           <div class="metric-icon bg-success-subtle text-success me-3">
@@ -932,6 +980,7 @@
                         </div>
                       </div>
                       
+                      <!-- Nombre d'empleats -->
                       <div class="col-6">
                         <div class="metric-item d-flex align-items-center p-2">
                           <div class="metric-icon bg-info-subtle text-info me-3">
@@ -944,6 +993,7 @@
                         </div>
                       </div>
                       
+                      <!-- Vehicles en flota -->
                       <div class="col-6">
                         <div class="metric-item d-flex align-items-center p-2">
                           <div class="metric-icon bg-warning-subtle text-warning me-3">
@@ -964,26 +1014,31 @@
         </div>
       </div>
 
-      <!-- Section divider -->
+      <!-- Separador per a la secció d'anàlisi d'impacte ambiental -->
       <div class="divider my-5" id="results">
         <span class="divider-label">{{ t('results.divider') }}</span>
       </div>
 
-      <!-- Environmental impact results -->
+      <!-- Secció d'anàlisi d'impacte ambiental -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
+          <!-- Targeta principal amb la informació de petjada ambiental -->
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <!-- Capçalera de la secció -->
             <div class="card-header bg-dark-accent p-4">
               <h2 class="h4 text-white mb-0">{{ t('results.h2') }}</h2>
             </div>
             <div class="card-body p-4 p-lg-5">
               <div class="row g-4">
                 
+                <!-- Columna d'anàlisi d'emissions GEH -->
                 <div class="col-lg-6">
                   <h3 class="h5 fw-bold mb-4">{{ t('results.emissions.h3') }}</h3>
                   <p>{{ t('results.emissions.p') }}</p>
                   
+                  <!-- Desglossament d'emissions per tipus (Abast 1, 2 i 3) -->
                   <div class="emissions-breakdown mt-4">
+                    <!-- Emissions d'Abast 1 (directes) -->
                     <div class="d-flex align-items-center mb-3">
                       <div class="me-3" style="width: 15px; height: 15px; background-color: #28a745; border-radius: 3px;"></div>
                       <div>
@@ -992,6 +1047,7 @@
                       </div>
                     </div>
                     
+                    <!-- Emissions d'Abast 2 (electricitat) -->
                     <div class="d-flex align-items-center mb-3">
                       <div class="me-3" style="width: 15px; height: 15px; background-color: #0d6efd; border-radius: 3px;"></div>
                       <div>
@@ -1000,6 +1056,7 @@
                       </div>
                     </div>
                     
+                    <!-- Emissions d'Abast 3 (indirectes) -->
                     <div class="d-flex align-items-center">
                       <div class="me-3" style="width: 15px; height: 15px; background-color: #dc3545; border-radius: 3px;"></div>
                       <div>
@@ -1009,6 +1066,7 @@
                     </div>
                   </div>
                   
+                  <!-- Alerta amb troballa significativa sobre les emissions d'Abast 3 -->
                   <div class="alert alert-warning mt-4">
                     <div class="d-flex">
                       <div class="me-3">
@@ -1022,10 +1080,13 @@
                   </div>
                 </div>
                 
+                <!-- Columna amb altres mètriques ambientals -->
                 <div class="col-lg-6">
                   <h3 class="h5 fw-bold mb-4">{{ t('results.otherMetrics.h3') }}</h3>
                   
+                  <!-- Panell amb mètriques energètiques, aigua i reciclatge -->
                   <div class="env-metrics-panel mb-3">
+                    <!-- Mètrica de consum energètic -->
                     <div class="env-metric-item pb-3">
                       <div class="d-flex justify-content-between align-items-start mb-2">
                         <h4 class="h6 mb-0 fw-bold">{{ t('results.otherMetrics.energy.h4') }}</h4>
@@ -1044,6 +1105,7 @@
                       </div>
                     </div>
                     
+                    <!-- Mètrica de consum d'aigua -->
                     <div class="env-metric-item py-3">
                       <div class="d-flex justify-content-between align-items-start mb-2">
                         <h4 class="h6 mb-0 fw-bold">{{ t('results.otherMetrics.water.h4') }}</h4>
@@ -1062,6 +1124,7 @@
                       </div>
                     </div>
                     
+                    <!-- Mètrica de reciclatge de paper -->
                     <div class="env-metric-item pt-3">
                       <div class="d-flex justify-content-between align-items-start mb-2">
                         <h4 class="h6 mb-0 fw-bold">{{ t('results.otherMetrics.recycling.h4') }}</h4>
@@ -1081,6 +1144,7 @@
                     </div>
                   </div>
                   
+                  <!-- Botó per mostrar el modal amb més dades d'impacte climàtic -->
                   <button class="btn btn-sm btn-outline-accent w-100 mt-2" data-bs-toggle="modal" data-bs-target="#climateImpactModal">
                     <i class="bi bi-cloud-haze2 me-2"></i>{{ t('results.modal.button') }}
                   </button>
@@ -1091,23 +1155,24 @@
         </div>
       </div>
 
-      <!-- Section divider -->
+      <!-- Separador per a la secció de gràfics -->
       <div class="divider my-5" id="charts">
         <span class="divider-label">{{ t('charts.divider') }}</span>
       </div>
 
-      <!-- Emissions and EV charts -->
+      <!-- Secció amb el gràfic d'emissions de CO2 -->
       <div class="row mt-5 mb-4">
         <div class="col-lg-12">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="card-body p-4">
+              <!-- Component de gràfic amb les dades d'emissions -->
               <chart :options="emissionsChartOptions" style="height: 400px;" />
             </div>
           </div>
         </div>
       </div>
 
-      <!-- EV chart with analysis -->
+      <!-- Secció amb el gràfic de vehicles elèctrics -->
       <div class="row mt-5">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
@@ -1115,19 +1180,19 @@
               <h2 class="h3 fw-bold mb-3">{{ t('charts.ev.h2') }}</h2>
               <p class="mb-4">{{ t('charts.ev.p') }}</p>
               
+              <!-- Component de gràfic amb les dades de vehicles elèctrics -->
               <chart :options="evChartOptions" style="height: 400px;" />
             </div>
           </div>
         </div>
       </div>
 
-
-      <!-- Section divider -->
+      <!-- Separador per a la secció d'estratègies implementades -->
       <div class="divider my-5" id="strategies">
         <span class="divider-label">{{ t('strategies.divider') }}</span>
       </div>
 
-      <!-- Sustainable products analysis -->
+      <!-- Secció d'estratègies i productes sostenibles -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4">
@@ -1135,7 +1200,9 @@
               <h2 class="h3 fw-bold mb-4">{{ t('strategies.h2') }}</h2>
               <p>{{ t('strategies.p') }}</p>
               
+              <!-- Targetes amb les diferents solucions de mobilitat sostenible -->
               <div class="row g-4 mt-3">
+                <!-- Consultoria d'electrificació -->
                 <div class="col-md-6 col-lg-3">
                   <div class="product-analysis-card h-100">
                     <div class="product-icon">
@@ -1147,6 +1214,7 @@
                   </div>
                 </div>
                 
+                <!-- Alphabet Share (carsharing corporatiu) -->
                 <div class="col-md-6 col-lg-3">
                   <div class="product-analysis-card h-100">
                     <div class="product-icon">
@@ -1158,6 +1226,7 @@
                   </div>
                 </div>
                 
+                <!-- Targeta de recàrrega -->
                 <div class="col-md-6 col-lg-3">
                   <div class="product-analysis-card h-100">
                     <div class="product-icon">
@@ -1169,6 +1238,7 @@
                   </div>
                 </div>
                 
+                <!-- Punt de recàrrega -->
                 <div class="col-md-6 col-lg-3">
                   <div class="product-analysis-card h-100">
                     <div class="product-icon">
@@ -1181,8 +1251,10 @@
                 </div>
               </div>
               
+              <!-- Indicadors d'electrificació -->
               <h3 class="h5 fw-bold mt-5 mb-3">{{ t('strategies.indicators.h3') }}</h3>
               <div class="row">
+                <!-- Creixement de matriculacions elèctriques -->
                 <div class="col-md-6">
                   <div class="card bg-dark-accent border-0">
                     <div class="card-body p-3">
@@ -1203,6 +1275,7 @@
                   </div>
                 </div>
                 
+                <!-- Vehicles electrificats en flota -->
                 <div class="col-md-6">
                   <div class="card bg-dark-accent border-0">
                     <div class="card-body p-3">
@@ -1221,14 +1294,12 @@
         </div>
       </div>
 
-      <!-- Section divider -->
+      <!-- Separador per a la secció de govern corporatiu -->
       <div class="divider my-5" id="governance">
         <span class="divider-label">{{ t('governance.divider') }}</span>
       </div>
 
-      
-
-      <!-- Governance section -->
+      <!-- Secció de govern corporatiu -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4">
@@ -1237,17 +1308,19 @@
               <p>{{ t('governance.p') }}</p>
               
               <div class="row g-4">
-                             
+                <!-- Informació sobre el consell d'administració -->
                 <div class="col-lg-5">
                   <h3 class="h5 fw-bold mb-3">{{ t('governance.board.h3') }}</h3>
                   <p class="small mb-4">{{ t('governance.board.p') }}</p>
                   
+                  <!-- Llista de membres del consell -->
                   <ul class="custom-list">
                     <li>{{ t('governance.board.members.member1') }}</li>
                     <li>{{ t('governance.board.members.member2') }}</li>
                     <li>{{ t('governance.board.members.member3') }}</li>
                   </ul>
                   
+                  <!-- Troballa sobre la creació del rol de consultor de sostenibilitat -->
                   <div class="card bg-dark-accent border-0 mt-4">
                     <div class="card-body p-3">
                       <h4 class="h6 mb-2">{{ t('governance.committee.finding.h4') }}</h4>
@@ -1261,23 +1334,26 @@
         </div>
       </div>
 
-      <!-- Section divider -->
+      <!-- Separador per a la secció de conclusions -->
       <div class="divider my-5" id="conclusions">
         <span class="divider-label">{{ t('conclusions.divider') }}</span>
       </div>
 
-      <!-- Conclusions section -->
+      <!-- Secció de conclusions i recomanacions -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <!-- Capçalera de conclusions -->
             <div class="card-header bg-dark-accent p-4">
               <h2 class="h4 text-white mb-0">{{ t('conclusions.h2') }}</h2>
             </div>
             <div class="card-body p-4 p-lg-5">
               <div class="row">
+                <!-- Columna amb troballes principals -->
                 <div class="col-lg-6">
                   <h3 class="h5 fw-bold mb-4">{{ t('conclusions.findings.h3') }}</h3>
                   
+                  <!-- Fortaleses identificades -->
                   <div class="conclusion-item mb-4">
                     <h4 class="h6 fw-bold text-success mb-3">{{ t('conclusions.findings.strengths.h4') }}</h4>
                     <ul class="small custom-list">
@@ -1288,6 +1364,7 @@
                     </ul>
                   </div>
                   
+                  <!-- Àrees de millora identificades -->
                   <div class="conclusion-item">
                     <h4 class="h6 fw-bold text-warning mb-3">{{ t('conclusions.findings.areas.h4') }}</h4>
                     <ul class="small custom-list">
@@ -1299,9 +1376,11 @@
                   </div>
                 </div>
                 
+                <!-- Columna amb recomanacions -->
                 <div class="col-lg-6">
                   <h3 class="h5 fw-bold mb-4">{{ t('conclusions.recommendations.h3') }}</h3>
                   
+                  <!-- Recomanació 1: Estratègia integral d'Abast 3 -->
                   <div class="recommendation-item mb-3">
                     <div class="d-flex">
                       <div class="recommendation-number">1</div>
@@ -1312,6 +1391,7 @@
                     </div>
                   </div>
                   
+                  <!-- Recomanació 2: Acceleració de l'electrificació -->
                   <div class="recommendation-item mb-3">
                     <div class="d-flex">
                       <div class="recommendation-number">2</div>
@@ -1322,6 +1402,7 @@
                     </div>
                   </div>
                   
+                  <!-- Recomanació 3: Gestió eficient de l'aigua -->
                   <div class="recommendation-item mb-3">
                     <div class="d-flex">
                       <div class="recommendation-number">3</div>
@@ -1332,6 +1413,7 @@
                     </div>
                   </div>
                   
+                  <!-- Recomanació 4: Formalització de l'estructura de sostenibilitat -->
                   <div class="recommendation-item">
                     <div class="d-flex">
                       <div class="recommendation-number">4</div>
@@ -1344,6 +1426,7 @@
                 </div>
               </div>
 
+              <!-- Panell amb citació destacada -->
               <div class="quote-panel mt-5">
                 <blockquote class="blockquote">
                   <p>{{ t('conclusions.quote.blockquote') }}</p>
@@ -1357,12 +1440,13 @@
         </div>
       </div>
 
-      <!-- References section -->
+      <!-- Secció de referències bibliogràfiques -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-sm rounded-4">
             <div class="card-body p-4">
               <h3 class="h5 fw-bold mb-3">{{ t('references.h3') }}</h3>
+              <!-- Llista de referències utilitzades en l'estudi -->
               <ol class="references-list">
                 <li v-html="t('references.ref1')"></li>
                 <li v-html="t('references.ref2')"></li>
@@ -1374,15 +1458,17 @@
       </div>
     </section>
 
-    <!-- Modal for climate impact data -->
+    <!-- Modal per mostrar dades detallades d'impacte climàtic -->
     <Modal id="climateImpactModal">
       <template #title>{{ t('results.modal.title') }}</template>
       <template #body>
+        <!-- Alerta informativa amb la troballa clau -->
         <div class="alert alert-info mb-4">
           <i class="bi bi-info-circle-fill me-2"></i>
           {{ t('results.modal.finding') }}
         </div>
         
+        <!-- Resum d'emissions per abast -->
         <h5 class="h6 fw-bold mb-3">{{ t('results.modal.emissions.title') }}</h5>
         <ul class="list-unstyled mb-4">
           <li class="mb-2"><i class="bi bi-circle-fill text-success me-2 small"></i>{{ t('results.modal.emissions.scope1') }} <span class="fw-bold">514,92 tCO₂e</span></li>
@@ -1391,6 +1477,7 @@
           <li class="fw-bold border-top pt-2">{{ t('results.modal.emissions.total') }} <span>372.557,87 tCO₂e</span></li>
         </ul>
         
+        <!-- Progrés en sostenibilitat -->
         <h5 class="h6 fw-bold mb-3">{{ t('results.modal.progress.title') }}</h5>
         <div class="row">
           <div class="col-sm-4 mb-3">
@@ -1407,124 +1494,129 @@
           </div>
         </div>
       </template>
+      <!-- Botons d'acció del modal -->
       <template #footer>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('results.modal.buttons.close') }}</button>
-        <button type="button" class="btn btn-accent">
-          <i class="bi bi-download me-2"></i>{{ t('results.modal.buttons.download') }}
-        </button>
       </template>
     </Modal>
   </div>
 </template>
 
 <style>
-/* Global reset to remove white border */
+/* Resetejat global per eliminar els marges blancs */
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-/* Add seamless scrolling */
+/* Afegir desplaçament suau entre seccions */
 html {
   scroll-behavior: smooth;
 }
 
-/* Dark theme base styles */
+/* Estils base per al tema fosc */
 .dark-theme {
-  --bg-color: #121212;
-  --card-bg: #1e1e1e;
-  --card-bg-accent: #2a2a2a;
-  --text-color: #e0e0e0;
-  --text-muted: #a0a0a0;
-  --accent-color: #10b981;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --shadow-color: rgba(0, 0, 0, 0.5);
+  --bg-color: #121212;  /* Color de fons principal */
+  --card-bg: #1e1e1e;  /* Color de fons de les targetes */
+  --card-bg-accent: #2a2a2a;  /* Color de fons accent per a capçaleres */
+  --text-color: #e0e0e0;  /* Color de text principal */
+  --text-muted: #a0a0a0;  /* Color de text secundari/atenuat */
+  --accent-color: #10b981;  /* Color d'accent (verd) */
+  --border-color: rgba(255, 255, 255, 0.1);  /* Color de vores */
+  --shadow-color: rgba(0, 0, 0, 0.5);  /* Color d'ombres */
 }
 </style>
 
 <style scoped>
-/* General styling */
+/* Estils generals */
 .study-page {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg-color, #121212);
-  color: var(--text-color, #e0e0e0);
-  overflow-x: hidden; /* Prevent horizontal scrollbar */
+  font-family: 'Inter', sans-serif;  /* Tipografia moderna i neta */
+  background-color: var(--bg-color, #121212);  /* Color de fons fosc */
+  color: var(--text-color, #e0e0e0);  /* Text clar per contrast */
+  overflow-x: hidden; /* Evita la barra de desplaçament horitzontal */
 }
 
+/* Estil per als paràgrafs amb color més suau */
 p {
   color: var(--text-muted, #a0a0a0);
-  line-height: 1.6;
+  line-height: 1.6;  /* Millora llegibilitat amb interlineat més espaiós */
 }
 
+/* Estil per als encapçalaments */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-color, #e0e0e0);
 }
 
-/* Header section styling - Full bleed image */
+/* Estil de la secció de capçalera amb imatge de fons */
 .header-section {
-  background-color: #000;
-  background-image: url('https://images.unsplash.com/photo-1517026575980-3e1e2dedeab4?w=1400&q=80');
-  background-size: cover;
-  background-position: center;
-  min-height: 60vh;
-  position: relative;
-  z-index: 1;
-  margin: 0; /* Remove any margin */
-  padding: 0; /* Remove any padding */
+  background-color: #000;  /* Fons negre com a fallback */
+  background-image: url('https://images.unsplash.com/photo-1517026575980-3e1e2dedeab4?w=1400&q=80');  /* Imatge de fons */
+  background-size: cover;  /* Cobreix tot l'espai disponible */
+  background-position: center;  /* Centrat de la imatge */
+  min-height: 60vh;  /* Alçada mínima per visibilitat */
+  position: relative;  /* Per posicionar elements interns */
+  z-index: 1;  /* Capa base */
+  margin: 0; /* Elimina els marges */
+  padding: 0; /* Elimina el padding */
 }
 
+/* Defineix l'alçada mínima de la capçalera en proporció a la finestra */
 .min-vh-75 {
   min-height: 75vh;
 }
 
+/* Capa fosca semitransparent sobre la imatge de capçalera */
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);
-  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 100%);  /* Gradient fosc */
+  z-index: 2;  /* Per sobre de la imatge */
 }
 
-/* Accent colors */
+/* Colors d'accent */
 .text-accent {
-  color: var(--accent-color, #10b981) !important;
+  color: var(--accent-color, #10b981) !important;  /* Text amb color accent (prioritat alta) */
 }
 
 .bg-accent {
-  background-color: var(--accent-color, #10b981) !important;
+  background-color: var(--accent-color, #10b981) !important;  /* Fons amb color accent */
 }
 
 .bg-dark-accent {
-  background-color: #1a1a1a !important; /* Darker shade for dark mode */
+  background-color: #1a1a1a !important; /* To més fosc per capçaleres */
 }
 
-/* Card styling for dark theme */
+/* Estil de targetes pel tema fosc */
 .card {
-  background-color: var(--card-bg, #1e1e1e);
-  border: none;
-  color: var(--text-color, #e0e0e0);
-  box-shadow: 0 8px 16px var(--shadow-color, rgba(0, 0, 0, 0.5)) !important;
+  background-color: var(--card-bg, #1e1e1e);  /* Fons fosc per les targetes */
+  border: none;  /* Sense vores */
+  color: var(--text-color, #e0e0e0);  /* Text clar */
+  box-shadow: 0 8px 16px var(--shadow-color, rgba(0, 0, 0, 0.5)) !important;  /* Ombra pronunciada */
 }
 
+/* Estil per a les capçaleres de targetes */
 .card .card-header {
-  background-color: var(--card-bg-accent, #2a2a2a);
-  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  background-color: var(--card-bg-accent, #2a2a2a);  /* Fons una mica més clar */
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));  /* Vora subtil */
 }
 
+/* Estil pel cos de les targetes */
 .card .card-body {
-  background-color: var(--card-bg, #1e1e1e);
+  background-color: var(--card-bg, #1e1e1e);  /* Mateix fons que la targeta */
 }
 
-/* Divider styling */
+/* Estil del separador de seccions */
 .divider {
   position: relative;
   text-align: center;
   margin: 3rem 0;
 }
 
+/* Línia horitzontal del separador */
 .divider:before {
   content: '';
   position: absolute;
@@ -1532,19 +1624,77 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 1px;
-  background-color: var(--border-color, rgba(255, 255, 255, 0.1));
+  background-color: var(--border-color, rgba(255, 255, 255, 0.1));  /* Línia subtil */
 }
 
+/* Etiqueta del separador */
 .divider-label {
   position: relative;
   display: inline-block;
   padding: 0.5rem 1rem;
-  background-color: var(--bg-color, #121212);
-  color: var(--text-color, #e0e0e0);
-  font-weight: 600;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px var(--shadow-color, rgba(0, 0, 0, 0.5));
-  z-index: 10;
+  background-color: var(--bg-color, #121212);  /* Fons igual que la pàgina */
+  color: var(--text-color, #e0e0e0);  /* Text clar */
+  font-weight: 600;  /* Semibold per llegibilitat */
+  border-radius: 4px;  /* Cantonades arrodonides */
+  box-shadow: 0 2px 5px var(--shadow-color, rgba(0, 0, 0, 0.5));  /* Ombra subtil */
+  z-index: 10;  /* Per sobre de la línia */
+}
+
+/* Icona del separador (alternativa a l'etiqueta) */
+.divider-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;  /* Forma circular */
+  background-color: var(--card-bg-accent, #2a2a2a);  /* Fons fosc */
+  color: var(--accent-color, #10b981);  /* Color accent */
+  z-index: 10;  /* Per sobre de la línia */
+  box-shadow: 0 2px 5px var(--shadow-color, rgba(0, 0, 0, 0.5));  /* Ombra subtil */
+}
+
+/* Elements decoratius de fons animats */
+.bg-element {
+  position: absolute;
+  border-radius: 50%;  /* Forma circular */
+  opacity: 0.1;  /* Molt transparent */
+  z-index: 1;  /* Darrere del contingut */
+  filter: blur(50px);  /* Efecte difuminat */
+}
+
+/* Element de fons 1 (verd/blau) */
+.bg-element-1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, #10b981, #0ea5e9);  /* Gradient verd-blau */
+  top: -50px;
+  right: -50px;
+  animation: float 15s ease-in-out infinite;  /* Animació flotant */
+}
+
+/* Element de fons 2 (vermell/taronja) */
+.bg-element-2 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(45deg, #ef4444, #f59e0b);  /* Gradient vermell-taronja */
+  bottom: 50px;
+  left: -50px;
+  animation: float 20s ease-in-out infinite reverse;  /* Animació inversa */
+}
+
+/* Animació de flotació per als elements de fons */
+@keyframes float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(20px, 15px) rotate(5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Llistes personalitzades amb fletxes en lloc de punts */
+.custom-list {
+  list-style: none;
+  padding-left: 0;
 }
 
 .divider-icon {
@@ -1561,338 +1711,372 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 2px 5px var(--shadow-color, rgba(0, 0, 0, 0.5));
 }
 
-/* Animated background elements */
+/* Elements decoratius de fons animats - crea esferes difuminades que floten subtilment en el fons */
 .bg-element {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.1;
-  z-index: 1;
-  filter: blur(50px);
+  position: absolute;      /* Posicionament absolut per col·locar-los en qualsevol lloc de la pàgina */
+  border-radius: 50%;      /* Forma circular (50% crea un cercle perfecte) */
+  opacity: 0.1;            /* Quasi transparent per no distreure del contingut principal */
+  z-index: 1;              /* Capa inferior darrere del contingut principal */
+  filter: blur(50px);      /* Efecte difuminat intensiu per crear una aparença de "nebulosa" */
 }
 
+/* Element decoratiu de fons 1 - esfera amb gradient verd-blau a la part superior dreta */
 .bg-element-1 {
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(45deg, #10b981, #0ea5e9);
-  top: -50px;
-  right: -50px;
-  animation: float 15s ease-in-out infinite;
+  width: 300px;            /* Amplada de l'esfera més gran */
+  height: 300px;           /* Alçada igual a l'amplada per mantenir la forma circular */
+  background: linear-gradient(45deg, #10b981, #0ea5e9);  /* Gradient diagonal de verd a blau */
+  top: -50px;              /* Posicionat parcialment fora de la vora superior */
+  right: -50px;            /* Posicionat parcialment fora de la vora dreta */
+  animation: float 15s ease-in-out infinite;  /* Animació suau que es repeteix indefinidament cada 15s */
 }
 
+/* Element decoratiu de fons 2 - esfera amb gradient vermell-taronja a la part inferior esquerra */
 .bg-element-2 {
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(45deg, #ef4444, #f59e0b);
-  bottom: 50px;
-  left: -50px;
-  animation: float 20s ease-in-out infinite reverse;
+  width: 200px;            /* Amplada més petita que la primera esfera */
+  height: 200px;           /* Alçada igual a l'amplada per mantenir la forma circular */
+  background: linear-gradient(45deg, #ef4444, #f59e0b);  /* Gradient diagonal de vermell a taronja */
+  bottom: 50px;            /* Posicionat a 50px de la vora inferior */
+  left: -50px;             /* Posicionat parcialment fora de la vora esquerra */
+  animation: float 20s ease-in-out infinite reverse;  /* Animació més lenta i en direcció contrària */
 }
 
+/* Definició de l'animació de flotació utilitzada pels elements de fons */
 @keyframes float {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(20px, 15px) rotate(5deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+  0% { transform: translate(0, 0) rotate(0deg); }       /* Posició inicial (sense moviment ni rotació) */
+  50% { transform: translate(20px, 15px) rotate(5deg); } /* Punt mitjà: desplaçat i lleugerament rotat */
+  100% { transform: translate(0, 0) rotate(0deg); }     /* Torna a la posició inicial per crear un cicle fluid */
 }
 
-/* Custom lists */
+/* Estil base per a les llistes personalitzades sense marcadors predeterminats */
 .custom-list {
-  list-style: none;
-  padding-left: 0;
+  list-style: none;        /* Elimina els marcadors de llista predeterminats (punts o números) */
+  padding-left: 0;         /* Elimina el padding esquerre que normalment tenen les llistes */
 }
-
+/* Estil per elements de llista personalitzats - defineix l'aparença base de les llistes */
 .custom-list li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-muted, #a0a0a0);
+  position: relative;     /* Posicionament relatiu per permetre col·locar elements fills */
+  padding-left: 1.5rem;   /* Espaiat esquerre per deixar lloc a l'indicador de llista */
+  margin-bottom: 0.5rem;  /* Marge inferior entre elements de la llista */
+  color: var(--text-muted, #a0a0a0);  /* Color de text atenuat per millorar la llegibilitat */
 }
 
+/* Afegeix una fletxa abans de cada element de la llista personalitzada */
 .custom-list li:before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--accent-color, #10b981);
+  content: '→';           /* Utilitza una fletxa com a indicador d'element */
+  position: absolute;     /* Posicionament absolut respecte al parent (relatiu) */
+  left: 0;                /* Alineat a l'esquerra */
+  color: var(--accent-color, #10b981);  /* Color d'accent per destacar l'indicador */
 }
 
-/* Methodology cards */
+/* Estil per a les targetes de metodologia, amb fons més fosc i efectes visuals */
 .methodology-card {
-  background-color: var(--card-bg-accent, #2a2a2a);
-  box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.5));
-  transition: all 0.3s ease;
+  background-color: var(--card-bg-accent, #2a2a2a);  /* Fons una mica més fosc que el principal */
+  box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.5));  /* Ombra suau */
+  transition: all 0.3s ease;  /* Transició suau per als efectes d'interacció */
 }
 
+/* Efecte d'elevació en passar el ratolí per sobre de les targetes de metodologia */
 .methodology-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px var(--shadow-color, rgba(0, 0, 0, 0.8));
+  transform: translateY(-3px);  /* Mou lleugerament cap amunt per efecte de "flotació" */
+  box-shadow: 0 5px 15px var(--shadow-color, rgba(0, 0, 0, 0.8));  /* Ombra més pronunciada */
 }
 
+/* Estil per a les icones dins de les targetes de metodologia */
 .methodology-icon {
-  color: var(--accent-color, #10b981);
-  font-size: 1.5rem;
+  color: var(--accent-color, #10b981);  /* Color d'accent per a les icones */
+  font-size: 1.5rem;  /* Mida d'icona més gran */
 }
 
-/* Alert styling */
+/* Estils per als missatges d'alerta, adaptats al tema fosc */
 .alert {
-  background-color: var(--card-bg-accent, #2a2a2a);
-  color: var(--text-color, #e0e0e0);
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  background-color: var(--card-bg-accent, #2a2a2a);  /* Fons fosc per a les alertes */
+  color: var(--text-color, #e0e0e0);  /* Text clar per llegibilitat */
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));  /* Vora subtil */
 }
 
+/* Variació d'alerta informativa amb vora esquerra blava */
 .alert-info {
-  border-left: 4px solid #0ea5e9;
+  border-left: 4px solid #0ea5e9;  /* Indicador visual blau per a informació */
 }
 
+/* Variació d'alerta d'advertència amb vora esquerra taronja */
 .alert-warning {
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid #f59e0b;  /* Indicador visual taronja per a advertències */
 }
 
-/* Key metrics panel */
+/* Estil del panell de mètriques clau amb gradient de fons i vora d'accent */
 .key-metrics-panel {
-  background: linear-gradient(to bottom right, #1a1a1a, #2a2a2a);
-  border-left: 4px solid var(--accent-color, #10b981);
+  background: linear-gradient(to bottom right, #1a1a1a, #2a2a2a);  /* Gradient subtil */
+  border-left: 4px solid var(--accent-color, #10b981);  /* Vora d'accent a l'esquerra */
 }
 
+/* Efectes d'animació per als elements de mètriques */
 .metric-item {
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease;  /* Transició suau per a l'efecte d'hover */
 }
 
+/* Efecte de lliscament en passar el ratolí per sobre de les mètriques */
 .metric-item:hover {
-  transform: translateX(5px);
+  transform: translateX(5px);  /* Es mou lleugerament cap a la dreta */
 }
 
+/* Estil per a les icones de mètriques */
 .metric-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
+  width: 40px;           /* Amplada fixa */
+  height: 40px;          /* Alçada fixa (quadrat) */
+  border-radius: 8px;    /* Cantonades arrodonides */
+  display: flex;         /* Flexbox per centrar contingut */
+  align-items: center;   /* Centrat vertical */
+  justify-content: center; /* Centrat horitzontal */
+  font-size: 1.2rem;     /* Mida d'icona més gran */
 }
 
+/* Variacions de color per als fons d'icones de mètriques */
 .bg-primary-subtle {
-  background-color: rgba(13, 110, 253, 0.2);
+  background-color: rgba(13, 110, 253, 0.2);  /* Blau semitransparent */
 }
 
 .bg-success-subtle {
-  background-color: rgba(25, 135, 84, 0.2);
+  background-color: rgba(25, 135, 84, 0.2);  /* Verd semitransparent */
 }
 
 .bg-info-subtle {
-  background-color: rgba(13, 202, 240, 0.2);
+  background-color: rgba(13, 202, 240, 0.2);  /* Cian semitransparent */
 }
 
 .bg-warning-subtle {
-  background-color: rgba(255, 193, 7, 0.2);
+  background-color: rgba(255, 193, 7, 0.2);  /* Groc semitransparent */
 }
 
+/* Estil per als valors numèrics dins de les mètriques */
 .metric-value {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--text-color, #e0e0e0);
+  font-weight: 700;      /* Text en negreta */
+  font-size: 1.1rem;     /* Mida de text més gran */
+  color: var(--text-color, #e0e0e0);  /* Color clar per destacar */
 }
 
+/* Estil per a les etiquetes de mètriques */
 .metric-label {
-  font-size: 0.8rem;
-  color: var(--text-muted, #a0a0a0);
+  font-size: 0.8rem;     /* Text més petit */
+  color: var(--text-muted, #a0a0a0);  /* Color atenuat secundari */
 }
 
-/* Environmental metrics */
+/* Panell per a les mètriques ambientals amb efecte d'elevació */
 .env-metrics-panel {
-  background-color: var(--card-bg-accent, #2a2a2a);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.5));
+  background-color: var(--card-bg-accent, #2a2a2a);  /* Fons fosc */
+  border-radius: 12px;   /* Cantonades molt arrodonides */
+  padding: 1.5rem;       /* Espaiat interior ampli */
+  box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.5));  /* Ombra suau */
 }
 
+/* Elements individuals de mètriques ambientals, amb separadors */
 .env-metric-item {
-  padding-bottom: 1rem;
-  border-bottom: 1px dashed var(--border-color, rgba(255, 255, 255, 0.1));
+  padding-bottom: 1rem;  /* Espaiat inferior */
+  border-bottom: 1px dashed var(--border-color, rgba(255, 255, 255, 0.1));  /* Línia discontinua de separació */
 }
 
+/* Elimina la línia separadora de l'últim element */
 .env-metric-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  border-bottom: none;   /* Sense vora per a l'últim element */
+  padding-bottom: 0;     /* Sense padding inferior per a l'últim element */
 }
 
-/* Product analysis cards */
+/* Estils per a les targetes d'anàlisi de productes */
 .product-analysis-card {
-  background-color: var(--card-bg-accent, #2a2a2a);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.5));
-  transition: all 0.3s ease;
+  background-color: var(--card-bg-accent, #2a2a2a);  /* Fons fosc */
+  border-radius: 12px;   /* Cantonades molt arrodonides */
+  padding: 1.5rem;       /* Espaiat interior ampli */
+  box-shadow: 0 2px 10px var(--shadow-color, rgba(0, 0, 0, 0.5));  /* Ombra suau */
+  transition: all 0.3s ease;  /* Transició suau per a efectes d'interacció */
 }
 
+/* Efecte d'elevació en passar el ratolí per sobre de les targetes de productes */
 .product-analysis-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px var(--shadow-color, rgba(0, 0, 0, 0.8));
+  transform: translateY(-5px);  /* Elevació més pronunciada que les targetes de metodologia */
+  box-shadow: 0 10px 20px var(--shadow-color, rgba(0, 0, 0, 0.8));  /* Ombra més gran i intensa */
 }
 
+/* Icones per als productes, amb estil circular i color d'accent */
 .product-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.2);
-  color: var(--accent-color, #10b981);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  width: 50px;           /* Més gran que les icones de mètriques */
+  height: 50px;          /* Forma quadrada */
+  border-radius: 50%;    /* Forma circular */
+  background-color: rgba(16, 185, 129, 0.2);  /* Fons verd semitransparent */
+  color: var(--accent-color, #10b981);  /* Color d'accent per a la icona */
+  display: flex;         /* Flexbox per centrat */
+  align-items: center;   /* Centrat vertical */
+  justify-content: center; /* Centrat horitzontal */
+  font-size: 1.5rem;     /* Icona gran */
+  margin-bottom: 1rem;   /* Espaiat inferior */
 }
 
+/* Estil per a les estrelles de valoració */
 .rating {
-  color: #f59e0b;
-  font-size: 0.8rem;
+  color: #f59e0b;        /* Groc-taronja per a les estrelles */
+  font-size: 0.8rem;     /* Mida petita */
 }
 
-/* Comparison metrics */
+/* Mètriques de comparació amb fons semitransparent */
 .comparison-metrics {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.05);  /* Blanc molt semitransparent */
+  border-radius: 8px;    /* Cantonades arrodonides */
+  padding: 0.8rem;       /* Espaiat interior moderat */
 }
 
+/* Separador vertical per a les mètriques de comparació */
 .divider-vertical {
-  width: 1px;
-  height: 40px;
-  background-color: var(--border-color, rgba(255, 255, 255, 0.1));
+  width: 1px;            /* Línia vertical molt fina */
+  height: 40px;          /* Alçada fixa */
+  background-color: var(--border-color, rgba(255, 255, 255, 0.1));  /* Color subtil */
 }
 
+/* Etiquetes per als valors de comparació */
 .value-label {
-  font-size: 0.8rem;
-  color: var(--text-muted, #a0a0a0);
+  font-size: 0.8rem;     /* Text petit */
+  color: var(--text-muted, #a0a0a0);  /* Color atenuat */
 }
 
+/* Valors numèrics per a les comparacions */
 .value-number {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1.2rem;     /* Text més gran */
+  font-weight: 700;      /* Negreta per destacar */
 }
 
+/* Contenidor per a les mètriques de vehicles electrificats */
 .electrified-metrics {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 0.8rem;
+  background-color: rgba(255, 255, 255, 0.05);  /* Fons semitransparent */
+  border-radius: 8px;    /* Cantonades arrodonides */
+  padding: 0.8rem;       /* Espaiat interior moderat */
 }
 
+/* Comptador de vehicles elèctrics, destacat amb color d'accent */
 .ev-count {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--accent-color, #10b981);
+  font-size: 1.2rem;     /* Text gran */
+  font-weight: 700;      /* Negreta */
+  color: var(--accent-color, #10b981);  /* Color d'accent per destacar */
 }
 
+/* Etiqueta per al comptador de vehicles elèctrics */
 .ev-label {
-  font-size: 0.8rem;
-  color: var(--text-muted, #a0a0a0);
+  font-size: 0.8rem;     /* Text petit */
+  color: var(--text-muted, #a0a0a0);  /* Color atenuat */
 }
 
-/* Recommendation items */
+/* Estil per als números de recomanació, amb cercle i color d'accent */
 .recommendation-number {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.2);
-  color: var(--accent-color, #10b981);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.8rem;
-  margin-right: 1rem;
-  flex-shrink: 0;
+  width: 36px;           /* Amplada fixa */
+  height: 36px;          /* Alçada fixa (cercle) */
+  border-radius: 50%;    /* Forma circular */
+  background-color: rgba(16, 185, 129, 0.2);  /* Fons verd semitransparent */
+  color: var(--accent-color, #10b981);  /* Color d'accent per al número */
+  display: flex;         /* Flexbox per centrat */
+  align-items: center;   /* Centrat vertical */
+  justify-content: center; /* Centrat horitzontal */
+  font-weight: 700;      /* Negreta */
+  font-size: 0.8rem;     /* Text petit */
+  margin-right: 1rem;    /* Marge dret per separar del text */
+  flex-shrink: 0;        /* Evita que es redueixi de mida en pantalla petita */
 }
 
-/* Table styling */
+/* Estils per a les taules, adaptats al tema fosc */
 .table {
-  color: var(--text-color, #e0e0e0);
-  border-color: var(--border-color, rgba(255, 255, 255, 0.1));
+  color: var(--text-color, #e0e0e0);  /* Text clar */
+  border-color: var(--border-color, rgba(255, 255, 255, 0.1));  /* Vores subtils */
 }
 
+/* Estil per a les files alternes (zebra) en les taules */
 .table-striped > tbody > tr:nth-of-type(odd) > * {
-  background-color: rgba(255, 255, 255, 0.03);
-  color: var(--text-color, #e0e0e0);
+  background-color: rgba(255, 255, 255, 0.03);  /* Fons molt lleugerament més clar */
+  color: var(--text-color, #e0e0e0);  /* Manté el text clar */
 }
 
+/* Efecte en passar el ratolí per sobre de les files de taula */
 .table-hover > tbody > tr:hover > * {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--text-color, #e0e0e0);
+  background-color: rgba(255, 255, 255, 0.05);  /* Fons lleugerament més clar en hover */
+  color: var(--text-color, #e0e0e0);  /* Manté el text clar */
 }
 
-/* Quote panel */
+/* Estil per al panell de citacions, amb color d'accent */
 .quote-panel {
-  background-color: rgba(16, 185, 129, 0.1);
-  border-left: 4px solid var(--accent-color, #10b981);
-  padding: 1.5rem;
-  border-radius: 0 8px 8px 0;
+  background-color: rgba(16, 185, 129, 0.1);  /* Fons verd molt semitransparent */
+  border-left: 4px solid var(--accent-color, #10b981);  /* Vora esquerra amb color d'accent */
+  padding: 1.5rem;       /* Espaiat interior ampli */
+  border-radius: 0 8px 8px 0;  /* Cantonades arrodonides (excepte la cantonada superior esquerra) */
 }
 
+/* Estil per al text de les citacions */
 .blockquote {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-color, #e0e0e0);
+  font-size: 1rem;       /* Mida normal de text */
+  margin-bottom: 0.5rem; /* Marge inferior petit */
+  color: var(--text-color, #e0e0e0);  /* Text clar */
 }
 
+/* Peu de la citació (autor o font) */
 .blockquote-footer {
-  font-size: 0.85rem;
-  color: var(--text-muted, #a0a0a0);
+  font-size: 0.85rem;    /* Text més petit */
+  color: var(--text-muted, #a0a0a0);  /* Color atenuat */
 }
 
-/* References list */
+/* Estil per a la llista de referències */
 .references-list {
-  padding-left: 1.5rem;
-  font-size: 0.9rem;
-  color: var(--text-muted, #a0a0a0);
+  padding-left: 1.5rem;  /* Espaiat esquerre per als números de llista */
+  font-size: 0.9rem;     /* Text lleugerament més petit */
+  color: var(--text-muted, #a0a0a0);  /* Color atenuat */
 }
 
+/* Elements individuals de la llista de referències */
 .references-list li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem; /* Espaiat entre referències */
 }
 
-/* Buttons */
+/* Estil per als botons amb color d'accent */
 .btn-accent {
-  background-color: var(--accent-color, #10b981);
-  border-color: var(--accent-color, #10b981);
-  color: #000;
-  transition: all 0.3s ease;
+  background-color: var(--accent-color, #10b981);  /* Fons amb color d'accent */
+  border-color: var(--accent-color, #10b981);     /* Vora del mateix color */
+  color: #000;           /* Text negre per contrast */
+  transition: all 0.3s ease;  /* Transició suau per a efectes */
 }
 
+/* Efecte en passar el ratolí pels botons d'accent */
 .btn-accent:hover {
-  background-color: #059669;
-  border-color: #059669;
-  color: #000;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  background-color: #059669;  /* Verd més fosc en hover */
+  border-color: #059669;     /* Vora coincident */
+  color: #000;              /* Manté el text negre */
+  transform: translateY(-3px);  /* Efecte d'elevació */
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);  /* Ombra verda subtil */
 }
 
+/* Estil per als botons amb contorn d'accent */
 .btn-outline-accent {
-  color: var(--accent-color, #10b981);
-  border-color: var(--accent-color, #10b981);
-  transition: all 0.3s ease;
+  color: var(--accent-color, #10b981);  /* Text del color d'accent */
+  border-color: var(--accent-color, #10b981);  /* Vora del color d'accent */
+  transition: all 0.3s ease;  /* Transició suau per a efectes */
 }
 
+/* Efecte en passar el ratolí pels botons de contorn */
 .btn-outline-accent:hover {
-  background-color: var(--accent-color, #10b981);
-  color: #000;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  background-color: var(--accent-color, #10b981);  /* Fons amb color d'accent en hover */
+  color: #000;           /* Text negre per contrast */
+  transform: translateY(-3px);  /* Efecte d'elevació igual que els botons sòlids */
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);  /* Ombra verda subtil */
 }
 
-/* Responsive improvements */
+/* Adaptacions responsives per a diferents mides de pantalla */
 @media (max-width: 768px) {
   .header-section {
-    min-height: 50vh;
+    min-height: 50vh;    /* Redueix l'alçada de la capçalera en pantalles petites */
   }
   
   .divider-label {
-    font-size: 0.9rem;
+    font-size: 0.9rem;   /* Text més petit per als separadors en mòbil */
   }
   
   .quote-panel {
-    padding: 1rem;
+    padding: 1rem;       /* Redueix el padding de les citacions en mòbil */
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+/* Importació de tipografies i icones externes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');  /* Tipografia Inter */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");  /* Icones de Bootstrap */
 </style>
