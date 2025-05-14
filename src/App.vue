@@ -3,11 +3,23 @@ import { RouterView } from 'vue-router';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const { locale } = useI18n(); // Variable la qual conté l'idioma actual
+const { locale } = useI18n();
 const isMenuOpen = ref(false);
+const showToast = ref(false);
+const emailInput = ref('');
 
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
+}
+
+function handleSubscribe() {
+  if (emailInput.value) {
+    showToast.value = true;
+    emailInput.value = ''; // Netejar el camp
+    setTimeout(() => {
+      showToast.value = false;
+    }, 3000); // El toast es tancarà després de 3 segons
+  }
 }
 </script>
 
@@ -81,17 +93,44 @@ function toggleMenu() {
           <div class="col-lg-3 col-md-6">
             <h6 class="text-accent mb-3">Contacte</h6>
             <ul class="footer-links">
-              <li><i class="bi bi-geo-alt me-2"></i>Barcelona, Catalunya</li>
-              <li><i class="bi bi-envelope me-2"></i>info@projectealfabet.cat</li>
-              <li><i class="bi bi-phone me-2"></i>+34 93 XXX XX XX</li>
+              <li>
+                <a href="https://maps.google.com/?q=Barcelona,Catalunya" target="_blank" class="text-light-50 text-decoration-none">
+                  <i class="bi bi-geo-alt me-2"></i>Barcelona, Catalunya
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@projectealfabet.cat" class="text-light-50 text-decoration-none">
+                  <i class="bi bi-envelope me-2"></i>info@projectealfabet.cat
+                </a>
+              </li>
+              <li>
+                <a href="tel:+34933XXXXX" class="text-light-50 text-decoration-none">
+                  <i class="bi bi-phone me-2"></i>+34 93 XXX XX XX
+                </a>
+              </li>
             </ul>
           </div>
           <div class="col-lg-3">
             <h6 class="text-accent mb-3">Subscriu-te</h6>
             <p class="text-light-50 mb-3">Rep les últimes novetats sobre sostenibilitat</p>
             <div class="input-group mb-3">
-              <input type="email" class="form-control bg-dark border-dark text-light" placeholder="El teu email">
-              <button class="btn btn-accent" type="button">Enviar</button>
+              <input 
+                v-model="emailInput"
+                type="email" 
+                class="form-control bg-dark border-dark text-light" 
+                placeholder="El teu email">
+              <button 
+                class="btn btn-accent" 
+                type="button" 
+                @click="handleSubscribe">
+                Enviar
+              </button>
+            </div>
+
+            <div 
+              class="toast-message" 
+              :class="{ 'show': showToast }">
+              Gràcies per subscriure't!
             </div>
           </div>
         </div>
@@ -265,5 +304,72 @@ function toggleMenu() {
   .menu-toggle-btn {
     display: flex !important;
   }
+}
+
+.toast-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2e856e;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast-message.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.social-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #fff;
+}
+
+.navbar-brand {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 1001;
+
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 </style>
