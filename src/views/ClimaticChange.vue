@@ -3,7 +3,7 @@
   import Table from '@/components/Table.vue';  // Component de taula per mostrar dades tabulars
   import "bootstrap";  // Importació de Bootstrap per als estils i funcionalitats
   import { ref, computed } from 'vue';  // Funcions de Vue 3 per a reactivitat
-  import Chart from '@/components/chart.vue';  // Component per mostrar gràfics
+  import Chart from '@/components/Chart.vue';  // Component per mostrar gràfics
   import Modal from '@/components/modal.vue';  // Component per mostrar finestres modals
   import { useI18n } from 'vue-i18n'  // Llibreria d'internacionalització per suportar múltiples idiomes
   

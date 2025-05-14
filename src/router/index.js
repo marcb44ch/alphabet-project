@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'ClimaticChange',
       component: ClimaticChange,
     },
+    {
+      path: '/asg',
+      name: 'asg',
+      component: () => import('../views/ASG.vue')
+    },
   ],
 })
 
