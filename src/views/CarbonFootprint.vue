@@ -597,7 +597,7 @@ const options = ref({
 
       <!-- Section divider -->
       <div class="divider my-5" id="results">
-        <span class="divider-label">{{ t('graphic.title') }}</span>
+        <span class="divider-label">{{ t('results.title') }}</span>
       </div>
 
       <!-- Carbon footprint results -->
