@@ -3,8 +3,12 @@ import { RouterView } from 'vue-router';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-
 const { locale } = useI18n(); // Variable la qual conté l'idioma actual
+const isMenuOpen = ref(false);
+
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value;
+}
 </script>
 
 <template>
@@ -12,18 +16,19 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
   <div class="app-wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-      <div class="container">
+      <div class="container position-relative">
         <a class="navbar-brand d-flex align-items-center" href="/">
           <i class="bi bi-globe-americas text-accent me-2"></i>
           <span class="fw-bold">Projecte Alfabet</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
+        <button class="menu-toggle-btn" type="button" @click="toggleMenu">
+          <i class="bi bi-list"></i>
         </button>
-        <div>
-
-        </div>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        
+        <div class="sliding-menu" :class="{ 'is-open': isMenuOpen }">
+          <button class="menu-close-btn" @click="toggleMenu">
+            <i class="bi bi-x-lg"></i>
+          </button>
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="/">Inici</a>
@@ -34,10 +39,12 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
             <li class="nav-item">
               <a class="nav-link" href="/ClimaticChange">ClimaticChange</a>
             </li>
-            <select v-model="locale">
-            <option value="es">Castellà</option>
-            <option value="ca">Català</option>
-          </select>
+            <li class="nav-item">
+              <select v-model="locale" class="form-select">
+                <option value="es">Castellà</option>
+                <option value="ca">Català</option>
+              </select>
+            </li>
           </ul>
         </div>
       </div>
@@ -135,5 +142,119 @@ const { locale } = useI18n(); // Variable la qual conté l'idioma actual
 .btn-outline-success:hover {
   background-color: #2e856e !important;
   color: white !important;
+}
+
+.sliding-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background: rgba(30, 41, 59, 0.95);
+  transition: right 0.3s ease;
+  padding-top: 80px;
+  z-index: 1000;
+}
+
+.sliding-menu.is-open {
+  right: 0;
+}
+
+.sliding-menu .menu-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.menu-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.menu-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sliding-menu .navbar-nav {
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.sliding-menu .nav-item {
+  margin: 0.5rem 0;
+}
+
+.sliding-menu .nav-link {
+  color: white;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.sliding-menu .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.sliding-menu select {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.sliding-menu select option {
+  background: #1e293b;
+  color: white;
+}
+
+.menu-toggle-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+  background: rgba(30, 41, 59, 0.95);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-toggle-btn i {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .menu-toggle-btn {
+    display: flex !important;
+  }
 }
 </style>
