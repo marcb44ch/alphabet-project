@@ -118,9 +118,110 @@ const { t } = useI18n({
         consum: {
           h3: "Consum energètic",
           h4p: "Total consumit en instal·lacions",
-          h4p2: "kWh",
           h43: "Reducció des de 2020",
         },
+        emisions: {
+          h3: "Emisions per abast",
+          p: "L'estudi revela que la major part de l'impacte ambiental de l'empresa prové de les emissions indirectes (Abast 3), representant el 99,81% del total. Els resultats mostren un càlcul total d'emissions per a l'any 2023 de 372.557,87 tCO₂e.",
+          abast1: "<strong>Abast 1:</strong> Emissions directes",
+          abast2: "<strong>Abast 2:</strong> Emissions indirectes (electricitat)",
+          abast3: "<strong>Abast 3:</strong> Altres emissions indirectes",
+          h5: "Troballa significativa",
+          p2: "L'elevat percentatge d'emissions d'Abast 3 suggereix que les estratègies més efectives per reduir la petjada ambiental s'han de centrar en la cadena de valor i l'ús de vehicles per part dels clients.",
+        }
+      },
+      estrategies: {
+        divider: "Estratègies implementades",
+        title: "Estratègies de reducció d'emissions",
+        p: "Aquest apartat examina les solucions que l'empresa ha desenvolupat per fomentar la mobilitat sostenible i reduir l'impacte ambiental de la seva activitat i la dels seus clients.",
+        h32: "Electrificació interna",
+        h32p: "Incentius per a l'elecció de vehicles de companyia híbrids i elèctrics per part dels empleats.",
+        h32s: "Alt impacte",
+        h33: "Mobilitat sostenible",
+        h33p: "Promoció del teletreball i opcions de desplaçament amb menor impacte ambiental per als treballadors.",
+        h33s: "Mig impacte",
+        h34: "Eficiència energètica",
+        h34p: "Control de temperatura en oficines (27°C a l'estiu, 19°C a l'hivern) i mesures d'estalvi energètic.",
+        h34s: "Mig impacte",
+        h35: "Energia verda",
+        h35p: "Implementació d'energia renovable en 5 de les 8 localitzacions de l'empresa a nivell nacional.",
+        h35s: "Mig impacte",
+        serveis: {
+          title: "Serveis per a clients",
+          h4: "Consultoria E-Mobility",
+          p: "Servei estructurat en 4 nivells diferenciats d'assessorament que s'adapten a les necessitats específiques de cada client.",
+          taula: {
+            li1: "<strong>Nivell Bàsic:</strong> Anàlisi inicial de flota i potencial d'electrificació",
+            li2: "<strong>Nivell Intermedi:</strong> Desenvolupament d'estratègia d'electrificació",
+            li3: "<strong>Nivell Avançat:</strong> Implementació d'infraestructures i polítiques",
+            li4: "<strong>Nivell Expert:</strong> Gestió integral de la transformació de flotes"
+          },
+          infrastructure: {
+            title: "Infraestructures de recàrrega",
+            p: "Solucions per facilitar la transició a vehicles elèctrics, incloent punts de recàrrega i sistemes de pagament.",
+            div1: "Tarjeta de recàrrega",
+            div2: "En col·laboració amb Repsol",
+            div3: "Accés a més de 400 punts de recàrrega a España"
+          }
+        },
+      },
+      conclusions: {
+        divider: "Conclusions",
+        section: {
+          title: "Conclusions i recomanacions",
+          h3: "Principals troballes"
+        },
+        strengths: {
+          title: "Fortaleses",
+          items: {
+            li1: "Creixement significatiu en matriculacions de vehicles elèctrics, 16 punts percentuals per sobre del mercat",
+            li2: "Reducció continuada del consum energètic en instal·lacions (-16,5% des de 2020)",
+            li3: "Implementació d'energia renovable en el 62,5% de les localitzacions",
+            li4: "Servei de consultoria d'electrificació amb diversos nivells d'assessorament"
+          }
+        },
+        improvements: {
+          title: "Àrees de millora",
+          items: {
+            li1: "Alt percentatge (99,81%) d'emissions d'Abast 3, que requereix estratègies específiques en la cadena de valor",
+            li2: "Baix percentatge de vehicles electrificats respecte al total de flota (6,9%)",
+            li3: "Consum d'aigua amb tendència creixent (+3,6% vs 2022)",
+            li4: "Dependència de fabricants per al subministrament de models electrificats"
+          }
+        },
+        recommendations: {
+          title: "Recomanacions estratègiques",
+          items: {
+            one: {
+              title: "Estratègia integral d'Abast 3",
+              description: "Desenvolupar un programa específic per a la reducció d'emissions en la cadena de valor, enfocat en proveïdors i ús de vehicles per part dels clients."
+            },
+            two: {
+              title: "Acceleració de l'electrificació",
+              description: "Establir objectius ambiciosos per incrementar el percentatge de vehicles electrificats en la flota total, superant l'actual 6,9%."
+            },
+            three: {
+              title: "Gestió eficient de l'aigua",
+              description: "Implementar un pla de reducció del consum d'aigua en instal·lacions per revertir la tendència creixent observada."
+            },
+            four: {
+              title: "Compensació de carboni",
+              description: "Desenvolupar un pla integral de compensació de carboni per a les emissions inevitables mentre s'avança en la transició cap a una mobilitat de zero emissions."
+            }
+          }
+        },
+        quote: {
+          text: "L'anàlisi revela que Alphabet España està avançant significativament en la seva estratègia de sostenibilitat, amb focus en l'electrificació de la flota. No obstant això, el repte més important es troba en la gestió de les emissions d'Abast 3, on es requereixen accions més decisives i col·laboratives.",
+          footer: "Conclusió de l'estudi de la petjada de carboni 2023"
+        },
+        references: {
+          title: "Referències bibliogràfiques",
+          items: {
+            li1: "Alphabet España (2023). <em>Transformació en moviment: Memòria de sostenibilitat 2023</em>.",
+            li2: "GHG Protocol (2023). <em>Corporate Accounting and Reporting Standard</em>.",
+            li3: "ISO 14064-1:2018. <em>Gasos d'efecte hivernacle - Part 1: Especificació amb orientació, a nivell d'organització, per a la quantificació i l'informe d'emissions i remocions de gasos d'efecte hivernacle</em>."
+          }
+        }
       }
     },
     es: { 
@@ -158,6 +259,135 @@ const { t } = useI18n({
         title: "Gráfica",
         footer: "Resultados del análisis"
       },
+      results: {
+        title: "Análisis de la huella de carbono",
+        indicadors: {
+          h3: "Indicadores clave de rendimiento",
+          h4: "Crecimiento en matriculaciones eléctricas",
+          h4p: "Comparativa con el sector (+76%)",
+          h4p2: "incremento anual",
+          h43: "Comparativa con sector",
+          h44: "+16 puntos",
+        },
+        vehicles: {
+          h3: "Vehículos electrificados en flota",
+          h4p: "Total de vehículos electrificados",
+          h4p2: "vehículos",
+          h43: "Flota total",
+          h44: "vehículos"
+        },
+        consum: {
+          h3: "Consumo energético",
+          h4p: "Total consumido en instalaciones",
+          h43: "Reducción desde 2020",
+        },
+        emisions: {
+          h3: "Emisiones por alcance",
+          p: "El estudio revela que la mayor parte del impacto ambiental de la empresa proviene de las emisiones indirectas (Alcance 3), representando el 99,81% del total. Los resultados muestran un cálculo total de emisiones para el año 2023 de 372.557,87 tCO₂e.",
+          abast1: "<strong>Alcance 1:</strong> Emisiones directas",
+          abast2: "<strong>Alcance 2:</strong> Emisiones indirectas (electricidad)",
+          abast3: "<strong>Alcance 3:</strong> Otras emisiones indirectas",
+          h5: "Hallazgo significativo",
+          p2: "El elevado porcentaje de emisiones de Alcance 3 sugiere que las estrategias más efectivas para reducir la huella ambiental deben centrarse en la cadena de valor y el uso de vehículos por parte de los clientes.",
+        },
+      },
+      estrategies: {
+        divider: "Estrategias implementadas",
+        title: "Estrategias de reducción de emisiones",
+        p: "Este apartado examina las soluciones que la empresa ha desarrollado para fomentar la movilidad sostenible y reducir el impacto ambiental de su actividad y la de sus clientes.",
+        h32: "Electrificación interna",
+        h32p: "Incentivos para la elección de vehículos de compañía híbridos y eléctricos por parte de los empleados.",
+        h32s: "Alto impacto",
+        h33: "Movilidad sostenible",
+        h33p: "Promoción del teletrabajo y opciones de desplazamiento con menor impacto ambiental para los trabajadores.",
+        h33s: "Medio impacto",
+        h34: "Eficiencia energética",
+        h34p: "Control de temperatura en oficinas (27°C en verano, 19°C en invierno) y medidas de ahorro energético.",
+        h34s: "Medio impacto",
+        h35: "Energía verde",
+        h35p: "Implementación de energía renovable en 5 de las 8 localizaciones de la empresa a nivel nacional.",
+        h35s: "Medio impacto",
+        serveis: {
+          title: "Servicios para clientes",
+          h4: "Consultoría E-Mobility",
+          p: "Servicio estructurado en 4 niveles diferenciados de asesoramiento que se adaptan a las necesidades específicas de cada cliente.",
+          taula: {
+            li1: "<strong>Nivel Básico:</strong> Análisis inicial de flota y potencial de electrificación",
+            li2: "<strong>Nivel Intermedio:</strong> Desarrollo de estrategia de electrificación",
+            li3: "<strong>Nivel Avanzado:</strong> Implementación de infraestructuras y políticas",
+            li4: "<strong>Nivel Experto:</strong> Gestión integral de la transformación de flotas"
+          },
+          infrastructure: {
+            title: "Infraestructuras de recarga",
+            p: "Soluciones para facilitar la transición a vehículos eléctricos, incluyendo puntos de recarga y sistemas de pago.",
+            div1: "Tarjeta de recarga",
+            div2: "En colaboración con Repsol",
+            div3: "Acceso a más de 400 puntos de recarga en España"
+          }
+        },
+      },
+      conclusions: {
+        divider: "Conclusiones",
+        section: {
+          title: "Conclusiones y recomendaciones",
+          h3: "Principales hallazgos"
+        },
+        strengths: {
+          title: "Fortalezas",
+          items: {
+            li1: "Crecimiento significativo en matriculaciones de vehículos eléctricos, 16 puntos porcentuales por encima del mercado",
+            li2: "Reducción continuada del consumo energético en instalaciones (-16,5% desde 2020)",
+            li3: "Implementación de energía renovable en el 62,5% de las localizaciones",
+            li4: "Servicio de consultoría de electrificación con diversos niveles de asesoramiento"
+          }
+        },
+        improvements: {
+          title: "Áreas de mejora",
+          items: {
+            li1: "Alto porcentaje (99,81%) de emisiones de Alcance 3, que requiere estrategias específicas en la cadena de valor",
+            li2: "Bajo porcentaje de vehículos electrificados respecto al total de flota (6,9%)",
+            li3: "Consumo de agua con tendencia creciente (+3,6% vs 2022)",
+            li4: "Dependencia de fabricantes para el suministro de modelos electrificados"
+          }
+        },
+        recommendations: {
+          title: "Recomendaciones estratégicas",
+          items: [
+            {
+              number: "01",
+              title: "Estrategia integral de Alcance 3",
+              description: "Desarrollar un programa específico para la reducción de emisiones en la cadena de valor, enfocado en proveedores y uso de vehículos por parte de los clientes."
+            },
+            {
+              number: "02",
+              title: "Aceleración de la electrificación",
+              description: "Establecer objetivos ambiciosos para incrementar el porcentaje de vehículos electrificados en la flota total, superando el actual 6,9%."
+            },
+            {
+              number: "03",
+              title: "Gestión eficiente del agua",
+              description: "Implementar un plan de reducción del consumo de agua en instalaciones para revertir la tendencia creciente observada."
+            },
+            {
+              number: "04",
+              title: "Compensación de carbono",
+              description: "Desarrollar un plan integral de compensación de carbono para las emisiones inevitables mientras se avanza en la transición hacia una movilidad de cero emisiones."
+            }
+          ]
+        },
+        quote: {
+          text: "El análisis revela que Alphabet España está avanzando significativamente en su estrategia de sostenibilidad, con foco en la electrificación de la flota. Sin embargo, el reto más importante se encuentra en la gestión de las emisiones de Alcance 3, donde se requieren acciones más decisivas y colaborativas.",
+          footer: "Conclusión del estudio de la huella de carbono 2023"
+        },
+        references: {
+          title: "Referencias bibliográficas",
+          items: {
+            li1: "Alphabet España (2023). <em>Transformación en movimiento: Memoria de sostenibilidad 2023</em>.",
+            li2: "GHG Protocol (2023). <em>Corporate Accounting and Reporting Standard</em>.",
+            li3: "ISO 14064-1:2018. <em>Gases de efecto invernadero - Parte 1: Especificación con orientación, a nivel de organización, para la cuantificación y el informe de emisiones y remociones de gases de efecto invernadero</em>."
+          }
+        }
+      }
     }
   }
 })
@@ -375,59 +605,59 @@ const options = ref({
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="card-header bg-dark-accent p-4">
-              <h2 class="h4 text-white mb-0">Anàlisi de la petjada de carboni</h2>
+              <h2 class="h4 text-white mb-0">{{ t('results.title') }}</h2>
             </div>
             <div class="card-body p-4 p-lg-5">
               <div class="row g-4">
                 
                 <div class="col-lg-6">
-                  <h3 class="h5 fw-bold mb-4">Indicadors clau de rendiment</h3>
+                  <h3 class="h5 fw-bold mb-4">{{ t('results.indicadors.h3') }}</h3>
                   
                   <div class="env-metrics-panel">
                     <div class="env-metric-item mb-4">
                       <div class="d-flex justify-content-between">
-                        <h4 class="h6 mb-0">Creixement en matriculacions elèctriques</h4>
+                        <h4 class="h6 mb-0">{{ t('results.indicadors.h4') }}</h4>
                         <span class="badge bg-success-subtle text-success">+92% vs 2022</span>
                       </div>
-                      <p class="small text-muted mb-2">Comparativa amb el sector (+76%)</p>
+                      <p class="small text-muted mb-2">{{ t('results.indicadors.h4p') }}</p>
                       <div class="d-flex align-items-end">
                         <span class="h3 mb-0">92%</span>
-                        <span class="ms-2">increment anual</span>
+                        <span class="ms-2">{{ t('results.indicadors.h4p2') }}</span>
                       </div>
                       <div class="progress mt-2" style="height: 6px;">
                         <div class="progress-bar bg-success" style="width: 92%;"></div>
                       </div>
                       <div class="d-flex justify-content-between mt-1">
-                        <small>Comparativa amb sector</small>
-                        <small>+16 punts</small>
+                        <small>{{ t('results.indicadors.h43') }}</small>
+                        <small>{{ t('results.indicadors.h44') }}</small>
                       </div>
                     </div>
                     
                     <div class="env-metric-item mb-4">
                       <div class="d-flex justify-content-between">
-                        <h4 class="h6 mb-0">Vehicles electrificats en flota</h4>
+                        <h4 class="h6 mb-0">{{ t('results.vehicles.h3') }}</h4>
                         <span class="badge bg-primary-subtle text-primary">6,9% del total</span>
                       </div>
-                      <p class="small text-muted mb-2">Total de vehicles electrificats</p>
+                      <p class="small text-muted mb-2">{{ t('results.vehicles.h4p') }}</p>
                       <div class="d-flex align-items-end">
                         <span class="h3 mb-0">5.500</span>
-                        <span class="ms-2">vehicles</span>
+                        <span class="ms-2">{{ t('h4p2') }}</span>
                       </div>
                       <div class="progress mt-2" style="height: 6px;">
                         <div class="progress-bar bg-primary" style="width: 6.9%;"></div>
                       </div>
                       <div class="d-flex justify-content-between mt-1">
-                        <small>Flota total</small>
-                        <small>80.000 vehicles</small>
+                        <small>{{ t('results.vehicles.h43') }}</small>
+                        <small>80.000 {{ t('results.vehicles.h4p2') }}</small>
                       </div>
                     </div>
                     
                     <div class="env-metric-item">
                       <div class="d-flex justify-content-between">
-                        <h4 class="h6 mb-0">Consum energètic</h4>
+                        <h4 class="h6 mb-0">{{ t('results.consum.h3') }}</h4>
                         <span class="badge bg-success-subtle text-success">-0,5% vs 2022</span>
                       </div>
-                      <p class="small text-muted mb-2">Total consumit en instal·lacions</p>
+                      <p class="small text-muted mb-2">{{ t('results.consum.h4p') }}</p>
                       <div class="d-flex align-items-end">
                         <span class="h3 mb-0">639.449</span>
                         <span class="ms-2">kWh</span>
@@ -436,22 +666,20 @@ const options = ref({
                         <div class="progress-bar bg-success" style="width: 83.5%;"></div>
                       </div>
                       <div class="d-flex justify-content-between mt-1">
-                        <small>Reducció des de 2020</small>
+                        <small>{{ t('results.consum.h42') }}</small>
                         <small>-16,5%</small>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-lg-6">
-                  <h3 class="h5 fw-bold mb-4">Emissions per abast</h3>
-                  <p>L'estudi revela que la major part de l'impacte ambiental de l'empresa prové de les 
-                     emissions indirectes (Abast 3), representant el 99,81% del total. Els resultats mostren un càlcul 
-                     total d'emissions per a l'any 2023 de 372.557,87 tCO₂e.</p>
+                  <h3 class="h5 fw-bold mb-4">{{ t('results.emisions.h3') }}</h3>
+                  <p>{{ t('results.emisions.p') }}</p>
                   
                   <div class="emissions-breakdown mt-4">
                     <div class="mb-3">
                       <div class="d-flex justify-content-between mb-1">
-                        <span><strong>Abast 1:</strong> Emissions directes</span>
+                        <span v-html="t('results.emisions.abast1')"></span>
                         <span>514,92 tCO₂e</span>
                       </div>
                       <div class="progress" style="height: 10px;">
@@ -461,7 +689,7 @@ const options = ref({
                     
                     <div class="mb-3">
                       <div class="d-flex justify-content-between mb-1">
-                        <span><strong>Abast 2:</strong> Emissions indirectes (electricitat)</span>
+                        <span v-html="t('results.emisions.abast2')"></span>
                         <span>211,02 tCO₂e</span>
                       </div>
                       <div class="progress" style="height: 10px;">
@@ -471,7 +699,7 @@ const options = ref({
                     
                     <div class="mb-3">
                       <div class="d-flex justify-content-between mb-1">
-                        <span><strong>Abast 3:</strong> Altres emissions indirectes</span>
+                        <span v-html="t('results.emisions.abast3')"></span>
                         <span>371.851,93 tCO₂e</span>
                       </div>
                       <div class="progress" style="height: 10px;">
@@ -486,10 +714,8 @@ const options = ref({
                         <i class="bi bi-exclamation-triangle-fill fs-4"></i>
                       </div>
                       <div>
-                        <h5 class="alert-heading">Troballa significativa</h5>
-                        <p class="mb-0">L'elevat percentatge d'emissions d'Abast 3 suggereix que les 
-                        estratègies més efectives per reduir la petjada ambiental s'han de centrar en la 
-                        cadena de valor i l'ús de vehicles per part dels clients.</p>
+                        <h5 class="alert-heading">{{ t('results.emisions.h5') }}</h5>
+                        <p class="mb-0">{{ t('results.emisions.p2') }}</p>
                       </div>
                     </div>
                   </div>
@@ -502,7 +728,7 @@ const options = ref({
       
       <!-- Section divider -->
       <div class="divider my-5" id="strategies">
-        <span class="divider-label">Estratègies implementades</span>
+        <span class="divider-label">{{ t('estrategies.divider') }}</span>
       </div>
 
       <!-- Strategies section -->
@@ -510,9 +736,8 @@ const options = ref({
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4">
             <div class="card-body p-4 p-lg-5">
-              <h2 class="h3 fw-bold mb-4">Estratègies de reducció d'emissions</h2>
-              <p>Aquest apartat examina les solucions que l'empresa ha desenvolupat per fomentar la mobilitat 
-                 sostenible i reduir l'impacte ambiental de la seva activitat i la dels seus clients.</p>
+              <h2 class="h3 fw-bold mb-4">{{ t('estrategies.title') }}</h2>
+              <p>{{ t('estrategies.p') }}</p>
               
               <div class="row g-4 mt-3">
                 <div class="col-md-6 col-lg-3">
@@ -520,11 +745,11 @@ const options = ref({
                     <div class="product-icon">
                       <i class="bi bi-lightning-charge-fill"></i>
                     </div>
-                    <h3 class="h5">Electrificació interna</h3>
-                    <p class="small">Incentius per a l'elecció de vehicles de companyia híbrids i elèctrics per part dels empleats.</p>
+                    <h3 class="h5">{{ t('estrategies.h32') }}</h3>
+                    <p class="small">{{ t('estrategies.h32p') }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                       <div>
-                        <span class="badge bg-success-subtle text-success">Alt impacte</span>
+                        <span class="badge bg-success-subtle text-success">{{ t('estrategies.h32s') }}</span>
                       </div>
                       <div class="rating">
                         <i class="bi bi-star-fill"></i>
@@ -542,11 +767,11 @@ const options = ref({
                     <div class="product-icon">
                       <i class="bi bi-people-fill"></i>
                     </div>
-                    <h3 class="h5">Mobilitat sostenible</h3>
-                    <p class="small">Promoció del teletreball i opcions de desplaçament amb menor impacte ambiental per als treballadors.</p>
+                    <h3 class="h5">{{ t('estrategies.h33') }}</h3>
+                    <p class="small">{{ t('estrategies.h33p') }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                       <div>
-                        <span class="badge bg-primary-subtle text-primary">Mig impacte</span>
+                        <span class="badge bg-primary-subtle text-primary">{{ t('estrategies.h33s') }}</span>
                       </div>
                       <div class="rating">
                         <i class="bi bi-star-fill"></i>
@@ -564,11 +789,11 @@ const options = ref({
                     <div class="product-icon">
                       <i class="bi bi-thermometer-half"></i>
                     </div>
-                    <h3 class="h5">Eficiència energètica</h3>
-                    <p class="small">Control de temperatura en oficines (27°C a l'estiu, 19°C a l'hivern) i mesures d'estalvi energètic.</p>
+                    <h3 class="h5">{{ t('estrategies.h34') }}</h3>
+                    <p class="small">{{ t('estrategies.h34p') }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                       <div>
-                        <span class="badge bg-primary-subtle text-primary">Mig impacte</span>
+                        <span class="badge bg-primary-subtle text-primary">{{ t('estrategies.h34s') }}</span>
                       </div>
                       <div class="rating">
                         <i class="bi bi-star-fill"></i>
@@ -586,11 +811,11 @@ const options = ref({
                     <div class="product-icon">
                       <i class="bi bi-building-fill"></i>
                     </div>
-                    <h3 class="h5">Energia verda</h3>
-                    <p class="small">Implementació d'energia renovable en 5 de les 8 localitzacions de l'empresa a nivell nacional.</p>
+                    <h3 class="h5">{{ t('estrategies.h35') }}</h3>
+                    <p class="small">{{ t('estrategies.h35p') }}</p>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                       <div>
-                        <span class="badge bg-primary-subtle text-primary">Mig impacte</span>
+                        <span class="badge bg-primary-subtle text-primary">{{ t('estrategies.h35s') }}</span>
                       </div>
                       <div class="rating">
                         <i class="bi bi-star-fill"></i>
@@ -604,18 +829,18 @@ const options = ref({
                 </div>
               </div>
               
-              <h3 class="h5 fw-bold mt-5 mb-3">Serveis per a clients</h3>
+              <h3 class="h5 fw-bold mt-5 mb-3">{{ t('estrategies.serveis.title') }}</h3>
               <div class="row">
                 <div class="col-md-6">
                   <div class="card bg-dark-accent border-0">
                     <div class="card-body">
-                      <h4 class="h6 fw-bold text-white">Consultoria E-Mobility</h4>
-                      <p class="small text-light">Servei estructurat en 4 nivells diferenciats d'assessorament que s'adapten a les necessitats específiques de cada client.</p>
+                      <h4 class="h6 fw-bold text-white">{{ t('estrategies.serveis.h4') }}</h4>
+                      <p class="small text-light">{{ t('estrategies.serveis.p') }}</p>
                       <ol class="small text-light mt-3">
-                        <li><strong>Nivell Bàsic:</strong> Anàlisi inicial de flota i potencial d'electrificació</li>
-                        <li><strong>Nivell Intermedi:</strong> Desenvolupament d'estratègia d'electrificació</li>
-                        <li><strong>Nivell Avançat:</strong> Implementació d'infraestructures i polítiques</li>
-                        <li><strong>Nivell Expert:</strong> Gestió integral de la transformació de flotes</li>
+                        <li v-html="t('estrategies.serveis.taula.li1')"></li>
+                        <li v-html="t('estrategies.serveis.taula.li2')"></li>
+                        <li v-html="t('estrategies.serveis.taula.li3')"></li>
+                        <li v-html="t('estrategies.serveis.taula.li4')"></li>
                       </ol>
                     </div>
                   </div>
@@ -624,15 +849,15 @@ const options = ref({
                 <div class="col-md-6">
                   <div class="card bg-dark-accent border-0">
                     <div class="card-body">
-                      <h4 class="h6 fw-bold text-white">Infraestructura de recàrrega</h4>
-                      <p class="small text-light">Solucions per facilitar la transició a vehicles elèctrics, incloent punts de recàrrega i sistemes de pagament.</p>
+                      <h4 class="h6 fw-bold text-white">{{ t('estrategies.serveis.infrastructure.title') }}</h4>
+                      <p class="small text-light">{{ t('estrategies.serveis.infrastructure.p') }}</p>
                       <div class="electrified-metrics d-flex align-items-center mt-3">
                         <div class="me-3">
-                          <div class="ev-count">Tarjeta de recàrrega</div>
-                          <div class="ev-label text-light small">En col·laboració amb Repsol</div>
+                          <div class="ev-count">{{ t('estrategies.serveis.infrastructure.div1') }}</div>
+                          <div class="ev-label text-light small">{{ t('estrategies.serveis.infrastructure.div2') }}</div>
                         </div>
                         <div class="ms-3">
-                          <div class="small mt-1 text-light">Accés a més de 400 punts de recàrrega a España</div>
+                          <div class="small mt-1 text-light">{{ t('estrategies.serveis.infrastructure.div3') }}</div>
                         </div>
                       </div>
                     </div>
@@ -646,7 +871,7 @@ const options = ref({
 
       <!-- Section divider -->
       <div class="divider my-5" id="conclusions">
-        <span class="divider-label">Conclusions</span>
+        <span class="divider-label">{{ t('conclusions.divider') }}</span>
       </div>
 
       <!-- Conclusions section -->
@@ -654,44 +879,43 @@ const options = ref({
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
             <div class="card-header bg-dark-accent p-4">
-              <h2 class="h4 text-white mb-0">Conclusions i recomanacions</h2>
+              <h2 class="h4 text-white mb-0">{{ t('conclusions.section.title') }}</h2>
             </div>
             <div class="card-body p-4 p-lg-5">
               <div class="row">
                 <div class="col-lg-6">
-                  <h3 class="h5 fw-bold mb-4">Principals troballes</h3>
+                  <h3 class="h5 fw-bold mb-4">{{ t('conclusions.section.h3') }}</h3>
                   
                   <div class="conclusion-item mb-4">
-                    <h4 class="h6 fw-bold"><i class="bi bi-check-circle-fill text-success me-2"></i>Fortaleses</h4>
+                    <h4 class="h6 fw-bold"><i class="bi bi-check-circle-fill text-success me-2"></i>{{ t('conclusions.strengths.title') }}</h4>
                     <ul class="custom-list small">
-                      <li>Creixement significatiu en matriculacions de vehicles elèctrics, 16 punts percentuals per sobre del mercat</li>
-                      <li>Reducció continuada del consum energètic en instal·lacions (-16,5% des de 2020)</li>
-                      <li>Implementació d'energia renovable en el 62,5% de les localitzacions</li>
-                      <li>Servei de consultoria d'electrificació amb diversos nivells d'assessorament</li>
+                      <li>{{ t('conclusions.strengths.items.li1') }}</li>
+                      <li>{{ t('conclusions.strengths.items.li2') }}</li>
+                      <li>{{ t('conclusions.strengths.items.li3') }}</li>
+                      <li>{{ t('conclusions.strengths.items.li4') }}</li>
                     </ul>
                   </div>
                   
                   <div class="conclusion-item">
-                    <h4 class="h6 fw-bold"><i class="bi bi-exclamation-circle-fill text-warning me-2"></i>Àrees de millora</h4>
+                    <h4 class="h6 fw-bold"><i class="bi bi-exclamation-circle-fill text-warning me-2"></i>{{ t('conclusions.improvements.title') }}</h4>
                     <ul class="custom-list small">
-                      <li>Alt percentatge (99,81%) d'emissions d'Abast 3, que requereix estratègies específiques en la cadena de valor</li>
-                      <li>Baix percentatge de vehicles electrificats respecte al total de flota (6,9%)</li>
-                      <li>Consum d'aigua amb tendència creixent (+3,6% vs 2022)</li>
-                      <li>Dependència de fabricants per al subministrament de models electrificats</li>
+                      <li>{{ t('conclusions.improvements.items.li1') }}</li>
+                      <li>{{ t('conclusions.improvements.items.li2') }}</li>
+                      <li>{{ t('conclusions.improvements.items.li3') }}</li>
+                      <li>{{ t('conclusions.improvements.items.li4') }}</li>
                     </ul>
                   </div>
                 </div>
                 
                 <div class="col-lg-6">
-                  <h3 class="h5 fw-bold mb-4">Recomanacions estratègiques</h3>
+                  <h3 class="h5 fw-bold mb-4">{{ t('conclusions.recommendations.title') }}</h3>
                   
                   <div class="recommendation-item mb-3">
                     <div class="d-flex">
                       <div class="recommendation-number">01</div>
                       <div>
-                        <h4 class="h6 fw-bold">Estratègia integral d'Abast 3</h4>
-                        <p class="small">Desenvolupar un programa específic per a la reducció d'emissions en la cadena de valor, 
-                           enfocat en proveïdors i ús de vehicles per part dels clients.</p>
+                        <h4 class="h6 fw-bold">{{ t('conclusions.recommendations.items.one.title') }}</h4>
+                        <p class="small">{{ t('conclusions.recommendations.description') }}</p>
                       </div>
                     </div>
                   </div>
@@ -700,9 +924,8 @@ const options = ref({
                     <div class="d-flex">
                       <div class="recommendation-number">02</div>
                       <div>
-                        <h4 class="h6 fw-bold">Acceleració de l'electrificació</h4>
-                        <p class="small">Establir objectius ambiciosos per incrementar el percentatge de vehicles 
-                           electrificats en la flota total, superant l'actual 6,9%.</p>
+                        <h4 class="h6 fw-bold">{{ t('conclusions.recommendations.items.two.title') }}</h4>
+                        <p class="small">{{ t('conclusions.recommendations.items.two.description') }}</p>
                       </div>
                     </div>
                   </div>
@@ -711,9 +934,8 @@ const options = ref({
                     <div class="d-flex">
                       <div class="recommendation-number">03</div>
                       <div>
-                        <h4 class="h6 fw-bold">Gestió eficient de l'aigua</h4>
-                        <p class="small">Implementar un pla de reducció del consum d'aigua en instal·lacions per 
-                           revertir la tendència creixent observada.</p>
+                        <h4 class="h6 fw-bold">{{ t('conclusions.recommendations.items.three.tittle') }}</h4>
+                        <p class="small">{{ t('conclusions.recommendations.items.three.description') }}</p>
                       </div>
                     </div>
                   </div>
@@ -722,9 +944,8 @@ const options = ref({
                     <div class="d-flex">
                       <div class="recommendation-number">04</div>
                       <div>
-                        <h4 class="h6 fw-bold">Compensació de carboni</h4>
-                        <p class="small">Desenvolupar un pla integral de compensació de carboni per a les emissions 
-                           inevitables mentre s'avança en la transició cap a una mobilitat de zero emissions.</p>
+                        <h4 class="h6 fw-bold">{{ t('conclusions.recommendations.items.four.title') }}</h4>
+                        <p class="small">{{ t('conclusions.recommendations.items.four.description') }}</p>
                       </div>
                     </div>
                   </div>
@@ -733,12 +954,10 @@ const options = ref({
 
               <div class="quote-panel mt-5">
                 <blockquote class="blockquote">
-                  <p>L'anàlisi revela que Alphabet España està avançant significativament en la seva estratègia de sostenibilitat, 
-                     amb focus en l'electrificació de la flota. No obstant això, el repte més important es troba en la gestió 
-                     de les emissions d'Abast 3, on es requereixen accions més decisives i col·laboratives.</p>
+                  <p>{{ t('conclusions.quote.text') }}</p>
                 </blockquote>
                 <div class="blockquote-footer">
-                  Conclusió de l'estudi de la petjada de carboni 2023
+                  {{ t('conclusions.quote.footer') }}
                 </div>
               </div>
             </div>
@@ -751,11 +970,11 @@ const options = ref({
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-sm rounded-4">
             <div class="card-body p-4">
-              <h3 class="h5 fw-bold mb-3">Referències bibliogràfiques</h3>
+              <h3 class="h5 fw-bold mb-3">{{ t('conclusions.references.title') }}</h3>
               <ol class="references-list">
-                <li>Alphabet España (2023). <em>Transformació en moviment: Memòria de sostenibilitat 2023</em>.</li>
-                <li>GHG Protocol (2023). <em>Corporate Accounting and Reporting Standard</em>.</li>
-                <li>ISO 14064-1:2018. <em>Gasos d'efecte hivernacle - Part 1: Especificació amb orientació, a nivell d'organització, per a la quantificació i l'informe d'emissions i remocions de gasos d'efecte hivernacle</em>.</li>
+                <li v-html="t('conclusions.references.items.li1')"></li>
+                <li v-html="t('conclusions.references.items.li2')"></li>
+                <li v-html="t('conclusions.references.items.li3')"></li>
               </ol>
             </div>
           </div>
