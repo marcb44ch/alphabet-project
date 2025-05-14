@@ -21,9 +21,6 @@ function toggleMenu() {
           <i class="bi bi-globe-americas text-accent me-2"></i>
           <span class="fw-bold">Projecte Alfabet</span>
         </a>
-        <button class="menu-toggle-btn" type="button" @click="toggleMenu">
-          <i class="bi bi-list"></i>
-        </button>
         
         <div class="sliding-menu" :class="{ 'is-open': isMenuOpen }">
           <button class="menu-close-btn" @click="toggleMenu">
@@ -47,6 +44,10 @@ function toggleMenu() {
             </li>
           </ul>
         </div>
+        
+        <button class="menu-toggle-btn" type="button" @click="toggleMenu">
+          <i class="bi bi-list"></i>
+        </button>
       </div>
     </nav>
 
@@ -241,7 +242,15 @@ function toggleMenu() {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.sliding-menu.is-open + .menu-toggle-btn,
+.sliding-menu.is-open ~ .menu-toggle-btn {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .menu-toggle-btn:hover {
