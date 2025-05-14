@@ -59,6 +59,7 @@ import Chart from '@/components/Chart.vue'
 import {ref} from 'vue'
 import { useI18n } from 'vue-i18n'
 import "@/assets/pages.css"
+import AlphabetStockPrice from '@/components/AlphabetStockPrice.vue'
 
 const { t } = useI18n({
   locale: 'ca',
@@ -222,7 +223,8 @@ const { t } = useI18n({
             li3: "ISO 14064-1:2018. <em>Gasos d'efecte hivernacle - Part 1: Especificació amb orientació, a nivell d'organització, per a la quantificació i l'informe d'emissions i remocions de gasos d'efecte hivernacle</em>."
           }
         }
-      }
+      },
+      stockQuote: "Cotització actual a borsa",
     },
     es: { 
       header: {
@@ -387,86 +389,80 @@ const { t } = useI18n({
             li3: "ISO 14064-1:2018. <em>Gases de efecto invernadero - Parte 1: Especificación con orientación, a nivel de organización, para la cuantificación y el informe de emisiones y remociones de gases de efecto invernadero</em>."
           }
         }
-      }
+      },
+      stockQuote: "Cotización actual en borsa",
     }
   }
 })
 
 const options = ref({
-    xAxis: {
-      type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    },
-    yAxis: {
-      type: 'value'
-    },
-    series: [
-      {
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: 'line'
-      }
-    ]
+    // xAxis: {
+    //   type: 'category',
+    //   data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    // },
+    // yAxis: {
+    //   type: 'value'
+    // },
+    // series: [
+    //   {
+    //     data: [150, 230, 224, 218, 135, 147, 260],
+    //     type: 'line'
+    //   }
+    // ]
+title: {
+    text: t('graphic.title'),
+    left: 'center',
+    textStyle: {
+      color: '#e0e0e0'
+    }
+  },
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b}: {c} tCO₂e ({d}%)'
+  },
+  legend: {
+    orient: 'vertical',
+    left: 'left',
+    textStyle: {
+      color: '#e0e0e0'
+    }
+  },
+  series: [
+    {
+      name: 'Emissions de CO₂',
+      type: 'pie',
+      radius: ['40%', '70%'],
+      avoidLabelOverlap: false,
+      itemStyle: {
+        borderRadius: 10,
+        borderColor: '#121212',
+        borderWidth: 2
+      },
+      label: {
+        show: false,
+        position: 'center'
+      },
+      emphasis: {
+        label: {
+          show: true,
+          fontSize: '18',
+          fontWeight: 'bold'
+        }
+      },
+      labelLine: {
+        show: false
+      },
+      data: [
+        { value: 514.92, name: 'Abast 1: Emissions directes', itemStyle: { color: '#28a745' } },
+        { value: 211.02, name: 'Abast 2: Emissions indirectes (electricitat)', itemStyle: { color: '#0d6efd' } },
+        { value: 371851.93, name: 'Abast 3: Altres emissions indirectes', itemStyle: { color: '#dc3545' } }
+      ]
+    }
+  ]
 })
 
-// export default {
-//   name: 'CarbonFootprint',
-//   components: {
-//     Chart
-//   },
-//   data() {
-//     return {
-//       emissionsChartOptions: {
-//         title: {
-//           text: 'Distribució d\'emissions per abast (tCO₂e)',
-//           left: 'center'
-//         },
-//         tooltip: {
-//           trigger: 'item',
-//           formatter: '{a} <br/>{b}: {c} tCO₂e ({d}%)'
-//         },
-//         legend: {
-//           orient: 'vertical',
-//           left: 'left',
-//           textStyle: {
-//             color: '#e0e0e0'
-//           }
-//         },
-//         series: [
-//           {
-//             name: 'Emissions de CO₂',
-//             type: 'pie',
-//             radius: ['40%', '70%'],
-//             avoidLabelOverlap: false,
-//             itemStyle: {
-//               borderRadius: 10,
-//               borderColor: '#121212',
-//               borderWidth: 2
-//             },
-//             label: {
-//               show: false,
-//               position: 'center'
-//             },
-//             emphasis: {
-//               label: {
-//                 show: true,
-//                 fontSize: '18',
-//                 fontWeight: 'bold'
-//               }
-//             },
-//             labelLine: {
-//               show: false
-//             },
-//             data: [
-//               { value: 514.92, name: 'Abast 1: Emissions directes', itemStyle: { color: '#28a745' } },
-//               { value: 211.02, name: 'Abast 2: Emissions indirectes (electricitat)', itemStyle: { color: '#0d6efd' } },
-//               { value: 371851.93, name: 'Abast 3: Altres emissions indirectes', itemStyle: { color: '#dc3545' } }
-//             ]
-//           }
-//         ]
-//       }
-//     }
-//   }
-// }
+
+
 </script>
 
 <template>
@@ -584,15 +580,6 @@ const options = ref({
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Section divider -->
-      <div class="divider my-5" id="graphs">
-        <span class="divider-label">{{ t('graphic.title') }}</span>
-      </div>
-
-      <div style="height: 500px;">
-        <chart :options="options"></chart>
       </div>
 
       <!-- Section divider -->
@@ -725,6 +712,25 @@ const options = ref({
           </div>
         </div>
       </div>
+      
+      <!-- Section divider -->
+      <div class="divider my-5" id="graphs">
+        <span class="divider-label">{{ t('graphic.title') }}</span>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="card-body p-4">
+              <div style="height: 500px;">
+                <chart :options="options"></chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
       
       <!-- Section divider -->
       <div class="divider my-5" id="strategies">
@@ -980,7 +986,36 @@ const options = ref({
           </div>
         </div>
       </div>
+    
+      <div class="row mb-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+          <div class="card-header bg-dark-accent p-4">
+            <h2 class="h4 text-white mb-0">{{ t('stockQuote') }}</h2>
+          </div>
+          <div class="card-body p-4 p-lg-5">            
+            <div class="row">
+              <div class="col-lg-12">
+                <h3 class="h5 fw-bold mb-4"></h3>
+                <AlphabetStockPrice />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     </section>
+
+    <!-- <section class="container py-5">
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <AlphabetStockPrice />
+        </div>
+      </div>
+    </section> -->
+
+    
   </div>
 </template>
 
