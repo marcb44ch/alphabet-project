@@ -16,7 +16,7 @@
         // Textos per a la secció de capçalera
         header: {
           span: "ESTUDI DE CAS | 2025",
-          h1: "Anàlisi d'Estratègies de<br>Sostenibilitat en el Sector Mobilitat",
+          h1: "Anàlisi dels efectes del canvi climàtic",
           h2: "Cas d'estudi: Alphabet Espanya (2023)",
           a1: "Resum executiu",
           a2: "Veure estudi complet"
@@ -292,7 +292,7 @@
       es: {
         header: {
           span: "ESTUDIO DE CASO | 2025",
-          h1: "Análisis de Estrategias de<br>Sostenibilidad en el Sector Movilidad",
+          h1: "Análisis de los efectos del cambio climático",
           h2: "Caso de estudio: Alphabet España (2023)",
           a1: "Resumen ejecutivo",
           a2: "Ver estudio completo"
