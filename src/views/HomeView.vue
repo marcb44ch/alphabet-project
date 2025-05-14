@@ -1,5 +1,5 @@
 <script setup>
-import Chart from '@/components/Chart.vue'
+import Chart from '@/components/chart.vue'
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import "@/assets/pages.css"

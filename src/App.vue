@@ -93,9 +93,21 @@ function handleSubscribe() {
           <div class="col-lg-3 col-md-6">
             <h6 class="text-accent mb-3">Contacte</h6>
             <ul class="footer-links">
-              <li><i class="bi bi-geo-alt me-2"></i>Barcelona, Catalunya</li>
-              <li><i class="bi bi-envelope me-2"></i>info@projectealfabet.cat</li>
-              <li><i class="bi bi-phone me-2"></i>+34 93 XXX XX XX</li>
+              <li>
+                <a href="https://maps.google.com/?q=Barcelona,Catalunya" target="_blank" class="text-light-50 text-decoration-none">
+                  <i class="bi bi-geo-alt me-2"></i>Barcelona, Catalunya
+                </a>
+              </li>
+              <li>
+                <a href="mailto:info@projectealfabet.cat" class="text-light-50 text-decoration-none">
+                  <i class="bi bi-envelope me-2"></i>info@projectealfabet.cat
+                </a>
+              </li>
+              <li>
+                <a href="tel:+34933XXXXX" class="text-light-50 text-decoration-none">
+                  <i class="bi bi-phone me-2"></i>+34 93 XXX XX XX
+                </a>
+              </li>
             </ul>
           </div>
           <div class="col-lg-3">
@@ -313,5 +325,51 @@ function handleSubscribe() {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.social-link {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.social-link:hover {
+  color: #fff;
+}
+
+.navbar-brand {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 1001;
+
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 </style>
