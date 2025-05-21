@@ -1,43 +1,50 @@
 <script setup>
+// Importación de componentes y funciones necesarias
 import { RouterView } from 'vue-router';
 import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
+// Configuración de internacionalización y variables reactivas
 const { locale } = useI18n();
-const isMenuOpen = ref(false);
-const showToast = ref(false);
-const emailInput = ref('');
+const isMenuOpen = ref(false);  // Control del menú móvil
+const showToast = ref(false);   // Control de notificación toast
+const emailInput = ref('');     // Input del formulario newsletter
 
+// Función para alternar el menú móvil
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value;
 }
 
+// Función para manejar la suscripción al newsletter
 function handleSubscribe() {
   if (emailInput.value) {
     showToast.value = true;
-    emailInput.value = ''; // Netejar el camp
+    emailInput.value = ''; // Limpia el campo
     setTimeout(() => {
       showToast.value = false;
-    }, 3000); // El toast es tancarà després de 3 segons
+    }, 3000); // Cierra el toast después de 3 segundos
   }
 }
 </script>
 
 <template>
-
   <div class="app-wrapper">
-    <!-- Navigation -->
+    <!-- Barra de navegación fija -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <!-- Logo y marca -->
       <div class="container position-relative">
         <a class="navbar-brand d-flex align-items-center" href="/">
           <i class="bi bi-globe-americas text-accent me-2"></i>
           <span class="fw-bold">Projecte Alfabet</span>
         </a>
         
+        <!-- Menú deslizante lateral -->
         <div class="sliding-menu" :class="{ 'is-open': isMenuOpen }">
+          <!-- Botón de cierre -->
           <button class="menu-close-btn" @click="toggleMenu">
             <i class="bi bi-x-lg"></i>
           </button>
+          <!-- Links de navegación -->
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
               <a class="nav-link" href="/">Inici</a>
@@ -49,6 +56,10 @@ function handleSubscribe() {
               <a class="nav-link" href="/ClimaticChange">ClimaticChange</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/ASG">ASG</a>
+            </li>
+            <!-- Selector de idioma -->
+            <li class="nav-item">
               <select v-model="locale" class="form-select">
                 <option value="es">Castellà</option>
                 <option value="ca">Català</option>
@@ -57,18 +68,22 @@ function handleSubscribe() {
           </ul>
         </div>
         
+        <!-- Botón toggle menú móvil -->
         <button class="menu-toggle-btn" type="button" @click="toggleMenu">
           <i class="bi bi-list"></i>
         </button>
       </div>
     </nav>
 
-    <!-- Main content -->
+    <!-- Contenido principal - Router View -->
     <main>
       <RouterView />
     </main>
+
+    <!-- Footer -->
     <footer class="footer bg-dark-accent py-5">
       <div class="container">
+        <!-- Sección información de marca -->
         <div class="row g-4">
           <div class="col-lg-4">
             <div class="footer-brand d-flex align-items-center mb-3">
@@ -82,6 +97,8 @@ function handleSubscribe() {
               <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
             </div>
           </div>
+          
+          <!-- Navegación footer -->
           <div class="col-lg-2 col-md-6">
             <h6 class="text-accent mb-3">Navegació</h6>
             <ul class="footer-links">
@@ -90,6 +107,8 @@ function handleSubscribe() {
               <li><a href="/ClimaticChange">Canvi Climàtic</a></li>
             </ul>
           </div>
+          
+          <!-- Información de contacto -->
           <div class="col-lg-3 col-md-6">
             <h6 class="text-accent mb-3">Contacte</h6>
             <ul class="footer-links">
@@ -110,6 +129,8 @@ function handleSubscribe() {
               </li>
             </ul>
           </div>
+          
+          <!-- Newsletter -->
           <div class="col-lg-3">
             <h6 class="text-accent mb-3">Subscriu-te</h6>
             <p class="text-light-50 mb-3">Rep les últimes novetats sobre sostenibilitat</p>
@@ -127,6 +148,7 @@ function handleSubscribe() {
               </button>
             </div>
 
+            <!-- Toast de confirmación -->
             <div 
               class="toast-message" 
               :class="{ 'show': showToast }">
@@ -134,7 +156,8 @@ function handleSubscribe() {
             </div>
           </div>
         </div>
-        <hr class="border-secondary my-4">
+        
+        <!-- Copyright y links legales -->
         <div class="row align-items-center">
           <div class="col-md-6 text-center text-md-start">
             <p class="mb-0 text-light-50">&copy; 2025 Projecte Alfabet - Tots els drets reservats</p>

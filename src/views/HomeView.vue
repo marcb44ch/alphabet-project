@@ -1,9 +1,12 @@
 <script setup>
+// Importació de components i utilitats
 import Chart from '@/components/chart.vue'
+import LocationMap from '@/components/LocationMap.vue'
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import "@/assets/pages.css"
 
+// Configuració d'internacionalització amb català i espanyol
 const { t, locale, messages } = useI18n({
   locale: 'ca',
   messages: {
@@ -62,6 +65,10 @@ const { t, locale, messages } = useI18n({
           ],
           button: "Més informació"
         }
+      },
+      location: {
+        title: "La Nostra Ubicació",
+        subtitle: "Seu Central del Projecte Alfabet"
       }
     },
     es: {
@@ -119,61 +126,19 @@ const { t, locale, messages } = useI18n({
           ],
           button: "Más información"
         }
+      },
+      location: {
+        title: "Nuestra Ubicación",
+        subtitle: "Sede Central del Proyecto Alfabeto"
       }
     }
   }
 })
-
-// Chart options for emissions overview
-const emissionsOverview = computed(() => ({
-  title: {
-    text: t('chart.title'),
-    subtext: t('chart.subtext'),
-    left: 'center',
-    textStyle: { color: '#e0e0e0' },
-    subtextStyle: { color: '#a0a0a0' }
-  },
-  tooltip: {
-    trigger: 'axis',
-    axisPointer: { type: 'shadow' }
-  },
-  grid: {
-    left: '3%',
-    right: '4%',
-    bottom: '3%',
-    containLabel: true
-  },
-  xAxis: {
-    type: 'category',
-    data: ['2023', '2025', '2027', '2030'],
-    axisLine: { lineStyle: { color: '#555' } },
-    axisLabel: { color: '#e0e0e0' }
-  },
-  yAxis: {
-    type: 'value',
-    name: 'Reducció (%)',
-    nameTextStyle: { color: '#a0a0a0' },
-    axisLine: { lineStyle: { color: '#555' } },
-    axisLabel: { color: '#e0e0e0' },
-    splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.1)' } }
-  },
-  series: [{
-    data: [0, 30, 60, 80],
-    type: 'bar',
-    itemStyle: { color: '#10b981' },
-    label: {
-      show: true,
-      position: 'top',
-      formatter: '{c}%',
-      color: '#e0e0e0'
-    }
-  }]
-}))
 </script>
 
 <template>
   <div class="study-page dark-theme">
-    <!-- Header section -->
+    <!-- Secció capçalera amb imatge de fons -->
     <section class="header-section position-relative overflow-hidden" style="background-image: url('@/assets/img/arbol.jpg')">
       <div class="overlay"></div>
       <div class="container position-relative z-3">
@@ -197,9 +162,9 @@ const emissionsOverview = computed(() => ({
       <div class="bg-element bg-element-2"></div>
     </section>
 
-    <!-- Main content -->
+    <!-- Contingut principal -->
     <section class="container py-5">
-      <!-- Overview section -->
+      <!-- Secció resum amb assoliments i objectius -->
       <div class="row mb-5" id="overview">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
@@ -230,25 +195,12 @@ const emissionsOverview = computed(() => ({
         </div>
       </div>
 
-      <!-- Chart section -->
-      <div class="row mb-5">
-        <div class="col-lg-10 mx-auto">
-          <div class="card border-0 shadow-lg rounded-4">
-            <div class="card-body p-4">
-              <div class="chart-container" style="height: 400px;">
-                <Chart :option="emissionsOverview" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Initiatives section -->
+      <!-- Secció d'iniciatives amb targetes informatives -->
       <div class="row mb-5" id="initiatives">
         <div class="col-lg-10 mx-auto">
           <h2 class="h3 fw-bold text-center mb-4">{{ t('initiatives.title') }}</h2>
           <div class="row g-4">
-            <!-- Carbon Footprint Card -->
+            <!-- Targeta Petjada de Carboni -->
             <div class="col-md-6">
               <div class="product-analysis-card h-100">
                 <div class="product-icon">
@@ -264,7 +216,7 @@ const emissionsOverview = computed(() => ({
               </div>
             </div>
 
-            <!-- Climate Change Card -->
+            <!-- Targeta Canvi Climàtic -->
             <div class="col-md-6">
               <div class="product-analysis-card h-100">
                 <div class="product-icon">
@@ -282,16 +234,30 @@ const emissionsOverview = computed(() => ({
           </div>
         </div>
       </div>
+
+      <!-- Secció del mapa amb la ubicació -->
+      <div class="row mb-5">
+        <div class="col-lg-10 mx-auto">
+          <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+            <div class="card-header bg-dark-accent p-4">
+              <h2 class="h4 text-white mb-0">{{ t('location.title') }}</h2>
+              <p class="text-light-50 mb-0 mt-2">{{ t('location.subtitle') }}</p>
+            </div>
+            <div class="card-body p-0">
+              <LocationMap />
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 
 <style>
+
 @import '../assets/pages.css';
 
 
-
-/* Mejorar el overlay para mejor contraste */
 .overlay {
   background: linear-gradient(
     to bottom,
@@ -300,17 +266,18 @@ const emissionsOverview = computed(() => ({
   );
 }
 
-/* Ajustar el contenido del header */
+
 .header-section .container {
   padding-top: 6rem;
 }
 
-/* Custom styles for this view */
+
 .chart-container {
   width: 100%;
   height: 100%;
   min-height: 400px;
 }
+
 
 .badge {
   font-weight: 500;
@@ -322,7 +289,7 @@ const emissionsOverview = computed(() => ({
   font-weight: 300;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .header-section {
     min-height: 80vh;
