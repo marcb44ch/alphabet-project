@@ -2,8 +2,9 @@
   // Importació de components necessaris per a la vista
   import Table from '@/components/Table.vue';  // Component de taula per mostrar dades tabulars
   import "bootstrap";  // Importació de Bootstrap per als estils i funcionalitats
+   import dayjs from 'dayjs'; // Llibreria d'utilitats per a dates
   import { ref, computed } from 'vue';  // Funcions de Vue 3 per a reactivitat
-  import Chart from '@/components/Chart.vue';  // Component per mostrar gràfics
+  import Chart from '@/components/chart.vue';  // Component per mostrar gràfics
   import Modal from '@/components/modal.vue';  // Component per mostrar finestres modals
   import { useI18n } from 'vue-i18n'  // Llibreria d'internacionalització per suportar múltiples idiomes
   
@@ -286,7 +287,8 @@
           h3: "Referències bibliogràfiques",
           ref1: "Alphabet Espanya (2023). <em>Transformació en moviment: Memòria de sostenibilitat 2023</em>.",
           ref2: "Grup BMW (2023). <em>Annual Report 2023</em>.",
-          ref3: "AER - Associació Espanyola de Rènting (2023). <em>Estadístiques del sector rènting a Espanya</em>."
+          ref3: "AER - Associació Espanyola de Rènting (2023). <em>Estadístiques del sector rènting a Espanya</em>.",
+          ref4: "Informe modificat el: {date}"
         }
       },
       es: {
@@ -559,7 +561,8 @@
           h3: "Referencias bibliográficas",
           ref1: "Alphabet España (2023). <em>Transformación en movimiento: Memoria de sostenibilidad 2023</em>.",
           ref2: "Grupo BMW (2023). <em>Annual Report 2023</em>.",
-          ref3: "AER - Asociación Española de Renting (2023). <em>Estadísticas del sector renting en España</em>."
+          ref3: "AER - Asociación Española de Renting (2023). <em>Estadísticas del sector renting en España</em>.",
+          ref4: "Informe modificado el: {date}"
         }
       }
     }
@@ -690,6 +693,11 @@
       }
     }]
   }));
+
+   // Data de generació de l'informe (exemple d'ús de dayjs)
+  const reportDate = dayjs().format('DD/MM/YYYY');
+  const reportDateLabel = computed(() => t('references.generated', { date: reportDate }));
+  
 
   // Configuració del gràfic de vehicles elèctrics
   const evChartOptions = computed(() => ({
@@ -1451,6 +1459,8 @@
                 <li v-html="t('references.ref1')"></li>
                 <li v-html="t('references.ref2')"></li>
                 <li v-html="t('references.ref3')"></li>
+                <!-- Component adicional -->
+                <li v-html="t('references.ref4', { date: reportDate })"></li>
               </ol>
             </div>
           </div>

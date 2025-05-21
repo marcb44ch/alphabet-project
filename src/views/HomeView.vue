@@ -204,7 +204,7 @@ const { t, locale, messages } = useI18n({
             <div class="col-md-6">
               <div class="product-analysis-card h-100">
                 <div class="product-icon">
-                  <i class="bi bi-leaf-fill"></i>
+                  <i class="bi bi-globe2"></i>
                 </div>
                 <h3 class="h5 mb-3">{{ t('initiatives.carbonFootprint.title') }}</h3>
                 <ul class="custom-list">
