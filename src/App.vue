@@ -35,7 +35,7 @@ function handleSubscribe() {
       <div class="container position-relative">
         <a class="navbar-brand d-flex align-items-center" href="/">
           <i class="bi bi-globe-americas text-accent me-2"></i>
-          <span class="fw-bold">Projecte Alfabet</span>
+          <span class="fw-bold">Projecte Alphabet</span>
         </a>
         
         <!-- Menú deslizante lateral -->
@@ -88,7 +88,7 @@ function handleSubscribe() {
           <div class="col-lg-4">
             <div class="footer-brand d-flex align-items-center mb-3">
               <i class="bi bi-globe-americas text-accent me-2"></i>
-              <span class="h5 mb-0 text-white">Projecte Alfabet</span>
+              <span class="h5 mb-0 text-white">Projecte Alphabet</span>
             </div>
             <p class="text-light-50 mb-4">Treballant per un futur més sostenible i conscienciant sobre el canvi climàtic.</p>
             <div class="social-links d-flex gap-3">
@@ -160,7 +160,7 @@ function handleSubscribe() {
         <!-- Copyright y links legales -->
         <div class="row align-items-center">
           <div class="col-md-6 text-center text-md-start">
-            <p class="mb-0 text-light-50">&copy; 2025 Projecte Alfabet - Tots els drets reservats</p>
+            <p class="mb-0 text-light-50">&copy; 2025 Projecte Alphabet - Tots els drets reservats</p>
           </div>
           <div class="col-md-6 text-center text-md-end">
             <a href="#" class="text-light-50 text-decoration-none me-3">Privacitat</a>

@@ -1,8 +1,10 @@
 <script setup>
-import Chart from '@/components/Chart.vue'
+import Chart from '@/components/chart.vue'
 import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import "@/assets/pages.css"
+// Import the custom library
+import AlphabetStockPrice from '@/components/AlphabetStockPrice.vue'
 
 // Configuración de internacionalización
 const { t } = useI18n({
@@ -196,7 +198,7 @@ const { t } = useI18n({
             h4: "Formalització de l'estructura ASG",
             p: "Potenciar el rol del consultor de Sostenibilitat creat en 2023, dotant-lo d'un equip transversal i capacitat d'influència en la presa de decisions."
           }
-        }
+        },
       },
       references: {
         title: "Referències",
@@ -206,7 +208,8 @@ const { t } = useI18n({
           li3: "Global Reporting Initiative (2023). <em>GRI Standards</em>.",
           li4: "TCFD (2023). <em>Recomanacions del Task Force on Climate-Related Financial Disclosures</em>."
         }
-      }
+      },
+      stockQuote: "Cotització actual a borsa"
     },
     es: {
       header: {
@@ -406,7 +409,8 @@ const { t } = useI18n({
           li3: "Global Reporting Initiative (2023). <em>GRI Standards</em>.",
           li4: "TCFD (2023). <em>Recomendaciones del Task Force on Climate-Related Financial Disclosures</em>."
         }
-      }
+      },
+      stockQuote: "Cotización actual en borsa",
     }
   }
 })
@@ -970,6 +974,24 @@ const asgDistributionOptions = computed(() => ({
           </div>
         </div>
       </div>
+      
+      <div class="row mb-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+          <div class="card-header bg-dark-accent p-4">
+            <h2 class="h4 text-white mb-0">{{ t('stockQuote') }}</h2>
+          </div>
+          <div class="card-body p-4 p-lg-5">            
+            <div class="row">
+              <div class="col-lg-12">
+                <h3 class="h5 fw-bold mb-4"></h3>
+                <AlphabetStockPrice />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </section>
   </div>
 </template>
