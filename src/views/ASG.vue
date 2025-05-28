@@ -411,76 +411,6 @@ const { t } = useI18n({
   }
 })
 
-// Datos para el gráfico de emisiones por alcance
-const emissionsChartOptions = computed(() => ({
-  title: {
-    text: t('environmental.chart.title'),
-    subtext: t('environmental.chart.subtitle'),
-    left: 'center',
-    textStyle: {
-      color: '#e0e0e0'
-    },
-    subtextStyle: {
-      color: '#a0a0a0'
-    }
-  },
-  tooltip: {
-    trigger: 'item',
-    formatter: '{a} <br/>{b}: {c} tCO₂e ({d}%)'
-  },
-  legend: {
-    orient: 'vertical',
-    left: 'left',
-    textStyle: {
-      color: '#e0e0e0'
-    }
-  },
-  series: [
-    {
-      name: 'Emisiones',
-      type: 'pie',
-      radius: ['40%', '70%'],
-      avoidLabelOverlap: false,
-      itemStyle: {
-        borderRadius: 10,
-        borderColor: '#121212',
-        borderWidth: 2
-      },
-      label: {
-        show: false,
-        position: 'center'
-      },
-      emphasis: {
-        label: {
-          show: true,
-          fontSize: '18',
-          fontWeight: 'bold'
-        }
-      },
-      labelLine: {
-        show: false
-      },
-      data: [
-        { 
-          value: 514.92, 
-          name: t('environmental.chart.abast1'), 
-          itemStyle: { color: '#28a745' } 
-        },
-        { 
-          value: 211.02, 
-          name: t('environmental.chart.abast2'), 
-          itemStyle: { color: '#0d6efd' } 
-        },
-        { 
-          value: 371851.93, 
-          name: t('environmental.chart.abast3'), 
-          itemStyle: { color: '#dc3545' } 
-        }
-      ]
-    }
-  ]
-}))
-
 // Datos para el gráfico de distribución ASG en empresas
 const asgDistributionOptions = computed(() => ({
   title: {
@@ -728,15 +658,6 @@ const asgDistributionOptions = computed(() => ({
             <div class="card-body p-4 p-lg-5">
               <h2 class="h3 fw-bold mb-4">{{ t('environmental.h2') }}</h2>
               <p>{{ t('environmental.p') }}</p>
-              
-              <!-- Emissions chart -->
-              <div class="row mt-4">
-                <div class="col-lg-8 mx-auto">
-                  <div class="chart-container" style="height: 400px;">
-                    <Chart :option="emissionsChartOptions" />
-                  </div>
-                </div>
-              </div>
               
               <!-- Environmental metrics -->
               <h3 class="h5 fw-bold mt-5 mb-4">{{ t('environmental.metrics.h3') }}</h3>

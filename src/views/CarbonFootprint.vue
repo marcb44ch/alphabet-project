@@ -1,64 +1,12 @@
-<!-- <template>
-  <div class="CarbonFootprint">
-    <div>
-      <h1>Petjada de Carboni</h1>
-      <p>L’empresa Alphabet està compromesa amb la reducció de la seva petjada de carboni a través de diverses iniciatives i polítiques. Aquí tens un resum de les accions que estan duent a terme:</p>
-      <br>
-      <section>
-        <h4>Electrificació de flotes</h4>
-        <li>Increment de les matriculacions de vehicles 100% elèctrics, amb un creixement del 92% en 2023.</li>
-        <li>Servei de consultoria d’electrificació per ajudar els clients a integrar vehicles elèctrics i infraestructures de recàrrega.</li>
-      </section>
-      <br>
-      <section>
-        <h4>Gestió ambiental:</h4>
-        <li>Implementació d’un Sistema de Gestió Ambiental basat en la norma ISO 14001 des de 2010.</li>
-        <li>Objectius específics com la reducció del consum d’aigua i energia elèctrica a les seves instal·lacions.</li>
-      </section>
-      <br>
-      <section>
-        <h4>Reducció d’emissions de CO2</h4>
-        <li>Projectes sostenibles per prevenir i reduir les emissions de CO2 a llarg termini.</li>
-        <li>Càlcul de la seva petjada de carboni segons els tres alcances del protocol de GEI, amb un total de 372.557,87 tCO²e en 2023.</li>
-      </section>
-      <br>
-      <section>
-        <h4>Innovació i sostenibilitat:</h4>
-        <li>Promoció de la reducció, reutilització i reciclatge de residus.</li>
-        <li>Foment de l’ús d’energia verda en les seves instal·lacions.</li>
-      </section>
-      <br>
-      <section>
-        <h4>Suport als clients:</h4>
-        <li>Expansió dels serveis de consultoria per ajudar els clients a reduir les emissions de les seves flotes durant tot el cicle de vida del vehicle.</li>
-        <li>Aquestes accions reflecteixen el compromís d’Alphabet amb la sostenibilitat i la seva responsabilitat amb el medi ambient.</li>
-      </section>
-      <br>
-      <section>
-        <h4>Suport als clients:</h4>
-        <li>Expansió dels serveis de consultoria per ajudar els clients a reduir les emissions de les seves flotes durant tot el cicle de vida del vehicle.</li>
-        <li>Aquestes accions reflecteixen el compromís d’Alphabet amb la sostenibilitat i la seva responsabilitat amb el medi ambient.</li>
-      </section>
-      <br>
-    </div>
-  </div>
- </template>
-
-<style>
-  @media (min-width: 1024px) {
-  .about {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-  }
-  }
-</style> -->
-
 <script setup>
+// Component for chart
 import Chart from '@/components/chart.vue'
 import {ref} from 'vue'
+// Importing the i18n for translation
 import { useI18n } from 'vue-i18n'
+// Importing the CSS styles
 import "@/assets/pages.css"
+// Import the custom library
 import AlphabetStockPrice from '@/components/AlphabetStockPrice.vue'
 
 const { t } = useI18n({
@@ -96,7 +44,8 @@ const { t } = useI18n({
         text: "Les dades han estat recopilades dels registres interns de l'empresa i verificades mitjançant el seu Sistema de Gestió Ambiental ISO 14001."
       },
       graphic: {
-        title: "Gràfica",
+        section: "Gràfica d'emissions",
+        title: "Distribució d'emissions per abast",
         footer: "Resultats de l'anàlisi"
       },
       results: {
@@ -258,7 +207,8 @@ const { t } = useI18n({
         text: "Los datos han sido recopilados de los registros internos de la empresa y verificados mediante su Sistema de Gestión Ambiental ISO 14001."
       },
       graphic: {
-        title: "Gráfica",
+        section: "Gráfica de emisiones",
+        title: "Distribución de emisiones por alcance",
         footer: "Resultados del análisis"
       },
       results: {
@@ -395,20 +345,8 @@ const { t } = useI18n({
   }
 })
 
+// Definició de les opcions del gràfic circular
 const options = ref({
-    // xAxis: {
-    //   type: 'category',
-    //   data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    // },
-    // yAxis: {
-    //   type: 'value'
-    // },
-    // series: [
-    //   {
-    //     data: [150, 230, 224, 218, 135, 147, 260],
-    //     type: 'line'
-    //   }
-    // ]
 title: {
     text: t('graphic.title'),
     left: 'center',
@@ -460,9 +398,6 @@ title: {
     }
   ]
 })
-
-
-
 </script>
 
 <template>
@@ -494,7 +429,7 @@ title: {
 
     <!-- Main content section -->
     <section class="container py-5">
-      <!-- Abstract section -->
+      <!-- Executive resume -->
       <div class="row mb-5" id="abstract">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
@@ -535,6 +470,7 @@ title: {
               <p>{{ t('methodology.p') }}</p>
               
               <div class="row g-4 mt-3">
+                <!-- Scope 1 emissions -->
                 <div class="col-md-4">
                   <div class="methodology-card p-3 rounded-3 h-100">
                     <div class="methodology-icon mb-3">
@@ -545,6 +481,7 @@ title: {
                   </div>
                 </div>
                 
+                <!-- Scope 2 emissions -->
                 <div class="col-md-4">
                   <div class="methodology-card p-3 rounded-3 h-100">
                     <div class="methodology-icon mb-3">
@@ -555,6 +492,7 @@ title: {
                   </div>
                 </div>
                 
+                <!-- Scope 3 emissions -->
                 <div class="col-md-4">
                   <div class="methodology-card p-3 rounded-3 h-100">
                     <div class="methodology-icon mb-3">
@@ -712,12 +650,13 @@ title: {
           </div>
         </div>
       </div>
-      
+
       <!-- Section divider -->
       <div class="divider my-5" id="graphs">
-        <span class="divider-label">{{ t('graphic.title') }}</span>
+        <span class="divider-label">{{ t('graphic.section') }}</span>
       </div>
 
+      <!-- Chart visualization section -->
       <div class="row mb-5">
         <div class="col-lg-10 mx-auto">
           <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
@@ -729,9 +668,7 @@ title: {
           </div>
         </div>
       </div>
-      
-      
-      
+
       <!-- Section divider -->
       <div class="divider my-5" id="strategies">
         <span class="divider-label">{{ t('estrategies.divider') }}</span>
@@ -746,6 +683,8 @@ title: {
               <p>{{ t('estrategies.p') }}</p>
               
               <div class="row g-4 mt-3">
+                <!-- Strategy cards with impact ratings -->
+                <!-- Internal electrification, sustainable mobility, energy efficiency, green energy -->
                 <div class="col-md-6 col-lg-3">
                   <div class="product-analysis-card h-100">
                     <div class="product-icon">
@@ -1004,18 +943,7 @@ title: {
         </div>
       </div>
     </div>
-    
     </section>
-
-    <!-- <section class="container py-5">
-      <div class="row mb-5">
-        <div class="col-lg-10 mx-auto">
-          <AlphabetStockPrice />
-        </div>
-      </div>
-    </section> -->
-
-    
   </div>
 </template>
 
